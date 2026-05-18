@@ -1,0 +1,440 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import VerticalNav from '@/components/VerticalNav.astro';
+import { SITE } from '@/config/site';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Real Estate & Interior Design | SPVH Group",
+  "description": "Bespoke Real Estate and Interior Design solutions for commercial infrastructure, luxury hospitality, and corporate environments.",
+  "url": `${SITE.url}verticals/real-estate-interior-design`
+};
+---
+
+<BaseLayout title="Real Estate & Interior Design | SPVH Group" description="Architecting Excellence in Real Estate and Interior Design." jsonLd={jsonLd}>
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-dark" data-ps="src/pages/verticals/real-estate-interior-design.astro:hm2wr3">
+    <div class="absolute inset-0 z-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yudy">
+      <img 
+        src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTQzNzh8MHwxfHNlYXJjaHwxfHxyZWFsJTIwZXN0YXRlfGVufDB8fHx8MTc3NTgxODkzN3ww&ixlib=rb-4.1.0&q=80&w=1200&auto=format"
+        sizes="100vw"
+        alt="Modern luxury architectural interior" 
+        class="w-full h-full object-cover opacity-60"
+        loading="eager"
+        fetchpriority="high" data-ps="src/pages/verticals/real-estate-interior-design.astro:uj7yq4" crossorigin="anonymous" />
+      <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/40 to-transparent" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yudx"></div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yudw">
+      <div class="max-w-3xl hero-animate" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yudv">
+        <a href="/#businesses" class="inline-block px-4 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-white text-sm font-bold uppercase tracking-widest mb-6 hover:bg-primary/40 transition-colors cursor-pointer" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yudu">Business Vertical</a>
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 leading-[1.1]" data-ps="src/pages/verticals/real-estate-interior-design.astro:w84rax">
+          <span class="text-primary uppercase flex flex-col justify-end min-h-[2.2em]" data-ps="src/pages/verticals/real-estate-interior-design.astro:w019m3">
+            <span data-ps="src/pages/verticals/real-estate-interior-design.astro:w019m2">REAL ESTATE &</span>
+            <span data-ps="src/pages/verticals/real-estate-interior-design.astro:w019m3">INTERIOR DESIGN</span>
+          </span>
+          <span class="block mt-4 text-2xl md:text-3xl font-normal text-dark-muted" data-ps="src/pages/verticals/real-estate-interior-design.astro:w019m3">Architecting Excellence.</span>
+        </h1>
+        <div class="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-2xl shadow-2xl" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yudt">
+          <p class="text-xl text-dark-muted leading-relaxed" data-ps="src/pages/verticals/real-estate-interior-design.astro:6lmx5h">SPVH Group brings an institutional lens to real estate combining rigorous financial structuring with world-class design sensibility to deliver assets that perform and spaces that endure. From land monetization and development financing to luxury turnkey interiors, we partner with landowners, developers, investors, and UHNI clients at every stage of the real estate lifecycle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <VerticalNav activePath="/verticals/real-estate-interior-design" />
+
+  <!-- Section: Intro Text -->
+  <section class="relative pt-20 pb-16 bg-surface overflow-hidden" data-ps="src/pages/verticals/real-estate-interior-design.astro:intro-text-section">
+    <!-- Background Art / Pattern -->
+    <div class="absolute inset-0 z-0 pointer-events-none" data-ps="src/pages/verticals/real-estate-interior-design.astro:intro-bg-art">
+      <img 
+        src="https://pagesmith-cdn.com/347b1a00/images/SPVH-Patterns-2-1536.webp" 
+        alt="Geometric pattern background" 
+        class="w-full h-full object-cover opacity-10" data-ps="src/pages/verticals/real-estate-interior-design.astro:153l89" />
+      <div class="absolute inset-0 bg-gradient-to-b from-surface via-transparent to-surface" data-ps="src/pages/verticals/real-estate-interior-design.astro:sq5df0"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 max-w-[1400px] text-center relative z-10" data-ps="src/pages/verticals/real-estate-interior-design.astro:intro-container">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#496bad] mb-6" data-ps="src/pages/verticals/real-estate-interior-design.astro:intro-heading">
+        Architecting Premium Spatial Assets
+      </h2>
+      <div class="max-w-6xl mx-auto" data-ps="src/pages/verticals/real-estate-interior-design.astro:intro-quote-container">
+        <p class="text-lg md:text-[22px] text-[#00A896] leading-[1.6] font-medium italic" data-ps="src/pages/verticals/real-estate-interior-design.astro:intro-body">"At SPVH Group, our Real Estate & Interior Design division is central to our investment portfolio. We acquire, develop, and custom-design ultra-luxury homes and commercial spaces. By combining rigorous financial planning with visionary design, we use high-end real estate to safely protect and grow our clients' wealth."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Our Philosophy -->
+  <section class="py-24 bg-[#0A1931] overflow-hidden" data-ps="src/pages/verticals/real-estate-interior-design.astro:philosophy-section-redesign">
+    <div class="container px-6 mx-auto max-w-[1400px]" data-ps="src/pages/verticals/real-estate-interior-design.astro:philosophy-container">
+      <div class="text-center max-w-4xl mx-auto mb-20" data-ps="src/pages/verticals/real-estate-interior-design.astro:philosophy-header">
+        <span class="block text-[#00A896] text-sm font-bold uppercase tracking-[0.2em] mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:philosophy-overline">OUR PHILOSOPHY</span>
+        <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight" data-ps="src/pages/verticals/real-estate-interior-design.astro:philosophy-tagline">
+          Real Estate is Capital. Design is the Multiplier.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1050px] mx-auto" data-ps="src/pages/verticals/real-estate-interior-design.astro:philosophy-grid">
+        <!-- Card 1 -->
+        <div class="bg-[#14223a] border border-[#496bad] p-[30px] rounded-[12px] flex flex-col h-full text-center" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-card-1">
+          <div class="h-[70px] flex items-center justify-center mb-6" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-icon-1">
+            <h3 class="text-[22px] font-bold text-[#00A896]" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-title-1">Capital Discipline at Every Stage</h3>
+          </div>
+          <div class="h-[120px] flex items-start justify-center" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-body-1-container">
+            <p class="text-[#D1D1D1] leading-[1.5] font-normal" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-body-1">
+              Every real estate engagement begins with financial rigor viability analysis, costing assessment, and return modelling before a single design decision is made. We ensure that aesthetics and economics work in unison, not in tension.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-[#14223a] border border-[#496bad] p-[30px] rounded-[12px] flex flex-col h-full text-center" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-card-2">
+          <div class="h-[70px] flex items-center justify-center mb-6" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-icon-2">
+            <h3 class="text-[22px] font-bold text-[#00A896]" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-title-2">Design as a Value Multiplier</h3>
+          </div>
+          <div class="h-[120px] flex items-start justify-center" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-body-2-container">
+            <p class="text-[#D1D1D1] leading-[1.5] font-normal" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-body-2">
+              Premium design is not a cost it is a yield driver. We apply sophisticated design thinking, international aesthetic standards, and material excellence to assets that demand a premium, and receive it.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-[#14223a] border border-[#496bad] p-[30px] rounded-[12px] flex flex-col h-full text-center" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-card-3">
+          <div class="h-[70px] flex items-center justify-center mb-6" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-icon-3">
+            <h3 class="text-[22px] font-bold text-[#00A896]" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-title-3">End-to-End Partnership</h3>
+          </div>
+          <div class="h-[120px] flex items-start justify-center" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-body-3-container">
+            <p class="text-[#D1D1D1] leading-[1.5] font-normal" data-ps="src/pages/verticals/real-estate-interior-design.astro:phil-body-3">
+              From land identification and JV structuring to development monitoring and interior delivery, we remain engaged across the full project lifecycle. Our clients do not manage complexity we do.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Real Estate Services -->
+  <section class="py-24 bg-surface" data-ps="src/pages/verticals/real-estate-interior-design.astro:services-section">
+    <div class="container px-6 mx-auto max-w-[1400px]" data-ps="src/pages/verticals/real-estate-interior-design.astro:services-container">
+      <div class="text-center mb-16" data-ps="src/pages/verticals/real-estate-interior-design.astro:services-header">
+        <p class="text-[#00A896] font-bold text-sm uppercase tracking-[0.2em] mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:services-overline">REAL ESTATE SERVICES</p>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark" data-ps="src/pages/verticals/real-estate-interior-design.astro:services-tagline">Institutional Advisory Across Every Real Estate Category</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:services-grid">
+        <!-- Category 1: Commercial -->
+        <div class="p-10 rounded-2xl border-2 border-primary/20 bg-white shadow-sm flex flex-col text-left transition-all duration-300" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-card-1">
+          <h3 class="text-[#00A896] text-2xl font-bold mb-6" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-title-1">Commercial Real Estate Services</h3>
+          <p class="text-dark text-base leading-[1.6] mb-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-desc-1">We advise developers, investors, and corporates on commercial real estate across office, retail, and mixed-use categories. Our engagement spans the full project lifecycle — from early-stage viability through to development monitoring and asset exit.</p>
+          
+          <div class="mt-auto" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-list-wrapper-1">
+            <p class="text-[#00A896] font-bold text-sm uppercase tracking-wider mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-list-header-1">Core Services Include:</p>
+            <ul class="space-y-4 text-dark text-sm md:text-base leading-[1.6]" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-list-1">
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-1-1"><strong class="font-bold">Viability & Costing Assessment:</strong> Detailed financial modelling, cost benchmarking, and return analysis to establish project feasibility before commitment.</li>
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-1-2"><strong class="font-bold">Development Financing:</strong> Structuring and sourcing of project finance, construction loans, and equity capital for commercial developments.</li>
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-1-3"><strong class="font-bold">JV Partner Identification:</strong> Matching landowners and developers with the right equity and operational partners, with structured JV frameworks that protect all stakeholders.</li>
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-1-4"><strong class="font-bold">Development Monitoring:</strong> On-ground oversight and milestone-linked progress monitoring to ensure delivery quality, timeline adherence, and cost discipline.</li>
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-1-5"><strong class="font-bold">Asset Leasing & Disposition:</strong> Strategic positioning, leasing advisory, and asset sale execution for commercial properties at optimal pricing and terms.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Category 2: Land -->
+        <div class="p-10 rounded-2xl border-2 border-primary/20 bg-white shadow-sm flex flex-col text-left transition-all duration-300" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-card-2">
+          <h3 class="text-[#00A896] text-2xl font-bold mb-6" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-title-2">Land Services</h3>
+          <p class="text-dark text-base leading-[1.6] mb-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-desc-2">Land is the foundation of all real estate value. We work with landowners, family estates, corporates, and institutional holders to unlock maximum value from land assets — through sale, development partnership, or structured monetisation.</p>
+          
+          <div class="mt-auto" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-list-wrapper-2">
+            <p class="text-[#00A896] font-bold text-sm uppercase tracking-wider mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-list-header-2">Core Services Include:</p>
+            <ul class="space-y-4 text-dark text-sm md:text-base leading-[1.6]" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-list-2">
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-2-1"><strong class="font-bold">Land Viability Assessment:</strong> Zoning, FSI analysis, market comps, and highest-and-best-use evaluation.</li>
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-2-2"><strong class="font-bold">Land Monetisation Strategy:</strong> Identifying the optimal monetisation route — outright sale, JV development, or revenue share and executing with precision.</li>
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-2-3"><strong class="font-bold">JV Partner Structuring:</strong> Negotiating and structuring equitable joint development agreements that align landowner and developer interests.</li>
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-2-4"><strong class="font-bold">Development Financing for Land Projects:</strong> Advisory on construction and bridge finance solutions tailored to land-led development structures.</li>
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-2-5"><strong class="font-bold">Title & Due Diligence Coordination:</strong> Working alongside legal partners to ensure clean title, regulatory compliance, and transaction readiness.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Category 3: Residential -->
+        <div class="p-10 rounded-2xl border-2 border-primary/20 bg-white shadow-sm flex flex-col text-left transition-all duration-300" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-card-3">
+          <h3 class="text-[#00A896] text-2xl font-bold mb-6" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-title-3">Residential Services</h3>
+          <p class="text-dark text-base leading-[1.6] mb-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-desc-3">We serve UHNI clients, developers, and family offices seeking premium residential real estate advisory from acquisition strategy through to full delivery.</p>
+          
+          <div class="mt-auto" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-list-wrapper-3">
+            <p class="text-[#00A896] font-bold text-sm uppercase tracking-wider mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-list-header-3">Core Services Include:</p>
+            <ul class="space-y-4 text-dark text-sm md:text-base leading-[1.6]" data-ps="src/pages/verticals/real-estate-interior-design.astro:service-list-3">
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-3-1"><strong class="font-bold">Viability & Market Assessment:</strong> Demand analysis, competitive positioning, and pricing strategy for residential projects.</li>
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-3-2"><strong class="font-bold">Costing & Budget Structuring:</strong> Detailed cost planning, value engineering, and budget management across project phases.</li>
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-3-3"><strong class="font-bold">Development Financing:</strong> Sourcing and structuring residential project finance from institutional and alternative lenders.</li>
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-3-4"><strong class="font-bold">JV Partner Identification:</strong> Connecting residential developers with capital partners and operator networks.</li>
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-3-5"><strong class="font-bold">Development Monitoring:</strong> Quality oversight, timeline management, and cost control throughout the construction lifecycle.</li>
+              <li data-ps="src/pages/verticals/real-estate-interior-design.astro:service-li-3-6"><strong class="font-bold">UHNI Acquisition Advisory:</strong> Bespoke advisory for ultra-high-net-worth buyers seeking premium residential assets evaluated for both lifestyle fit and investment merit.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interior Design Services -->
+  <section class="py-24 bg-[#FFFFFF] relative overflow-hidden" data-ps="src/pages/verticals/real-estate-interior-design.astro:interior-design-section">
+    <!-- Subtle architectural pattern overlay -->
+    <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.03]" data-ps="src/pages/verticals/real-estate-interior-design.astro:pattern-overlay">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="diagonal-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M0 40 L40 0 M-10 10 L10 -10 M30 50 L50 30" stroke="#1b202d" stroke-width="1" fill="none" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#diagonal-pattern)" />
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-6 max-w-[1400px] relative z-10" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yud7">
+      <div class="text-center max-w-4xl mx-auto mb-16" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yud6">
+        <p class="text-[#00A896] font-bold text-sm uppercase tracking-[0.2em] mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:interior-overline">INTERIOR DESIGN</p>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1b202d] mb-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:o4kdgl">Spaces That Inspire. Interiors That Endure.</h2>
+        <p class="text-[#1b202d] text-lg md:text-xl leading-[1.6] italic max-w-[900px] mx-auto" data-ps="src/pages/verticals/real-estate-interior-design.astro:6lmx5g">"Our interior design practice operates at the intersection of design intelligence and execution excellence. We do not merely fill rooms; we curate spatial narratives that enhance human experience and asset value."</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yud5">
+        <!-- Card 1: Concept Development -->
+        <div class="p-12 rounded-2xl bg-white border border-[#e1e7ef] shadow-sm flex flex-col text-left transition-all duration-300" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yud4">
+          <div class="mb-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yud3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00A896" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3 class="text-[#00A896] text-2xl font-bold mb-6" data-ps="src/pages/verticals/real-estate-interior-design.astro:9g5g8x">Concept Development & 3D Renders</h3>
+          <p class="text-[#1b202d] text-base leading-[1.6] mb-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:6lmx5f">Before a single material is specified, the vision must be established with absolute clarity. We develop rich, immersive concept narratives and photorealistic 3D renders that allow clients to experience the space before construction begins. Our concepts are rooted in design thinking, spatial logic, and the client's individual aesthetic—never templated, always bespoke.</p>
+          
+          <div class="mt-auto" data-ps="src/pages/verticals/real-estate-interior-design.astro:deliv-wrapper-1">
+            <p class="text-[#00A896] font-bold text-sm uppercase tracking-wider mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:deliv-header-1">Deliverables:</p>
+            <ul class="space-y-3 text-[#1b202d] text-sm md:text-base leading-[1.6]" data-ps="src/pages/verticals/real-estate-interior-design.astro:deliv-list-1">
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-1-1"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:2ehhpb"></span>Mood boards and concept narrative</li>
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-1-2"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:2ehhpa"></span>Space planning and layout optimisation</li>
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-1-3"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:2ehhp9"></span>Photorealistic 3D visualisations</li>
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-1-4"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:2ehhp8"></span>Material and finish palettes</li>
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-1-5"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:2ehhp7"></span>Design presentation for client approval</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 2: Design Thinking -->
+        <div class="p-12 rounded-2xl bg-white border border-[#e1e7ef] shadow-sm flex flex-col text-left transition-all duration-300" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yud2">
+          <div class="mb-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yud1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00A896" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <h3 class="text-[#00A896] text-2xl font-bold mb-6" data-ps="src/pages/verticals/real-estate-interior-design.astro:9g5g8y">Design Thinking & Aesthetic Mapping</h3>
+          <p class="text-[#1b202d] text-base leading-[1.6] mb-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:6lmx5e">Great interiors are not decorated—they are curated. Our design thinking process maps the client's lifestyle, values, and brand identity onto a coherent spatial language. We define the aesthetic DNA of the space before execution begins, ensuring every subsequent decision—from material selection to lighting design—is intentional, coherent, and aligned with the client's world.</p>
+          
+          <div class="mt-auto" data-ps="src/pages/verticals/real-estate-interior-design.astro:deliv-wrapper-2">
+            <p class="text-[#00A896] font-bold text-sm uppercase tracking-wider mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:deliv-header-2">Deliverables:</p>
+            <ul class="space-y-3 text-[#1b202d] text-sm md:text-base leading-[1.6]" data-ps="src/pages/verticals/real-estate-interior-design.astro:deliv-list-2">
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-2-1"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:2ehhp6"></span>Client lifestyle and values discovery session</li>
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-2-2"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:w019lu"></span>Aesthetic identity framework</li>
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-2-3"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:w019lv"></span>Material, texture, and colour direction</li>
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-2-4"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:w019lw"></span>Lighting philosophy and strategy</li>
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-2-5"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:w019lx"></span>Furniture and art curation direction</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 3: Turnkey Project Delivery -->
+        <div class="p-12 rounded-2xl bg-white border border-[#e1e7ef] shadow-sm flex flex-col text-left transition-all duration-300" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yud0">
+          <div class="mb-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:s0yucz">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00A896" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="text-[#00A896] text-2xl font-bold mb-6" data-ps="src/pages/verticals/real-estate-interior-design.astro:9g5g8z">Turnkey Project Delivery: Luxury Commercial & Residential</h3>
+          <p class="text-[#1b202d] text-base leading-[1.6] mb-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:6lmx5d">From concept to completion, we assume full responsibility for project delivery. Our turnkey service covers design, procurement, vendor management, construction coordination, quality control, and final handover—allowing clients to experience the transformation without managing the complexity. We operate across luxury residential projects and premium commercial environments, including corporate offices, boutique hospitality spaces, and flagship retail.</p>
+          
+          <div class="mt-auto" data-ps="src/pages/verticals/real-estate-interior-design.astro:deliv-wrapper-3">
+            <p class="text-[#00A896] font-bold text-sm uppercase tracking-wider mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:deliv-header-3">Deliverables:</p>
+            <ul class="space-y-3 text-[#1b202d] text-sm md:text-base leading-[1.6]" data-ps="src/pages/verticals/real-estate-interior-design.astro:deliv-list-3">
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-3-1"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:w019ly"></span>End-to-end project management</li>
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-3-2"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:w019lz"></span>Contractor and vendor coordination</li>
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-3-3"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:w019m0"></span>Premium material procurement</li>
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-3-4"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:w019m1"></span>Quality control and site supervision</li>
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-3-5"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:w019m2"></span>Snag resolution and final handover</li>
+              <li class="flex items-start gap-3" data-ps="src/pages/verticals/real-estate-interior-design.astro:li-3-6"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-[#486aad] shrink-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:w019m3"></span>Move-in ready delivery</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Core Capabilities (Light) -->
+  <section class="py-24 bg-white relative overflow-hidden" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-capabilities-light">
+    <!-- Subtle architectural pattern overlay -->
+    <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.03]" data-ps="src/pages/verticals/real-estate-interior-design.astro:light-pattern-overlay">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="light-diagonal-pattern" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M0 60 L60 0 M-10 10 L10 -10 M50 70 L70 50" stroke="#0A1931" stroke-width="1" fill="none" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#light-diagonal-pattern)" />
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-6 max-w-[1400px] relative z-10" data-ps="src/pages/verticals/real-estate-interior-design.astro:cczgeb">
+      <div class="text-center mb-16" data-ps="src/pages/verticals/real-estate-interior-design.astro:cczgea">
+        <p class="text-[#00A896] font-bold text-sm uppercase tracking-[0.2em] mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-label">CORE CAPABILITIES</p>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A1931]" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-heading">Every Dimension of Real Estate. One Integrated Team.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-grid">
+        <!-- Card 1 -->
+        <div class="relative group p-10 rounded-2xl border border-primary/20 bg-white shadow-sm overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-card-1">
+          <!-- Background Numeral -->
+          <div class="absolute -bottom-4 -right-2 text-[120px] font-black text-slate-50 leading-none select-none z-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-numeral-1">01</div>
+          
+          <div class="relative z-10 flex flex-col h-full" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-content-1">
+            <div class="mb-8 flex justify-center" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-icon-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00A896" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3 class="text-[#00A896] text-xl font-bold mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-title-1">Strategic Asset Acquisition & Advisory</h3>
+            <p class="text-[#0A1931] text-base leading-[1.6] m-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-desc-1">Identifying high-potential real estate assets in prime domestic and international markets, applying institutional capital frameworks and rigorous yield analysis to guide acquisition decisions.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="relative group p-10 rounded-2xl border border-primary/20 bg-white shadow-sm overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-card-2">
+          <!-- Background Numeral -->
+          <div class="absolute -bottom-4 -right-2 text-[120px] font-black text-slate-50 leading-none select-none z-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-numeral-2">02</div>
+          
+          <div class="relative z-10 flex flex-col h-full" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-content-2">
+            <div class="mb-8 flex justify-center" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-icon-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00A896" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 10-4 4-4-4"/></svg>
+            </div>
+            <h3 class="text-[#00A896] text-xl font-bold mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-title-2">Bespoke Interior Architecture</h3>
+            <p class="text-[#0A1931] text-base leading-[1.6] m-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-desc-2">Moving beyond convention, our design team crafts highly personalized environments aligned with the aesthetic sensibilities and lifestyle standards of our UHNI clientele — every detail considered, nothing left to chance.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="relative group p-10 rounded-2xl border border-primary/20 bg-white shadow-sm overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-card-3">
+          <!-- Background Numeral -->
+          <div class="absolute -bottom-4 -right-2 text-[120px] font-black text-slate-50 leading-none select-none z-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-numeral-3">03</div>
+          
+          <div class="relative z-10 flex flex-col h-full" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-content-3">
+            <div class="mb-8 flex justify-center" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-icon-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00A896" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <h3 class="text-[#00A896] text-xl font-bold mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-title-3">Asset Repositioning & Value Enhancement</h3>
+            <p class="text-[#0A1931] text-base leading-[1.6] m-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-desc-3">We deploy interior design as a strategic tool for capital appreciation executing premium refurbishments and structural upgrades that measurably improve asset valuation and market positioning.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="relative group p-10 rounded-2xl border border-primary/20 bg-white shadow-sm overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-card-4">
+          <!-- Background Numeral -->
+          <div class="absolute -bottom-4 -right-2 text-[120px] font-black text-slate-50 leading-none select-none z-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-numeral-4">04</div>
+          
+          <div class="relative z-10 flex flex-col h-full" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-content-4">
+            <div class="mb-8 flex justify-center" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-icon-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00A896" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3 class="text-[#00A896] text-xl font-bold mb-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-title-4">Turnkey Luxury Delivery</h3>
+            <p class="text-[#0A1931] text-base leading-[1.6] m-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:core-desc-4">Frictionless, end-to-end delivery from planning to final curation producing move-in-ready master pieces that require zero operational oversight from the client.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Design Aesthetic Statement -->
+  <section class="py-[120px] bg-white text-center relative overflow-hidden group" data-ps="src/pages/verticals/real-estate-interior-design.astro:aesthetic-statement">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0 overflow-hidden" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-bg-wrapper">
+      <img 
+        src="https://pagesmith-cdn.com/347b1a00/images/pexels-the-ghazi-2152398165-33314763-1536.webp"
+        sizes="100vw"
+        alt="SPVH Group geometric pattern" 
+        class="w-full h-full object-cover"
+        loading="lazy" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-bg-img" />
+    </div>
+
+    <div class="container mx-auto px-6 max-w-[1400px] relative z-10" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-container">
+      <div class="max-w-6xl mx-auto mb-16 reveal bg-white/10 backdrop-blur-2xl border border-white/20 p-12 rounded-3xl shadow-2xl" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-header">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0A1931] mb-8 font-serif leading-tight whitespace-nowrap" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-heading">
+          Architectural Elegance. Structural Integrity. Timeless Finish.
+        </h2>
+        
+        <div class="max-w-[800px] mx-auto" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-body-wrapper">
+          <p class="text-xl md:text-[22px] text-[#0A1931] leading-[1.8] font-normal m-0" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-body">
+            Our design palette is defined by warmth, precision, and quiet luxury. We work with premium natural materials—marble, stone, aged oak, brushed brass, and hand-finished plaster—to create environments that feel grounded, tactile, and inherently sophisticated.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature Points Grid (2x3) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 max-w-4xl mx-auto text-left reveal reveal-delay-2 bg-white/10 backdrop-blur-2xl border border-white/20 p-10 rounded-3xl shadow-xl" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-grid">
+        <div class="flex items-center gap-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-item-1">
+          <div class="w-2.5 h-2.5 rounded-full bg-[#00A896] shrink-0 shadow-[0_0_10px_rgba(0,168,150,0.5)]" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-dot-1"></div>
+          <span class="text-[#0A1931] font-bold uppercase tracking-[2px] text-sm md:text-base drop-shadow-sm" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-text-1">Bespoke Interior Curation</span>
+        </div>
+        <div class="flex items-center gap-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-item-2">
+          <div class="w-2.5 h-2.5 rounded-full bg-[#00A896] shrink-0 shadow-[0_0_10px_rgba(0,168,150,0.5)]" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-dot-2"></div>
+          <span class="text-[#0A1931] font-bold uppercase tracking-[2px] text-sm md:text-base drop-shadow-sm" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-text-2">Strategic Space Planning</span>
+        </div>
+        <div class="flex items-center gap-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-item-3">
+          <div class="w-2.5 h-2.5 rounded-full bg-[#00A896] shrink-0 shadow-[0_0_10px_rgba(0,168,150,0.5)]" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-dot-3"></div>
+          <span class="text-[#0A1931] font-bold uppercase tracking-[2px] text-sm md:text-base drop-shadow-sm" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-text-3">Sustainable Material Sourcing</span>
+        </div>
+        <div class="flex items-center gap-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-item-4">
+          <div class="w-2.5 h-2.5 rounded-full bg-[#00A896] shrink-0 shadow-[0_0_10px_rgba(0,168,150,0.5)]" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-dot-4"></div>
+          <span class="text-[#0A1931] font-bold uppercase tracking-[2px] text-sm md:text-base drop-shadow-sm" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-text-4">Advanced Project Supervision</span>
+        </div>
+        <div class="flex items-center gap-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-item-5">
+          <div class="w-2.5 h-2.5 rounded-full bg-[#00A896] shrink-0 shadow-[0_0_10px_rgba(0,168,150,0.5)]" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-dot-5"></div>
+          <span class="text-[#0A1931] font-bold uppercase tracking-[2px] text-sm md:text-base drop-shadow-sm" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-text-5">Luxury Finish & Detail Specification</span>
+        </div>
+        <div class="flex items-center gap-4" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-item-6">
+          <div class="w-2.5 h-2.5 rounded-full bg-[#00A896] shrink-0 shadow-[0_0_10px_rgba(0,168,150,0.5)]" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-dot-6"></div>
+          <span class="text-[#0A1931] font-bold uppercase tracking-[2px] text-sm md:text-base drop-shadow-sm" data-ps="src/pages/verticals/real-estate-interior-design.astro:aes-text-6">International Design Standards</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: High-Impact CTA -->
+  <section class="py-[100px] relative overflow-hidden text-center bg-dark" data-ps="src/pages/verticals/real-estate-interior-design.astro:cta-section">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0 overflow-hidden" data-ps="src/pages/verticals/real-estate-interior-design.astro:cta-bg-wrapper">
+      <img 
+        src="https://pagesmith-cdn.com/347b1a00/images/SPVH-Patterns-2-1536.webp"
+        sizes="100vw"
+        alt="SPVH Group geometric pattern" 
+        class="w-full h-full object-cover opacity-20"
+        loading="lazy" data-ps="src/pages/verticals/real-estate-interior-design.astro:cta-bg-img" />
+      <div class="absolute inset-0 bg-[#0A1931]/80" data-ps="src/pages/verticals/real-estate-interior-design.astro:cta-bg-overlay"></div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10" data-ps="src/pages/verticals/real-estate-interior-design.astro:cta-container">
+      <div class="max-w-4xl mx-auto flex flex-col items-center" data-ps="src/pages/verticals/real-estate-interior-design.astro:cta-content">
+        <p class="text-[#00A896] font-bold uppercase tracking-[0.2em] mb-6" data-ps="src/pages/verticals/real-estate-interior-design.astro:cta-overline">CONNECT WITH OUR TEAM</p>
+        
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8" data-ps="src/pages/verticals/real-estate-interior-design.astro:cta-heading">
+          Ready to Build Something Extraordinary?
+        </h2>
+
+        <p class="text-[#94A3B8] text-lg md:text-xl leading-relaxed max-w-[850px] mb-12" data-ps="src/pages/verticals/real-estate-interior-design.astro:cta-subtext">
+          Whether you are a landowner looking to unlock value, a developer seeking a structured capital and advisory partner, or a client commissioning a home or workspace of distinction — we are ready to engage.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6" data-ps="src/pages/verticals/real-estate-interior-design.astro:cta-buttons">
+          <a href="/about#contact" class="inline-block bg-[#00A896] text-white font-bold uppercase py-4 px-9 rounded-[4px] hover:bg-[#008d7d] transition-colors duration-300" data-ps="src/pages/verticals/real-estate-interior-design.astro:cta-btn-1">
+            SPEAK TO OUR TEAM
+          </a>
+          <a href="/about#contact" class="inline-block bg-[#00A896] text-white font-bold uppercase py-4 px-9 rounded-[4px] hover:bg-[#008d7d] transition-colors duration-300" data-ps="src/pages/verticals/real-estate-interior-design.astro:cta-btn-2">
+            CONTACT US
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

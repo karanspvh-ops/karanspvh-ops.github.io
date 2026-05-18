@@ -1,0 +1,213 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import VerticalNav from '@/components/VerticalNav.astro';
+import { SITE } from '@/config/site';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Automotive Opulence | SPVH Group",
+  "description": "Indulge in the zenith of automotive opulence with SPVH Group’s dedicated automotive vertical.",
+  "url": `${SITE.url}/verticals/automotive`
+};
+---
+
+<BaseLayout title="Automotive Opulence | SPVH Group" description="Engineered Luxury & Precision Craftsmanship" {jsonLd}>
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-dark" data-ps="src/pages/verticals/automotive.astro:sv30vl">
+    <div class="absolute inset-0 z-0" data-ps="src/pages/verticals/automotive.astro:43d9lh">
+      <img src="https://images.unsplash.com/photo-1526726538690-5cbf956ae2fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTQzNzh8MHwxfHNlYXJjaHwxNHx8Y2Fyc3xlbnwwfHx8fDE3NzU4MTgzMDR8MA&ixlib=rb-4.1.0&q=80&w=1200&auto=format"
+        sizes="100vw"
+        alt="Luxury vehicle" 
+        class="w-full h-full object-cover opacity-60"
+        loading="eager"
+        fetchpriority="high" data-ps="src/pages/verticals/automotive.astro:6lmdx3" crossorigin="anonymous" />
+      <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/40 to-transparent" data-ps="src/pages/verticals/automotive.astro:43d9kv"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10" data-ps="src/pages/verticals/automotive.astro:43d9ku">
+      <div class="max-w-3xl hero-animate" data-ps="src/pages/verticals/automotive.astro:43d9kt">
+        <a href="/#businesses" class="inline-block px-4 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-white text-sm font-bold uppercase tracking-widest mb-6 hover:bg-primary/40 transition-colors cursor-pointer" data-ps="src/pages/verticals/automotive.astro:7emfpu">Business Vertical</a>
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 leading-[1.1]" data-ps="src/pages/verticals/automotive.astro:ouxjw">
+          <span class="text-primary uppercase flex flex-col justify-end min-h-[2.2em]" data-ps="src/pages/verticals/automotive.astro:7emfpt">
+            <span data-ps="src/pages/verticals/automotive.astro:7emfpt">AUTOMOTIVE</span>
+          </span>
+          <span class="block mt-4 text-2xl md:text-3xl font-normal text-dark-muted" data-ps="src/pages/verticals/automotive.astro:7emfpt">Where Precision Meets Prestige.</span>
+        </h1>
+        <div class="bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-2xl shadow-2xl" data-ps="src/pages/verticals/automotive.astro:43d9ks">
+          <p class="text-xl text-dark-muted leading-relaxed" data-ps="src/pages/verticals/automotive.astro:ay85re">
+            Indulge in the zenith of automotive opulence with SPVH Group’s dedicated automotive vertical. In our state-of-the-art facility, we undertake the meticulous restoration and bespoke enhancement of cherished luxury vehicles, transforming them into showroom-worthy masterpieces. We combine technological precision with artisanal craftsmanship to ensure your vehicle is not only restored to perfection but enhanced to reflect your personal style, providing unparalleled prestige on the road.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <VerticalNav activePath="/verticals/automotive" />
+
+  <!-- Section: Introduction -->
+  <section class="relative py-24 bg-surface overflow-hidden" data-ps="src/pages/verticals/automotive.astro:intro-section">
+    <!-- Background Art / Pattern -->
+    <div class="absolute inset-0 z-0 pointer-events-none" data-ps="src/pages/verticals/automotive.astro:intro-bg-art">
+      <img 
+        src="https://pagesmith-cdn.com/347b1a00/images/SPVH-Patterns-2-1536.webp" 
+        alt="Geometric pattern background" 
+        class="w-full h-full object-cover opacity-10" data-ps="src/pages/verticals/automotive.astro:pattern-bg" />
+      <div class="absolute inset-0 bg-gradient-to-b from-surface via-transparent to-surface" data-ps="src/pages/verticals/automotive.astro:pattern-overlay"></div>
+    </div>
+    
+    <div class="container px-6 mx-auto max-w-[1100px] text-center relative z-10" data-ps="src/pages/verticals/automotive.astro:intro-container">
+      <div class="text-center mb-0" data-ps="src/pages/verticals/automotive.astro:intro-block">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#496bad] mb-8" data-ps="src/pages/verticals/automotive.astro:literature-h2">Curating Ultra-Luxury Mobility Assets</h2>
+        <p class="text-lg md:text-[20px] text-[#00A896] leading-[1.6] font-medium italic" data-ps="src/pages/verticals/automotive.astro:literature-p1">
+          "As a specialized division of the SPVH Group, our Automotive vertical operates exclusively within the ultra-high-end, pre-owned luxury vehicle market. We operate as a premier distributor, treating elite automotive sales not as traditional retail, but as the curation of tangible, highly exclusive lifestyle assets."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Our Philosophy -->
+  <section class="py-24 bg-[#0A1931]" data-ps="src/pages/verticals/automotive.astro:philosophy-section-v2">
+    <div class="container px-6 mx-auto w-full max-w-full" data-ps="src/pages/verticals/automotive.astro:dm65vn">
+      <div class="text-center max-w-4xl mx-auto mb-20" data-ps="src/pages/verticals/automotive.astro:philosophy-header-container">
+        <span class="block text-[#00A896] text-sm font-bold uppercase tracking-[0.2em] mb-4" data-ps="src/pages/verticals/automotive.astro:philosophy-overline">OUR PHILOSOPHY</span>
+        <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight" data-ps="src/pages/verticals/automotive.astro:philosophy-tagline">
+          Precision Performance. Personal Expression.
+        </h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" data-ps="src/pages/verticals/automotive.astro:philosophy-grid-new">
+        <!-- Card 1 -->
+        <div class="bg-[#14223a] border border-[#496bad] p-[30px] rounded-[12px] flex flex-col h-full text-center" data-ps="src/pages/verticals/automotive.astro:phil-card-1-new">
+          <div class="h-[70px] flex items-center justify-center mb-6" data-ps="src/pages/verticals/automotive.astro:icon-1">
+            <h3 class="text-[22px] font-bold text-[#00A896]" data-ps="src/pages/verticals/automotive.astro:phil-title-1">Personalized Precision</h3>
+          </div>
+          <div class="h-[120px] flex items-start justify-center" data-ps="src/pages/verticals/automotive.astro:phil-body-1-container">
+            <p class="text-[#D1D1D1] leading-[1.5] font-normal" data-ps="src/pages/verticals/automotive.astro:phil-body-1">
+              Our approach ensures nuanced automotive curation, where every vehicle, from acquisition to ownership, is tailored to the individual's bespoke preferences and requirements.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-[#14223a] border border-[#496bad] p-[30px] rounded-[12px] flex flex-col h-full text-center" data-ps="src/pages/verticals/automotive.astro:phil-card-2-new">
+          <div class="h-[70px] flex items-center justify-center mb-6" data-ps="src/pages/verticals/automotive.astro:icon-2">
+            <h3 class="text-[22px] font-bold text-[#00A896]" data-ps="src/pages/verticals/automotive.astro:phil-title-2">Institutional Trust</h3>
+          </div>
+          <div class="h-[120px] flex items-start justify-center" data-ps="src/pages/verticals/automotive.astro:phil-body-2-container">
+            <p class="text-[#D1D1D1] leading-[1.5] font-normal" data-ps="src/pages/verticals/automotive.astro:phil-body-2">
+              Built on unwavering integrity and provenance, every asset undergoes rigorous operational validation and provenance verification, ensuring transparency and institutional-grade trust in all transactions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-[#14223a] border border-[#496bad] p-[30px] rounded-[12px] flex flex-col h-full text-center" data-ps="src/pages/verticals/automotive.astro:phil-card-3-new">
+          <div class="h-[70px] flex items-center justify-center mb-6" data-ps="src/pages/verticals/automotive.astro:icon-3">
+            <h3 class="text-[22px] font-bold text-[#00A896]" data-ps="src/pages/verticals/automotive.astro:phil-title-3">Uncompromising Quality</h3>
+          </div>
+          <div class="h-[120px] flex items-start justify-center" data-ps="src/pages/verticals/automotive.astro:phil-body-3-container">
+            <p class="text-[#D1D1D1] leading-[1.5] font-normal" data-ps="src/pages/verticals/automotive.astro:phil-body-3">
+              We provide critical validation for every vehicle, ensuring all standards, from mechanical specifications to aesthetic preservation, are held with absolute clarity and meet our high institutional benchmarks.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-[#14223a] border border-[#496bad] p-[30px] rounded-[12px] flex flex-col h-full text-center" data-ps="src/pages/verticals/automotive.astro:phil-card-4-new">
+          <div class="h-[70px] flex items-center justify-center mb-6" data-ps="src/pages/verticals/automotive.astro:icon-4">
+            <h3 class="text-[22px] font-bold text-[#00A896]" data-ps="src/pages/verticals/automotive.astro:phil-title-4">Exclusive Curation</h3>
+          </div>
+          <div class="h-[120px] flex items-start justify-center" data-ps="src/pages/verticals/automotive.astro:phil-body-4-container">
+            <p class="text-[#D1D1D1] leading-[1.5] font-normal" data-ps="src/pages/verticals/automotive.astro:phil-body-4">
+              Our curated collections offer rare access to unique and globally significant automotive opportunities. We extend our hand with strategic market insights and act as your dedicated partner in automotive excellence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Four Pillars Section -->
+  <section class="py-24 relative overflow-hidden" data-ps="src/pages/verticals/automotive.astro:sv30vk">
+    <!-- Background Image & Overlay -->
+    <div class="absolute inset-0 z-0" data-ps="src/pages/verticals/automotive.astro:dm65vq">
+      <img src="https://pagesmith-cdn.com/347b1a00/images/pexels-thekameragrapher-33621659-1536.webp" sizes="100vw" alt="Luxury car interior" class="w-full h-full object-cover" data-ps="src/pages/verticals/automotive.astro:g92srj" />
+      <div class="absolute inset-0 bg-black/40" data-ps="src/pages/verticals/automotive.astro:dm65vr"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 md:px-6 relative z-10" data-ps="src/pages/verticals/automotive.astro:43d9kr">
+      <div class="w-full mx-auto" data-ps="src/pages/verticals/automotive.astro:43d9kq">
+        <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-16" data-ps="src/pages/verticals/automotive.astro:dzjzoc">The Four Pillars of Service</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 not-prose" data-ps="src/pages/verticals/automotive.astro:43d9kp">
+          <!-- Pillar 1 -->
+          <div class="bg-white/10 backdrop-blur-[8px] rounded-2xl border border-white/25 p-10 shadow-[0_10px_40px_rgba(0,0,0,0.2)] flex flex-col items-center text-center transition-all duration-300" data-ps="src/pages/verticals/automotive.astro:43d9ko">
+            <div class="text-[#00A896] mb-6" data-ps="src/pages/verticals/automotive.astro:43d9kn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h4 class="text-[22px] font-bold text-white mb-4" data-ps="src/pages/verticals/automotive.astro:snyww0">Buying & Selling</h4>
+            <p class="text-white text-base leading-[1.5] font-normal m-0" data-ps="src/pages/verticals/automotive.astro:ay85rf">Expert brokerage and acquisition services for rare and exotic luxury cars.</p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="bg-white/10 backdrop-blur-[8px] rounded-2xl border border-white/25 p-10 shadow-[0_10px_40px_rgba(0,0,0,0.2)] flex flex-col items-center text-center transition-all duration-300" data-ps="src/pages/verticals/automotive.astro:43d9km">
+            <div class="text-[#00A896] mb-6" data-ps="src/pages/verticals/automotive.astro:dm65vi">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h4 class="text-[22px] font-bold text-white mb-4" data-ps="src/pages/verticals/automotive.astro:snywvz">Service & Maintenance</h4>
+            <p class="text-white text-base leading-[1.5] font-normal m-0" data-ps="src/pages/verticals/automotive.astro:ay85s1">Precision aftercare tailored to the unique mechanical needs of high-end vehicles.</p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="bg-white/10 backdrop-blur-[8px] rounded-2xl border border-white/25 p-10 shadow-[0_10px_40px_rgba(0,0,0,0.2)] flex flex-col items-center text-center transition-all duration-300" data-ps="src/pages/verticals/automotive.astro:dm65vj">
+            <div class="text-[#00A896] mb-6" data-ps="src/pages/verticals/automotive.astro:dm65vk">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12.4V16c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+            </div>
+            <h4 class="text-[22px] font-bold text-white mb-4" data-ps="src/pages/verticals/automotive.astro:snywvy">Restoration</h4>
+            <p class="text-white text-base leading-[1.5] font-normal m-0" data-ps="src/pages/verticals/automotive.astro:ay85s2">Meticulous preservation, returning classic luxury models to their original glory.</p>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="bg-white/10 backdrop-blur-[8px] rounded-2xl border border-white/25 p-10 shadow-[0_10px_40px_rgba(0,0,0,0.2)] flex flex-col items-center text-center transition-all duration-300" data-ps="src/pages/verticals/automotive.astro:dm65vl">
+            <div class="text-[#00A896] mb-6" data-ps="src/pages/verticals/automotive.astro:dm65vm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/><line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/><line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/><line x1="1" x2="7" y1="14" y2="14"/><line x1="9" x2="15" y1="8" y2="8"/><line x1="17" x2="23" y1="16" y2="16"/></svg>
+            </div>
+            <h4 class="text-[22px] font-bold text-white mb-4" data-ps="src/pages/verticals/automotive.astro:snywvx">Remodeling & Enhancements</h4>
+            <p class="text-white text-base leading-[1.5] font-normal m-0" data-ps="src/pages/verticals/automotive.astro:ay85s3">Tailored customization from performance tuning to bespoke interior design.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <!-- CTA Section -->
+  <section class="py-24 bg-[#0A1931] relative overflow-hidden" data-ps="src/pages/verticals/automotive.astro:sv30vi">
+    <!-- Pattern Overlay -->
+    <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.07]" data-ps="src/pages/verticals/automotive.astro:cta-pattern-overlay">
+      <img src="https://pagesmith-cdn.com/347b1a00/images/SPVH-Patterns-2-1536.webp" alt="" class="w-full h-full object-cover" data-ps="src/pages/verticals/automotive.astro:cta-pattern-img" />
+    </div>
+
+    <div class="container mx-auto px-4 text-center relative z-10" data-ps="src/pages/verticals/automotive.astro:dm65vr">
+      <span class="text-[#00A896] text-sm md:text-base font-bold uppercase tracking-[4px] block mb-6" data-ps="src/pages/verticals/automotive.astro:cta-overline">CONNECT WITH US</span>
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6" data-ps="src/pages/verticals/automotive.astro:dzjznp">Strategic Curation & Automotive Investment</h2>
+      <p class="text-[#94A3B8] text-lg max-w-3xl mx-auto mb-10 leading-relaxed" data-ps="src/pages/verticals/automotive.astro:cta-subheadline">
+        Whether you are seeking to acquire globally significant vehicles or require institutional advisory for your collection, partner with our expert team today.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6" data-ps="src/pages/verticals/automotive.astro:cta-buttons-row">
+        <a href="/our-programs" class="w-full sm:w-auto bg-[#00A896] text-white font-bold uppercase py-[14px] px-8 rounded-[4px] transition-all hover:opacity-90 inline-block" data-ps="src/pages/verticals/automotive.astro:cta-btn-1">
+          EXPLORE OUR COLLECTION
+        </a>
+        <a href="/#contact" class="w-full sm:w-auto bg-transparent border-2 border-white text-white font-bold uppercase py-[12px] px-8 rounded-[4px] transition-all hover:bg-white/20 inline-block" data-ps="src/pages/verticals/automotive.astro:cta-btn-2">
+          CONNECT FOR INVESTMENT OPPORTUNITIES
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
