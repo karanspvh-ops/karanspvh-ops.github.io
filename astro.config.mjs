@@ -7,7 +7,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   site: 'https://karanspvh-ops.github.io',
-  base: '/spvh-group-website',
   output: 'static',
   vite: {
     plugins: [tailwindcss()],
