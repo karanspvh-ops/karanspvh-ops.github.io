@@ -9,17 +9,10 @@ const articles = [
   },
   {
     category: "Financial Services",
-    title: "Revolutionizing Wealth Management: The New Institutional Grade Platform",
+    title: "Weave Capital launches $75 million venture capital fund; aims first close at $20 million",
     date: "Oct 12, 2024",
     image: "https://images.pexels.com/photos/5784807/pexels-photo-5784807.jpeg?auto=compress&cs=tinysrgb&w=800",
-    link: "#"
-  },
-  {
-    category: "Governance",
-    title: "Setting New Benchmarks in Professional Corporate Governance",
-    date: "Sep 28, 2024",
-    image: "https://images.pexels.com/photos/9488842/pexels-photo-9488842.jpeg?auto=compress&cs=tinysrgb&w=800",
-    link: "#"
+    link: "https://economictimes.indiatimes.com/tech/startups/weave-capital-launches-75-million-venture-capital-fund-aims-first-close-at-20-million/articleshow/93455007.cms?from=mdr"
   },
   {
     category: "Technology",
@@ -79,10 +72,10 @@ const articles = [
             
             <div class="space-y-3" data-ps="src/components/home/Strategic.astro:article-content">
               <div class="flex items-center gap-4" data-ps="src/components/home/Strategic.astro:article-meta">
-                <span class="text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full" data-ps="src/components/home/Strategic.astro:article-cat">Announcement</span>
-                <span class="text-xs font-medium text-muted-foreground" data-ps="src/components/home/Strategic.astro:article-date">Sep 15, 2022</span>
+                <span class="text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full" data-ps="src/components/home/Strategic.astro:article-cat">{article.category}</span>
+                <span class="text-xs font-medium text-muted-foreground" data-ps="src/components/home/Strategic.astro:article-date">{article.date}</span>
               </div>
-              <h3 class="text-xl font-bold text-dark group-hover:text-primary transition-colors line-clamp-2" data-ps="src/components/home/Strategic.astro:article-headline">SPVH Group Announces Strategic Expansion into Venture Capital Fund</h3>
+              <h3 class="text-xl font-bold text-dark group-hover:text-primary transition-colors line-clamp-2" data-ps="src/components/home/Strategic.astro:article-headline">{article.title}</h3>
             </div>
           </a>
         </article>
