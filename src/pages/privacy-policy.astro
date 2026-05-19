@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
-const lastUpdated = "October 2023";
+const lastUpdated = "May 2026";
 ---
 
 <BaseLayout title="Privacy Policy">
@@ -28,98 +28,350 @@ const lastUpdated = "October 2023";
       <!-- Content -->
       <div class="max-w-[800px]" data-ps="src/pages/privacy-policy.astro:pffnzq">
         <h1 class="text-dark text-4xl md:text-5xl font-bold mb-4" data-ps="src/pages/privacy-policy.astro:12kscw">Privacy Policy</h1>
-        <p class="text-muted-foreground mb-12" data-ps="src/pages/privacy-policy.astro:y33jw4">Last Updated: January 2026</p>
+        <p class="text-muted-foreground mb-12" data-ps="src/pages/privacy-policy.astro:y33jw4">Last Updated: {lastUpdated}</p>
 
-        <div class="space-y-10" data-ps="src/pages/privacy-policy.astro:pffnzr">
-          <section data-ps="src/pages/privacy-policy.astro:y5a2re">
-            <h2 class="text-dark text-2xl font-bold mb-4" data-ps="src/pages/privacy-policy.astro:dlu4uu">1. Introduction and Scope</h2>
-            <p class="text-foreground leading-relaxed" data-ps="src/pages/privacy-policy.astro:y33jw5">
-              SPVH Private Limited ("SPVH," "we," "us," or "our") respects your privacy and is committed to protecting your personal, financial, and proprietary data. This Privacy Policy outlines how we collect, process, safeguard, and share information when you visit our website, apply for our investment programs (including "The First Cheque"), or engage with our ecosystem of business verticals. By accessing our platform or providing us with your information, you consent to the data practices described in this policy.
+        <div class="space-y-12" data-ps="src/pages/privacy-policy.astro:pffnzr">
+
+          <!-- 1. Introduction -->
+          <section>
+            <h2 class="text-dark text-2xl font-bold mb-4">1. Introduction</h2>
+            <div class="space-y-4 text-foreground leading-relaxed">
+              <p>At SPVH Group (collectively referred to as "we," "us," "our," or "the Company"), we recognise that institutional trust is built on a foundation of absolute transparency, security, and rigorous compliance. We are fundamentally committed to protecting the privacy and security of the personal, financial, and corporate data entrusted to us by our clients, partners, investors, and digital visitors.</p>
+              <p>This Privacy Policy (the "Policy") is designed to provide you with a comprehensive understanding of our data stewardship practices. It explicitly outlines how we collect, process, manage, store, and protect your Personally Identifiable Information (PII) across our diverse portfolio of business verticals — including Financial Services, Media &amp; Entertainment, Hospitality, Automotive, Technology &amp; Research, and Real Estate &amp; Interior Design.</p>
+              <p>We view data privacy not merely as a regulatory obligation, but as a critical mandate of our operational excellence. By engaging with our services, platforms, or advisory teams, you acknowledge that you have read, understood, and agree to the data practices described within this framework. We regularly review and refine these protocols to ensure they meet the highest international standards for data protection and regulatory compliance.</p>
+            </div>
+          </section>
+
+          <!-- 2. Scope -->
+          <section>
+            <h2 class="text-dark text-2xl font-bold mb-4">2. Scope of This Policy</h2>
+            <p class="text-foreground leading-relaxed mb-6">This Policy is comprehensive and applies to all data-processing activities conducted by SPVH Group and its wholly-owned subsidiaries, affiliates, and integrated operational teams.</p>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">2.1. Who This Policy Applies To</h3>
+            <p class="text-foreground leading-relaxed mb-3">This framework governs the personal and corporate data collected from:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Clients &amp; Investors:</strong> Ultra-high-net-worth individuals (UHNIs), family offices, corporate entities, and institutional partners utilising our advisory, investment, or management services.</li>
+              <li><strong class="text-dark">Digital Visitors:</strong> Individuals interacting with our primary website, digital portals, mobile applications, and proprietary technology platforms.</li>
+              <li><strong class="text-dark">Business Partners &amp; Vendors:</strong> Third-party operators, joint-venture partners, contractors, and service providers integrated into our value-creation ecosystem.</li>
+              <li><strong class="text-dark">Prospective Engagements:</strong> Individuals who contact us for inquiries, submit concept feasibility requests, or subscribe to our market intelligence and research reports.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">2.2. Platforms and Interactions Covered</h3>
+            <p class="text-foreground leading-relaxed mb-3">The data practices outlined herein apply to information collected across all mediums of engagement, including but not limited to:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Digital Interfaces:</strong> Our corporate websites, client-facing investment portals, SaaS platforms, and secure digital vaults.</li>
+              <li><strong class="text-dark">Direct Communications:</strong> Email correspondence, secure file transfers, telephone interactions, and digital contact forms (such as our "Speak to an Expert" or "Contact Us" modals).</li>
+              <li><strong class="text-dark">Physical &amp; Offline Engagements:</strong> In-person advisory meetings, property or asset viewings, networking events, and the exchange of physical contractual documents.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">2.3. Data Exclusions &amp; Third-Party Boundaries</h3>
+            <p class="text-foreground leading-relaxed mb-3">While we maintain strict oversight over our own ecosystem, this Policy does not apply to:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">External Links:</strong> Third-party websites, applications, or services that may be linked from our digital platforms. We do not govern the privacy practices of external entities.</li>
+              <li><strong class="text-dark">Anonymised Data:</strong> Information that has been permanently de-identified, aggregated, or mathematically obfuscated such that it can no longer be reasonably linked back to a specific individual or corporate entity. We reserve the right to utilise anonymised data for macroeconomic research, portfolio modelling, and industry analytics.</li>
+            </ul>
+          </section>
+
+          <!-- 3. Categories -->
+          <section>
+            <h2 class="text-dark text-2xl font-bold mb-4">3. Categories of Information Collected</h2>
+            <div class="space-y-4 text-foreground leading-relaxed">
+              <p>To deliver our institutional-grade advisory, investment, and operational services, SPVH Group collects specific categories of data. We adhere strictly to the principle of data minimisation — collecting only the information that is fundamentally necessary to execute our mandate, comply with international regulatory frameworks, and enhance the value we deliver to our partners.</p>
+              <p>The information we collect is broadly categorised as follows:</p>
+            </div>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">3.1. Personal Identification Information (PII)</h3>
+            <p class="text-foreground leading-relaxed mb-3">To establish verifiable relationships and comply with stringent Know Your Customer (KYC) and Anti-Money Laundering (AML) protocols, we collect foundational identity data.</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Core Identifiers:</strong> Full legal name, date of birth, nationality, and primary residential address.</li>
+              <li><strong class="text-dark">Contact Architecture:</strong> Professional and personal email addresses, primary telephone numbers, and secure communication handles.</li>
+              <li><strong class="text-dark">Government-Issued Documentation:</strong> Passport copies, national identity cards, driver's licences, and tax identification numbers (e.g., PAN, SSN) required for legal and financial onboarding.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">3.2. Financial and Asset Data</h3>
+            <p class="text-foreground leading-relaxed mb-3">Given our role in capital allocation, wealth preservation, and high-value transactions (across Financial Services, Real Estate, and Automotive), we require deep visibility into your financial architecture.</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Banking &amp; Transactional Data:</strong> Bank account details, routing numbers, wire-transfer histories, and proof of funds.</li>
+              <li><strong class="text-dark">Portfolio &amp; Wealth Metrics:</strong> Details of existing investment portfolios, net-worth attestations, asset valuations, and historical yield data.</li>
+              <li><strong class="text-dark">Corporate Financials:</strong> For our enterprise partners, this includes audited financial statements, capitalisation tables, and revenue projections.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">3.3. Corporate and Transactional Intelligence</h3>
+            <p class="text-foreground leading-relaxed mb-3">For entities engaging with our Technology &amp; Research or Media &amp; Entertainment verticals, we collect data necessary to validate business models and execute strategic partnerships.</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Entity Frameworks:</strong> Certificates of incorporation, beneficial ownership structures, and board-of-directors registries.</li>
+              <li><strong class="text-dark">Proprietary Assets:</strong> High-level intellectual property (IP) documentation, patent filings, and proprietary technology architectures shared under secure Non-Disclosure Agreements (NDAs).</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">3.4. Lifestyle, Aesthetic, and Preference Data</h3>
+            <p class="text-foreground leading-relaxed mb-3">To deliver the bespoke, frictionless experiences promised by our Hospitality, Automotive, and Real Estate &amp; Interior Design verticals, we curate detailed preference profiles.</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Spatial &amp; Design Preferences:</strong> Aesthetic sensibilities, architectural requirements, material preferences, and family/lifestyle mapping for interior-design execution.</li>
+              <li><strong class="text-dark">Asset Acquisition Parameters:</strong> Specific criteria for off-market vehicle acquisitions or ultra-luxury real-estate mandates.</li>
+              <li><strong class="text-dark">Hospitality &amp; Experiential Preferences:</strong> Travel histories, dietary requirements, and specific service expectations for our luxury property portfolios.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">3.5. Digital and Telemetry Data</h3>
+            <p class="text-foreground leading-relaxed mb-3">When you interact with the SPVH Group digital ecosystem — including our proprietary portals, investment dashboards, and public-facing websites — we automatically capture technical data to ensure security and optimise performance.</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Network &amp; Device Metrics:</strong> IP addresses, browser types, operating systems, and device identifiers.</li>
+              <li><strong class="text-dark">Interaction Analytics:</strong> Session durations, page navigation paths, portal login timestamps, and engagement metrics with our research reports or whitepapers.</li>
+              <li><strong class="text-dark">Cookies &amp; Tracking Technologies:</strong> Strictly necessary cookies for session management and security, as well as analytical trackers used to refine our digital user experience (for detailed operational mechanics, please refer to Section 10: Cookie Policy).</li>
+            </ul>
+          </section>
+
+          <!-- 4. Methods -->
+          <section>
+            <h2 class="text-dark text-2xl font-bold mb-4">4. Methods of Data Collection</h2>
+            <div class="space-y-4 text-foreground leading-relaxed">
+              <p>SPVH Group employs a deliberate, highly structured approach to data acquisition. We ensure that all information enters our ecosystem through secure, verifiable channels, allowing us to maintain the integrity and confidentiality of the data from the moment of ingestion.</p>
+              <p>We gather information through the following primary methodologies:</p>
+            </div>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">4.1. Direct Collection (Information You Provide to Us)</h3>
+            <p class="text-foreground leading-relaxed mb-3">The majority of the critical data we process is provided directly and voluntarily by you, your authorised representatives, or your corporate officers during the course of our engagement. This includes data captured when you:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Initiate Contact:</strong> Submit inquiries through our digital platforms, including our targeted "Speak to an Expert" or "Contact Us" modules across any of our six business verticals.</li>
+              <li><strong class="text-dark">Undergo Institutional Onboarding:</strong> Complete rigorous KYC/AML documentation, execute Non-Disclosure Agreements (NDAs), or submit financial and corporate structuring documents required to establish a formal advisory or investment relationship.</li>
+              <li><strong class="text-dark">Engage in Direct Advisory:</strong> Share proprietary information, lifestyle preferences, or operational metrics during physical meetings, secure video conferences, or encrypted email correspondence with our managing partners and sector specialists.</li>
+              <li><strong class="text-dark">Utilise Secure Portals:</strong> Upload documents, financial models, or architectural blueprints into our proprietary, authenticated digital client vaults.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">4.2. Automated Digital Collection (Telemetry and Systems Data)</h3>
+            <p class="text-foreground leading-relaxed mb-3">To ensure the security, efficiency, and continuous improvement of our digital infrastructure, we passively collect specific technical data when you interact with our platforms.</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">System Logging:</strong> Our servers automatically record standard telemetry data — such as IP addresses, access times, and cryptographic session identifiers — whenever you navigate our websites or log into our client portals.</li>
+              <li><strong class="text-dark">Cookies and Tracking Technologies:</strong> We deploy secure, industry-standard cookies and similar tracking mechanisms to authenticate user sessions, remember language or regional preferences, and analyse aggregate traffic patterns to optimise platform performance.</li>
+              <li><strong class="text-dark">Interaction Tracking:</strong> We monitor how users interact with our digital assets (e.g., dwell time on research reports or navigation paths within the Technology &amp; Research sector pages) to better curate our intellectual and advisory offerings.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">4.3. Third-Party and Ecosystem Collection</h3>
+            <p class="text-foreground leading-relaxed mb-3">Given the complex, high-stakes nature of institutional finance, real-estate acquisition, and corporate advisory, we routinely corroborate and supplement direct information with data procured from authoritative third parties.</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Regulatory &amp; Compliance Vendors:</strong> We source data from specialised risk-management and compliance agencies to execute mandatory background checks, sanction-list screenings, and anti-money-laundering (AML) verifications.</li>
+              <li><strong class="text-dark">Public Registries and Open Data:</strong> Our teams access publicly available corporate registries, land-title databases, intellectual-property databases, and patent filings to validate ownership, assess asset viability, and conduct pre-transaction due diligence.</li>
+              <li><strong class="text-dark">Strategic Partners:</strong> In cases of Joint Ventures (JVs), syndicated investments, or integrated turnkey project delivery (such as within our Real Estate &amp; Interior Design vertical), we may receive necessary operational and contact data from co-investors, legal counsel, or designated operational partners.</li>
+            </ul>
+          </section>
+
+          <!-- 5. Purpose -->
+          <section>
+            <h2 class="text-dark text-2xl font-bold mb-4">5. Purpose of Data Processing</h2>
+            <div class="space-y-4 text-foreground leading-relaxed">
+              <p>At SPVH Group, we process your data with the same rigorous discipline that we apply to capital allocation and operational strategy. We do not monetise your personal data through third-party sales. Every piece of information we collect is utilised strictly to fulfil our fiduciary duties, execute our contractual obligations, and deliver institutional-grade value across our ecosystem.</p>
+              <p>We process your data for the following primary purposes:</p>
+            </div>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">5.1. Execution of Core Services and Transactions</h3>
+            <p class="text-foreground leading-relaxed mb-3">The fundamental purpose of our data processing is to deliver the bespoke advisory, investment, and operational services you have engaged us for. This includes:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li>Executing financial modelling, capital structuring, and portfolio management within our Financial Services division.</li>
+              <li>Managing turnkey project delivery, JV structuring, and architectural design execution within our Real Estate &amp; Interior Design vertical.</li>
+              <li>Facilitating high-value transactions, such as proprietary vehicle acquisitions in our Automotive division or IP monetisation in our Technology &amp; Research sector.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">5.2. Regulatory Compliance and Legal Obligations</h3>
+            <p class="text-foreground leading-relaxed mb-3">Operating at the highest levels of global finance and corporate advisory requires uncompromising adherence to international law. We process your data to:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li>Fulfil mandatory Know Your Customer (KYC), Anti-Money Laundering (AML), and Counter-Terrorism Financing (CTF) statutory requirements.</li>
+              <li>Maintain legally mandated corporate registries, transaction ledgers, and audit trails.</li>
+              <li>Respond to lawful requests, subpoenas, or reporting requirements from government authorities, financial regulators, and tax agencies.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">5.3. Due Diligence and Feasibility Assessments</h3>
+            <p class="text-foreground leading-relaxed mb-3">Before capital is committed or strategic partnerships are formed, clarity must be established. We utilise corporate and financial data to:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li>Conduct rigorous market validation, competitive benchmarking, and financial-viability modelling.</li>
+              <li>Perform comprehensive background and reputational checks on prospective Joint Venture (JV) partners, co-investors, and enterprise founders.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">5.4. Security, Risk Management, and Asset Protection</h3>
+            <p class="text-foreground leading-relaxed mb-3">Safeguarding our digital infrastructure and the physical assets under our management is a continuous mandate. We process data to:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li>Authenticate user identities and secure access to our proprietary digital vaults and investment dashboards.</li>
+              <li>Monitor our networks for malicious activity, unauthorised access attempts, and potential fraud.</li>
+              <li>Coordinate secure logistics and on-ground supervision for high-value physical assets across our Hospitality and Automotive portfolios.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">5.5. Curation of Bespoke Client Experiences</h3>
+            <p class="text-foreground leading-relaxed mb-3">To deliver the frictionless, aspirational environments promised by our lifestyle-oriented verticals, we process preference and lifestyle data to:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li>Curate highly personalised aesthetic mappings, material sourcing, and spatial planning for our luxury residential and commercial design clients.</li>
+              <li>Tailor guest experiences, operational delivery, and bespoke lifestyle advisory within our Hospitality properties.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">5.6. Strategic Communication and Reporting</h3>
+            <p class="text-foreground leading-relaxed mb-3">We process your contact and professional data to maintain a continuous, transparent dialogue regarding your engagements with us. This includes:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li>Delivering structured executive reports, financial-health assessments, and development-monitoring updates.</li>
+              <li>Distributing proprietary market intelligence, macroeconomic research, and sector-specific whitepapers relevant to your established interests.</li>
+              <li>Managing administrative communications, such as billing, contract renewals, and updates to our legal and privacy frameworks.</li>
+            </ul>
+          </section>
+
+          <!-- 6. Sharing -->
+          <section>
+            <h2 class="text-dark text-2xl font-bold mb-4">6. Information Sharing and Disclosure</h2>
+            <p class="text-foreground leading-relaxed mb-4">At SPVH Group, we treat client confidentiality as a foundational pillar of our fiduciary duty. We maintain a strict, uncompromising stance on data monetisation: we do not, under any circumstances, sell, rent, or trade your personal or corporate data to third parties for marketing purposes. Information is only disseminated outside of our secure ecosystem when it is strictly necessary to execute our mandate, deliver integrated services, or comply with legal obligations. When data is shared, it is governed by rigorous confidentiality agreements and access controls.</p>
+            <p class="text-foreground leading-relaxed mb-3">We may share your information with the following categories of recipients:</p>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">6.1. Intra-Group Sharing (The SPVH Ecosystem)</h3>
+            <p class="text-foreground leading-relaxed">To provide a frictionless, integrated experience, information may be shared securely among SPVH Group's wholly-owned subsidiaries and internal divisions (Financial Services, Media &amp; Entertainment, Hospitality, Automotive, Technology &amp; Research, and Real Estate &amp; Interior Design). For instance, a client engaging our Real Estate division for asset acquisition may seamlessly access capital-structuring services from our Financial Services division without redundant onboarding procedures.</p>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">6.2. Strategic Partners and Co-Investors</h3>
+            <p class="text-foreground leading-relaxed mb-3">In the execution of high-value, multi-stakeholder transactions, we may share specific, need-to-know data with trusted external partners. This sharing is always protected by comprehensive Non-Disclosure Agreements (NDAs).</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Joint Venture (JV) Partners:</strong> Information required to structure, negotiate, and execute joint development agreements or equity partnerships.</li>
+              <li><strong class="text-dark">Co-Investors and Syndicates:</strong> Aggregated or specific financial data shared during the syndication of commercial real-estate assets, media funding, or technology incubation.</li>
+              <li><strong class="text-dark">Operational Partners:</strong> Third-party operators, such as hospitality management groups or specialised automotive logistics firms, required to manage and secure your physical assets.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">6.3. Trusted Service Providers and Vendors</h3>
+            <p class="text-foreground leading-relaxed mb-3">We engage premier, enterprise-grade third-party service providers to support our technological and operational infrastructure. These vendors act strictly as data processors on our behalf and are legally bound to protect your data. This includes:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Infrastructure &amp; Security Providers:</strong> Secure cloud-hosting platforms, cryptographic vault providers, and cybersecurity monitoring firms that safeguard our digital architecture.</li>
+              <li><strong class="text-dark">Professional Advisors:</strong> External legal counsel, financial auditors, and tax consultants engaged to ensure transaction validity and corporate compliance.</li>
+              <li><strong class="text-dark">Compliance &amp; Verification Agencies:</strong> Specialised third-party vendors utilised to conduct mandatory KYC, AML, and background verification checks during the institutional onboarding process.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">6.4. Regulatory, Legal, and Compliance Authorities</h3>
+            <p class="text-foreground leading-relaxed mb-3">We operate within highly regulated global markets. We will disclose your information to external authorities when we determine, in our sole discretion, that such disclosure is legally mandated or fundamentally necessary to protect our ecosystem. We may share data with:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li>Financial regulators (e.g., SEBI or equivalent international bodies), tax authorities, and government agencies to fulfil statutory reporting requirements.</li>
+              <li>Law enforcement or judicial bodies in response to a valid subpoena, court order, or formal legal process.</li>
+              <li>Relevant parties when investigating potential fraud, security breaches, or violations of our contractual agreements, in order to protect the rights, property, and safety of SPVH Group, our clients, and the public.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">6.5. Corporate Restructuring and Asset Transfers</h3>
+            <p class="text-foreground leading-relaxed">In the event that SPVH Group, or any of its subsidiaries or specific business units, undergoes a corporate transaction — such as a merger, acquisition, restructuring, joint-venture formulation, or the sale of company assets — your personal and corporate data may be transferred as part of the transaction's due diligence or final asset transfer. Any acquiring entity will be contractually obligated to honour the commitments made within this Privacy Policy.</p>
+          </section>
+
+          <!-- 7. Security & Retention -->
+          <section>
+            <h2 class="text-dark text-2xl font-bold mb-4">7. Data Security and Retention</h2>
+            <p class="text-foreground leading-relaxed">SPVH Group treats data security not as an IT function, but as a critical mandate of corporate risk management. We recognise the high-stakes nature of the information we process — spanning institutional capital frameworks, unreleased intellectual property, and ultra-high-net-worth portfolio data. Consequently, we deploy uncompromising, enterprise-grade security architectures and strict retention life cycles to protect your information against unauthorised access, alteration, disclosure, or destruction.</p>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">7.1. Institutional Data-Security Architecture</h3>
+            <p class="text-foreground leading-relaxed mb-3">We safeguard our digital and physical ecosystems through a defence-in-depth strategy, integrating advanced technological controls with rigorous operational protocols:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Cryptographic Protection:</strong> All highly sensitive personal, financial, and corporate data is encrypted both in transit (utilising advanced TLS protocols) and at rest (utilising AES-256 or equivalent cryptographic standards) within our secure digital vaults and cloud infrastructure.</li>
+              <li><strong class="text-dark">Continuous Monitoring &amp; Threat Intelligence:</strong> Our digital perimeter is monitored continuously by advanced threat-detection systems and firewalls to identify, isolate, and neutralise potential cyber threats or unauthorised access attempts in real time.</li>
+              <li><strong class="text-dark">Regular Security Audits:</strong> Our technological infrastructure, including our Software-as-a-Service (SaaS) platforms and client portals, undergoes routine vulnerability assessments, penetration testing, and compliance audits conducted by independent security experts.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">7.2. Strict Access Control and Authorisation</h3>
+            <p class="text-foreground leading-relaxed mb-3">We operate on a strict "Zero-Trust" and "Need-to-Know" operational framework to minimise internal data exposure.</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Role-Based Access Control (RBAC):</strong> Access to personal and financial data is heavily restricted. Only authorised managing partners, designated advisors, and specific operational personnel who require the data to execute their immediate fiduciary or operational duties are granted access.</li>
+              <li><strong class="text-dark">Multi-Factor Authentication (MFA):</strong> All internal and client-facing access to our secure platforms requires multi-factor authentication and rigorous cryptographic session management.</li>
+              <li><strong class="text-dark">Physical Security:</strong> Physical documents — such as original real-estate deeds, executed JVs, and offline corporate registries — are secured in access-controlled, monitored environments.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">7.3. Data Retention Lifecycle</h3>
+            <p class="text-foreground leading-relaxed mb-3">We apply the principle of data minimisation to our retention practices; we do not hoard data. Your personal and corporate information is retained only for the duration necessary to fulfil the specific purposes outlined in this Policy, or as dictated by governing law.</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Active Engagement Period:</strong> Data is maintained in its complete form for the duration of your active relationship or advisory engagement with SPVH Group.</li>
+              <li><strong class="text-dark">Statutory and Regulatory Retention:</strong> Operating within global financial and real-estate markets requires us to retain certain records (such as KYC/AML verification data, transaction ledgers, and tax-related documentation) for extended periods mandated by local and international regulators (often ranging from 5 to 10 years post-transaction).</li>
+              <li><strong class="text-dark">Legal Preservation:</strong> We may retain specific data beyond standard schedules if necessary to resolve disputes, enforce our contractual agreements, or comply with an active legal investigation.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">7.4. Secure Data Disposal and Erasure</h3>
+            <p class="text-foreground leading-relaxed mb-3">Upon the expiration of the applicable retention period, or upon a valid and legally verified request for deletion, SPVH Group executes secure disposal protocols.</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Digital Erasure:</strong> Digital records are purged from our active servers and backup arrays utilising irreversible cryptographic erasure and secure overwriting techniques, ensuring the data cannot be forensically recovered.</li>
+              <li><strong class="text-dark">Physical Destruction:</strong> Any retained physical documentation is destroyed through secure, certified cross-cut shredding or incineration protocols, handled by vetted document-disposal partners.</li>
+            </ul>
+          </section>
+
+          <!-- 8. User Rights -->
+          <section>
+            <h2 class="text-dark text-2xl font-bold mb-4">8. User Rights and Choices</h2>
+            <p class="text-foreground leading-relaxed mb-4">SPVH Group respects your sovereignty over your personal and corporate data. We operate across multiple global jurisdictions and align our data practices with premier international privacy frameworks. We provide our clients, partners, and digital visitors with comprehensive mechanisms to access, control, and manage their information within our ecosystem, subject to standard statutory and regulatory limitations.</p>
+            <p class="text-foreground leading-relaxed mb-3">Depending on your jurisdiction, you possess the following core rights regarding your data:</p>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">8.1. Right to Access and Portability</h3>
+            <p class="text-foreground leading-relaxed">You retain the right to request a comprehensive ledger of the personal information we hold about you. Upon a verified request, we will provide you with a secure, structured, and machine-readable export of your data. This allows you to understand exactly what information is in our custody and, if desired, securely port this data to another advisory firm or financial institution.</p>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">8.2. Right to Rectification and Fidelity</h3>
+            <p class="text-foreground leading-relaxed">Given the critical nature of the financial, legal, and operational transactions we execute, data fidelity is paramount. You have the right to request the immediate correction, update, or completion of any inaccurate or outdated information in our records. We strongly encourage clients to keep their corporate and financial profiles current to ensure seamless advisory and transactional execution.</p>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">8.3. Right to Erasure (The "Right to Be Forgotten")</h3>
+            <p class="text-foreground leading-relaxed">You may request the deletion or cryptographic erasure of your personal data from our active systems. However, please note that this right is not absolute. As an institutional advisory and investment firm, SPVH Group is bound by stringent regulatory mandates (including KYC, AML, and securities laws) that may legally compel us to retain specific transactional and identification records even after a deletion request has been submitted. We will execute erasure requests for all data not protected by a statutory retention mandate.</p>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">8.4. Right to Restrict or Object to Processing</h3>
+            <p class="text-foreground leading-relaxed">You have the right to formally object to, or request a restriction on, the processing of your data under specific circumstances — such as if you contest the accuracy of the data or object to our legitimate business interests for processing it. Please be advised that restricting the processing of critical financial or operational data may fundamentally impair our ability to execute specific mandates, manage your assets, or deliver our turnkey services.</p>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">8.5. Communication and Preference Management</h3>
+            <p class="text-foreground leading-relaxed mb-3">You maintain absolute control over your communication preferences. While we may send you proprietary market intelligence, sector-specific whitepapers, or strategic updates relevant to your established interests, you may opt out of these non-essential communications at any time.</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Opt-Out Mechanism:</strong> You can update your preferences by utilising the secure "unsubscribe" or "manage preferences" links embedded in our digital communications, or by contacting your designated relationship manager directly.</li>
+              <li><strong class="text-dark">Essential Communications:</strong> Please note that you cannot opt out of critical operational communications, such as legal notices, transaction confirmations, security alerts, or updates to our Terms of Service and Privacy Policy.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">8.6. Mechanisms for Exercising Your Rights</h3>
+            <p class="text-foreground leading-relaxed mb-3">To invoke any of the rights detailed above, you or your legally authorised representative must submit a formal request to our Data Privacy and Compliance Team.</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Identity Verification:</strong> To protect the integrity of our ecosystem and prevent unauthorised data exposure, all requests are subject to rigorous identity-verification protocols. We will not release, alter, or delete any data until the identity and legal authority of the requester have been unequivocally established.</li>
+              <li><strong class="text-dark">Response Timelines:</strong> We are committed to acknowledging and fulfilling all legitimate requests promptly, and strictly within the timeframes mandated by applicable regional data-protection laws.</li>
+            </ul>
+          </section>
+
+          <!-- 9. Grievance -->
+          <section>
+            <h2 class="text-dark text-2xl font-bold mb-4">9. Grievance Redressal and Compliance Matrix</h2>
+            <p class="text-foreground leading-relaxed">SPVH Group maintains an uncompromising commitment to accountability and fiduciary responsibility. We recognise that, despite our rigorous data-protection frameworks, inquiries, concerns, or disputes regarding data privacy may arise. To ensure that every concern is addressed with the utmost urgency, discretion, and legal rigour, we have established a formal, transparent Grievance Redressal mechanism.</p>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">9.1. Appointment of a Dedicated Grievance Officer</h3>
+            <p class="text-foreground leading-relaxed mb-3">In accordance with applicable data-protection laws and international regulatory standards, SPVH Group has appointed a dedicated Grievance Officer (and Data Protection Officer) to oversee and resolve all matters pertaining to data privacy, security protocols, and user rights.</p>
+            <p class="text-foreground leading-relaxed mb-3">If you have any questions regarding this Policy, or if you wish to register a formal complaint concerning the processing of your personal or corporate data, please direct your correspondence to:</p>
+            <p class="text-foreground leading-relaxed">
+              <strong class="text-dark">Secure Email:</strong>
+              <a href="mailto:info@spvhgroup.com" class="text-[#00A896] hover:underline ml-1">info@spvhgroup.com</a>
             </p>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">9.2. Resolution Protocol and Timeframes</h3>
+            <p class="text-foreground leading-relaxed mb-3">We process all privacy-related grievances with strict institutional discipline. Upon receiving a formal complaint, our compliance team will initiate the following protocol:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Acknowledgment:</strong> You will receive a formal acknowledgment of your grievance from our office within 48 hours of receipt.</li>
+              <li><strong class="text-dark">Investigation:</strong> The Grievance Officer will conduct a comprehensive internal review, coordinating with our cybersecurity, legal, and operational teams to ascertain the facts and mitigate any potential vulnerabilities.</li>
+              <li><strong class="text-dark">Resolution:</strong> We are committed to providing a legally sound and operationally definitive resolution within 15 to 30 days from the date of initial acknowledgment, strictly adhering to the mandated timelines of the applicable regional jurisdiction.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">9.3. Escalation Matrix and Regulatory Recourse</h3>
+            <p class="text-foreground leading-relaxed mb-3">Our objective is to resolve all privacy matters internally through our dedicated compliance architecture. However, if your grievance is not resolved to your satisfaction, or if you believe our processing of your personal information violates applicable data-protection laws, you retain the right to escalate the matter.</p>
+            <p class="text-foreground leading-relaxed mb-3">Depending on your jurisdiction of residence or engagement, you may lodge a formal complaint with the relevant national or regional data-protection supervisory authority.</p>
+            <p class="text-foreground leading-relaxed">We will fully cooperate with any legitimate regulatory body or authorised judicial institution in the resolution of escalated disputes.</p>
           </section>
 
-          <section data-ps="src/pages/privacy-policy.astro:y5a2rd">
-            <h2 class="text-dark text-2xl font-bold mb-4" data-ps="src/pages/privacy-policy.astro:dlu4ut">2. Categories of Information Collected</h2>
-            <div class="space-y-4 text-foreground" data-ps="src/pages/privacy-policy.astro:cat-info">
-              <p class="leading-relaxed" data-ps="src/pages/privacy-policy.astro:y33jx2">To effectively evaluate investments and manage capital, we collect specific categories of information:</p>
-              <ul class="space-y-4 list-disc pl-5">
-                <li data-ps="src/pages/privacy-policy.astro:cuv8dr"><strong class="text-dark">Identity & Contact Data:</strong> Full name, email address, phone number, physical address, and professional profiles (such as your LinkedIn URL).</li>
-                <li data-ps="src/pages/privacy-policy.astro:cuv8dq"><strong class="text-dark">Financial & KYC Data:</strong> Information required for compliance and wealth management, which may include Permanent Account Number (PAN), Aadhaar details, bank account information, net worth declarations, and investment history.</li>
-                <li data-ps="src/pages/privacy-policy.astro:cuv8dp"><strong class="text-dark">Business & Proprietary Data:</strong> Information submitted during the funding evaluation process, including pitch decks, financial models, capitalization tables, intellectual property details, and strategic business plans.</li>
-                <li data-ps="src/pages/privacy-policy.astro:cuv8do"><strong class="text-dark">Technical Data:</strong> Internet Protocol (IP) address, browser type, operating system, and usage data collected via cookies when you navigate our platform.</li>
-              </ul>
-            </div>
-          </section>
+          <!-- 10. Cookies -->
+          <section>
+            <h2 class="text-dark text-2xl font-bold mb-4">10. Cookie Policy and Digital Tracking Technologies</h2>
+            <p class="text-foreground leading-relaxed">To ensure the security, efficiency, and continuous optimisation of our digital platforms, SPVH Group utilises cookies, web beacons, cryptographic tokens, and similar tracking technologies. This section outlines our operational mechanics regarding digital telemetry and your rights in managing these technologies.</p>
 
-          <section data-ps="src/pages/privacy-policy.astro:methods-col">
-            <h2 class="text-dark text-2xl font-bold mb-4" data-ps="src/pages/privacy-policy.astro:methods-title">3. Methods of Data Collection</h2>
-            <p class="text-foreground mb-4" data-ps="src/pages/privacy-policy.astro:y33jx3">We collect information through the following channels:</p>
-            <ul class="space-y-4 text-foreground list-disc pl-5">
-              <li data-ps="src/pages/privacy-policy.astro:cuv8cz"><strong class="text-dark">Direct Interactions:</strong> When you fill out forms on our website (e.g., the "Access Program Deck" form), correspond with us via email, or execute physical/digital contracts.</li>
-              <li data-ps="src/pages/privacy-policy.astro:social-media"><strong class="text-dark">Social Media Platforms:</strong> Information such as images, communications, or public profile data when you interact with our official social media channels.</li>
-              <li data-ps="src/pages/privacy-policy.astro:cuv8cy"><strong class="text-dark">Third-Party Sources:</strong> Information obtained during our due diligence process from credit rating agencies, background verification providers, and public regulatory filings.</li>
-              <li data-ps="src/pages/privacy-policy.astro:cuv8cx"><strong class="text-dark">Automated Technologies:</strong> Through cookies and analytics tools that monitor platform performance and user engagement.</li>
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">10.1. What Are Cookies?</h3>
+            <p class="text-foreground leading-relaxed">Cookies are small, encrypted text files placed on your device (computer, tablet, or smartphone) by your web browser when you visit our public websites or log into our secure client portals. They act as a memory mechanism, allowing our servers to recognise your device, authenticate your session, and recall your specific regional or platform preferences.</p>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">10.2. Categories of Technologies We Deploy</h3>
+            <p class="text-foreground leading-relaxed mb-3">We deploy digital tracking technologies strictly to enhance user experience, ensure platform security, and gather aggregated intelligence. We classify these into the following operational categories:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Strictly Necessary (Essential) Cookies:</strong> These are foundational to our digital architecture. They are required to authenticate user logins into our secure vaults, manage encrypted sessions, and enforce our security firewalls. Because these are critical to the operation and security of our platforms, they cannot be disabled.</li>
+              <li><strong class="text-dark">Performance and Analytical Cookies:</strong> These technologies collect aggregated, anonymised telemetry data regarding how visitors interact with our digital assets (e.g., tracking navigation paths across our Technology &amp; Research insights or measuring dwell time on our Automotive portfolio). We use enterprise-grade analytics partners to process this data, allowing us to optimise our digital infrastructure and content delivery.</li>
+              <li><strong class="text-dark">Functional Cookies:</strong> These allow our platforms to remember bespoke choices you have made — such as language preferences, regional settings, or specific interface customisations — to provide a more frictionless, tailored digital experience upon your return.</li>
+              <li><strong class="text-dark">Strategic Engagement (Targeting) Cookies:</strong> SPVH Group does not participate in mass-market, third-party advertising networks. However, we may use specific tracking tokens to deliver highly relevant corporate updates, sector-specific research, or invitations to proprietary engagements based on your previous interactions with our platform.</li>
+            </ul>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">10.3. Third-Party Analytics and Ecosystem Integrations</h3>
+            <p class="text-foreground leading-relaxed">In addition to our proprietary cookies, we utilise vetted, institutional-grade third-party service providers (such as advanced web analytics and security-monitoring firms) who may place their own tracking technologies on your device when you interact with our ecosystem. These entities operate strictly as data processors under our mandate and are contractually bound by rigorous confidentiality agreements.</p>
+
+            <h3 class="text-dark text-lg font-bold mb-3 mt-6">10.4. Consent and Control Mechanisms</h3>
+            <p class="text-foreground leading-relaxed mb-3">We respect your digital sovereignty and provide mechanisms to control your tracking preferences:</p>
+            <ul class="space-y-3 text-foreground list-disc pl-5">
+              <li><strong class="text-dark">Initial Consent:</strong> Upon your first visit to our platforms from relevant jurisdictions, you will be presented with a compliance banner requesting explicit consent to deploy non-essential cookies.</li>
+              <li><strong class="text-dark">Browser-Level Controls:</strong> You maintain the right to configure your web browser to refuse all cookies, selectively accept certain categories, or alert you when a cookie is being deployed.</li>
+              <li><strong class="text-dark">Impact of Refusal:</strong> Please be advised that if you configure your browser to block Strictly Necessary cookies, you may experience degraded platform functionality, and you will be unable to access our authenticated client portals, digital vaults, or secure advisory dashboards.</li>
             </ul>
           </section>
 
-          <section data-ps="src/pages/privacy-policy.astro:y5a2rc">
-            <h2 class="text-dark text-2xl font-bold mb-4" data-ps="src/pages/privacy-policy.astro:dlu4us">4. Purpose of Data Processing</h2>
-            <p class="text-foreground mb-4" data-ps="src/pages/privacy-policy.astro:y33jx4">We strictly use your information for legitimate business and operational purposes:</p>
-            <ul class="space-y-4 text-foreground list-disc pl-5">
-              <li data-ps="src/pages/privacy-policy.astro:cuv8cw"><strong class="text-dark">Investment Evaluation:</strong> To assess business models, process applications for our Ideapreneur, Solopreneur, Entrepreneur, and Familypreneur programs, and facilitate capital deployment.</li>
-              <li data-ps="src/pages/privacy-policy.astro:cuv8cv"><strong class="text-dark">Portfolio & Wealth Management:</strong> To manage alternative investment strategies, execute capital market transactions, and provide advisory services.</li>
-              <li data-ps="src/pages/privacy-policy.astro:cuv8cu"><strong class="text-dark">Regulatory Compliance:</strong> To adhere to Anti-Money Laundering (AML) laws, Know Your Customer (KYC) norms, and annual compliance reporting requirements mandated by regulatory bodies.</li>
-              <li data-ps="src/pages/privacy-policy.astro:cuv8ct"><strong class="text-dark">Communication:</strong> To send program updates, administrative notices, and respond to your direct inquiries.</li>
-              <li data-ps="src/pages/privacy-policy.astro:marketing-news"><strong class="text-dark">Marketing & Newsletters:</strong> To send periodic emails, newsletters, and information about investment topics you have agreed to receive.</li>
-            </ul>
-          </section>
-
-          <section data-ps="src/pages/privacy-policy.astro:y5a2rb">
-            <h2 class="text-dark text-2xl font-bold mb-4" data-ps="src/pages/privacy-policy.astro:dlu4ur">5. Information Sharing and Disclosure</h2>
-            <p class="text-foreground mb-4" data-ps="src/pages/privacy-policy.astro:uvx640">We treat your data with strict confidentiality. We do not sell your data. We may share information under the following circumstances:</p>
-            <ul class="space-y-4 text-foreground list-disc pl-5">
-              <li data-ps="src/pages/privacy-policy.astro:cuv8c7"><strong class="text-dark">Intra-Group Sharing:</strong> Data may be shared between SPVH Private Limited and its subsidiaries (Financial Services, Media, Hospitality, Automotive, Technology, Real Estate) to execute cross-vertical synergies and operational efficiency.</li>
-              <li data-ps="src/pages/privacy-policy.astro:cuv8c6"><strong class="text-dark">Trusted Service Providers:</strong> We may share data with secure third-party vendors, such as legal counsel, auditors, and cloud hosting providers, who are bound by strict non-disclosure agreements.</li>
-              <li data-ps="src/pages/privacy-policy.astro:cuv8c5"><strong class="text-dark">Legal & Regulatory Authorities:</strong> We will disclose information to statutory bodies (such as SEBI, RBI, or law enforcement) if legally mandated or to protect the rights and safety of the firm.</li>
-              <li data-ps="src/pages/privacy-policy.astro:acc-aggregator"><strong class="text-dark">Account Aggregator Ecosystem:</strong> Data may be shared through the Account Aggregator ecosystem or any similar consent artefact as and when notified by SEBI.</li>
-              <li data-ps="src/pages/privacy-policy.astro:logistics-payments"><strong class="text-dark">Logistics & Payment Intermediaries:</strong> Information may be shared with intermediaries such as couriers for correspondence and banking partners for Electronic Clearing Services (ECS) and NEFT payments.</li>
-              <li data-ps="src/pages/privacy-policy.astro:cuv8c4"><strong class="text-dark">Business Transfers:</strong> In the event of a merger, acquisition, or restructuring, user and business data may be transferred as part of the holding group's assets.</li>
-            </ul>
-          </section>
-
-          <section data-ps="src/pages/privacy-policy.astro:y5a2ra">
-            <h2 class="text-dark text-2xl font-bold mb-4" data-ps="src/pages/privacy-policy.astro:dlu4uq">6. Data Security and Retention</h2>
-            <div class="space-y-6 text-foreground" data-ps="src/pages/privacy-policy.astro:security-retention">
-              <div data-ps="src/pages/privacy-policy.astro:pffnzq">
-                <strong class="text-dark block mb-2">Security Measures:</strong>
-                <p data-ps="src/pages/privacy-policy.astro:uvx641">We implement institutional-grade technical and organizational safeguards, including secure servers, encryption protocols, and strict access controls, to protect your sensitive financial and business data against unauthorized access.</p>
-              </div>
-              <div data-ps="src/pages/privacy-policy.astro:pffnzr">
-                <strong class="text-dark block mb-2">Retention:</strong>
-                <p data-ps="src/pages/privacy-policy.astro:uvx642">We retain your information only for as long as necessary to fulfill the purposes outlined in this policy, or for the duration mandated by Indian financial and corporate compliance laws (which frequently require record preservation for a period of years post-transaction).</p>
-              </div>
-            </div>
-          </section>
-
-          <section data-ps="src/pages/privacy-policy.astro:rights-choices">
-            <h2 class="text-dark text-2xl font-bold mb-4" data-ps="src/pages/privacy-policy.astro:rights-title">7. User Rights and Choices</h2>
-            <p class="text-foreground mb-4" data-ps="src/pages/privacy-policy.astro:uvx643">Subject to applicable laws, you hold the following rights regarding your data:</p>
-            <ul class="space-y-4 text-foreground list-disc pl-5">
-              <li data-ps="src/pages/privacy-policy.astro:cuv8c3"><strong class="text-dark">Right to Access & Correct:</strong> You may request access to the personal data we hold about you and ask for corrections to any inaccuracies.</li>
-              <li data-ps="src/pages/privacy-policy.astro:cuv8c2"><strong class="text-dark">Right to Withdraw Consent:</strong> You may withdraw your consent for future data processing or opt out of specific communications.</li>
-              <li data-ps="src/pages/privacy-policy.astro:cuv8c1"><strong class="text-dark">Right to Erasure:</strong> You may request the deletion of your data, subject to our overriding legal or regulatory obligations to retain certain records.</li>
-            </ul>
-          </section>
-
-          <section data-ps="src/pages/privacy-policy.astro:y5a2r9">
-            <h2 class="text-dark text-2xl font-bold mb-4" data-ps="src/pages/privacy-policy.astro:dlu4up">8. Grievance Redressal</h2>
-            <div class="text-foreground" data-ps="src/pages/privacy-policy.astro:grievance-content">
-              <p class="mb-4" data-ps="src/pages/privacy-policy.astro:uvx644">If you have any questions, concerns, or complaints regarding this Privacy Policy or our data handling practices, please contact our Grievance Officer at:</p>
-              <p class="font-bold mb-1" data-ps="src/pages/privacy-policy.astro:uvx645">Email: <a href="mailto:info@spvhgroup.com" class="text-[#00A896] hover:underline" data-ps="src/pages/privacy-policy.astro:tu2ld7">info@spvhgroup.com</a></p>
-              <p class="mb-4 text-sm text-muted-foreground" data-ps="src/pages/privacy-policy.astro:uvx646">Subject Line: Please use "Privacy Grievance" or "Data Protection Query" in your subject line to ensure prompt routing.</p>
-              <p data-ps="src/pages/privacy-policy.astro:uvx647">We are committed to addressing your concerns promptly and thoroughly in accordance with applicable data protection regulations.</p>
-            </div>
-          </section>
         </div>
       </div>
     </div>
