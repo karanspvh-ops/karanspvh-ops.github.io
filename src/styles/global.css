@@ -204,24 +204,31 @@ p, li {
     font-size: 0.6875rem !important;    /* 11px */
     line-height: 1.35 !important;
   }
+  /* Uniform card sizing on mobile */
+  .leadership-modal-card [id^="top-bio-"] {
+    min-height: 220px;
+  }
+  .leadership-modal-card [id^="top-bio-"] > div.flex-row {
+    min-height: 220px;
+  }
   /*
     Normalize CTA buttons on mobile across the entire site.
     - [class~="bg-primary"] matches the exact class "bg-primary" but NOT "bg-primary/20",
       so it skips the translucent vertical-page badges.
     - :not([class~="w-12"]) excludes the circular icon contact button in the nav.
   */
-  a[class~="bg-primary"]:not([class~="w-12"]),
-  a[class~="bg-secondary"]:not([class~="w-12"]),
-  a[class~="bg-[#00A896]"],
-  a[class~="bg-[#496bad]"],
-  button[class~="bg-primary"]:not([class~="w-12"]),
-  button[class~="bg-secondary"]:not([class~="w-12"]),
-  button[class~="bg-[#00A896]"],
-  button[class~="bg-[#496bad]"],
-  a[class*="border-2 border-[#00A896]"],
-  button[class*="border-2 border-[#00A896]"],
-  a[class*="border border-white"],
-  button[class*="border border-white"] {
+  a[class~="bg-primary"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
+  a[class~="bg-secondary"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
+  a[class~="bg-[#00A896]"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
+  a[class~="bg-[#496bad]"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
+  button[class~="bg-primary"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
+  button[class~="bg-secondary"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
+  button[class~="bg-[#00A896]"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
+  button[class~="bg-[#496bad]"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
+  a[class*="border-2 border-[#00A896]"]:not([class~="w-8"]):not([class~="w-10"]),
+  button[class*="border-2 border-[#00A896]"]:not([class~="w-8"]):not([class~="w-10"]),
+  a[class*="border border-white"]:not([class*="bg-white/"]):not([class~="w-8"]):not([class~="w-10"]),
+  button[class*="border border-white"]:not([class*="bg-white/"]):not([class~="w-8"]):not([class~="w-10"]) {
     font-size: 0.8125rem !important;          /* 13px */
     line-height: 1.3 !important;
     white-space: nowrap !important;            /* prevent text wrap → uniform height */
