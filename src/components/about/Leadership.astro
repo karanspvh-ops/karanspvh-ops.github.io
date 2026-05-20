@@ -309,7 +309,7 @@ const team = [
 
         {member.quote && (
         <div class="mb-2 sm:mb-8 sm:min-h-[4rem] flex flex-col justify-center" data-ps={`src/components/about/Leadership.astro:quote-container-${__psIdx}`}>
-        <p class="leadership-quote text-[10px] sm:text-base text-[#00A896] font-medium italic relative pl-2 sm:pl-6 border-l-2 border-[#00A896]/30 line-clamp-3 sm:line-clamp-none" data-ps={`src/components/about/Leadership.astro:quote-text-${__psIdx}`}>
+        <p class="leadership-quote text-[10px] sm:text-base text-[#00A896] font-medium italic relative pl-2 sm:pl-6 border-l-2 border-[#00A896]/30" data-ps={`src/components/about/Leadership.astro:quote-text-${__psIdx}`}>
         "{member.quote}"
         </p>
         </div>
@@ -317,7 +317,7 @@ const team = [
         </div>
 
         <!-- Social Icons -->
-        <div class="flex items-center gap-2 sm:gap-4 mt-2 sm:mt-8 flex-wrap" data-ps="src/components/about/Leadership.astro:n2b38">
+        <div class="flex items-center justify-end gap-2 sm:justify-start sm:gap-4 mt-2 sm:mt-8 flex-wrap" data-ps="src/components/about/Leadership.astro:n2b38">
         <a 
         href={member.linkedin || "#"} 
         target={member.linkedin ? "_blank" : undefined}
@@ -363,7 +363,7 @@ const team = [
         this.innerText = 'PROFILE BIO';
         }
         `}
-        class="ml-auto px-3 sm:px-5 py-1.5 sm:py-2 rounded-2xl bg-white border border-[#0A1931] text-[#0A1931] text-[10px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase hover:bg-[#0A1931] hover:text-white transition-all duration-300 whitespace-nowrap"
+        class="sm:ml-auto px-2.5 sm:px-5 py-1 sm:py-2 rounded-xl sm:rounded-2xl bg-white border border-[#0A1931] text-[#0A1931] text-[9px] sm:text-xs font-bold tracking-wide sm:tracking-widest uppercase hover:bg-[#0A1931] hover:text-white transition-all duration-300 whitespace-nowrap"
         data-ps={`src/components/about/Leadership.astro:13zpv2-${__psIdx}`}>
         PROFILE BIO
         </button>
@@ -430,15 +430,92 @@ const team = [
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
       background: rgba(10, 25, 49, 0.3);
     }
+
+    /* Swipe transition for leadership cards */
+    .leadership-modal-card {
+      transition: transform 240ms ease-out, opacity 240ms ease-out;
+      will-change: transform, opacity;
+    }
+    .leadership-modal-card.swipe-out-left {
+      transform: translateX(-30%);
+      opacity: 0;
+    }
+    .leadership-modal-card.swipe-out-right {
+      transform: translateX(30%);
+      opacity: 0;
+    }
+    @keyframes leadershipSlideInRight {
+      from { transform: translateX(30%); opacity: 0; }
+      to   { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes leadershipSlideInLeft {
+      from { transform: translateX(-30%); opacity: 0; }
+      to   { transform: translateX(0); opacity: 1; }
+    }
+    .leadership-modal-card.swipe-in-right {
+      animation: leadershipSlideInRight 240ms ease-out;
+    }
+    .leadership-modal-card.swipe-in-left {
+      animation: leadershipSlideInLeft 240ms ease-out;
+    }
+
+    /* Body scroll lock when a leadership modal is open */
+    body.leadership-modal-open {
+      overflow: hidden !important;
+      position: fixed !important;
+      width: 100% !important;
+      touch-action: none;
+    }
   </style>
 
   <script>
-    // Horizontal swipe navigation for leadership cards on touch devices
-    function initLeadershipSwipe() {
+    // ─────────────────────────────────────────────────────
+    //  Leadership cards: swipe nav + body scroll lock
+    // ─────────────────────────────────────────────────────
+    function initLeadership() {
+      const dialogs = document.querySelectorAll('dialog[id^="modal-"]');
       const cards = document.querySelectorAll('.leadership-modal-card');
+      const triggers = document.querySelectorAll('[onclick*="showModal"]');
       const SWIPE_THRESHOLD = 50;
       const VERTICAL_TOLERANCE = 60;
+      const SWIPE_ANIM_MS = 240;
 
+      // Body scroll lock helpers
+      let savedScroll = 0;
+      function lockBody() {
+        if (document.body.classList.contains('leadership-modal-open')) return;
+        savedScroll = window.scrollY;
+        document.body.style.top = `-${savedScroll}px`;
+        document.body.classList.add('leadership-modal-open');
+      }
+      function unlockBody() {
+        document.body.classList.remove('leadership-modal-open');
+        document.body.style.top = '';
+        window.scrollTo(0, savedScroll);
+      }
+
+      // Lock body when any modal trigger is clicked
+      triggers.forEach((trigger) => {
+        if (trigger.dataset.lockBound === 'true') return;
+        trigger.dataset.lockBound = 'true';
+        trigger.addEventListener('click', () => {
+          setTimeout(lockBody, 0); // after showModal()
+        });
+      });
+
+      // Unlock body when any dialog closes
+      dialogs.forEach((dialog) => {
+        if (dialog.dataset.closeBound === 'true') return;
+        dialog.dataset.closeBound = 'true';
+        dialog.addEventListener('close', () => {
+          // Only unlock if no other dialog is still open
+          if (!document.querySelector('dialog[open]')) {
+            unlockBody();
+          }
+        });
+      });
+
+      // Swipe handling on each card
       cards.forEach((card) => {
         if (card.dataset.swipeBound === 'true') return;
         card.dataset.swipeBound = 'true';
@@ -457,27 +534,46 @@ const team = [
           const dx = t.screenX - startX;
           const dy = t.screenY - startY;
 
-          // Only treat as horizontal swipe if X movement dominates
           if (Math.abs(dx) < SWIPE_THRESHOLD) return;
           if (Math.abs(dy) > VERTICAL_TOLERANCE) return;
 
           const dialog = card.closest('dialog');
           if (!dialog) return;
 
-          if (dx < 0) {
-            // Swipe left → next card
-            const nextBtn = dialog.querySelector('button[aria-label^="Next:"]');
-            nextBtn && nextBtn.click();
-          } else {
-            // Swipe right → previous card
-            const prevBtn = dialog.querySelector('button[aria-label^="Previous:"]');
-            prevBtn && prevBtn.click();
-          }
+          const direction = dx < 0 ? 'left' : 'right';
+          const nextBtn = dialog.querySelector(
+            direction === 'left'
+              ? 'button[aria-label^="Next:"]'
+              : 'button[aria-label^="Previous:"]'
+          );
+          if (!nextBtn) return;
+
+          // Slide out current
+          card.classList.add(direction === 'left' ? 'swipe-out-left' : 'swipe-out-right');
+
+          setTimeout(() => {
+            // Reset class so it's clean when the dialog reopens
+            card.classList.remove('swipe-out-left', 'swipe-out-right');
+            // Trigger navigation
+            nextBtn.click();
+
+            // Animate the incoming card from the opposite side
+            requestAnimationFrame(() => {
+              const newDialog = document.querySelector('dialog[open]');
+              const newCard = newDialog && newDialog.querySelector('.leadership-modal-card');
+              if (newCard) {
+                newCard.classList.add(direction === 'left' ? 'swipe-in-right' : 'swipe-in-left');
+                setTimeout(() => {
+                  newCard.classList.remove('swipe-in-right', 'swipe-in-left');
+                }, SWIPE_ANIM_MS);
+              }
+            });
+          }, SWIPE_ANIM_MS);
         }, { passive: true });
       });
     }
 
-    initLeadershipSwipe();
-    document.addEventListener('astro:page-load', initLeadershipSwipe);
+    initLeadership();
+    document.addEventListener('astro:page-load', initLeadership);
   </script>
 </section>

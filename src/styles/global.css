@@ -206,10 +206,10 @@ p, li {
   }
   /* Uniform card sizing on mobile */
   .leadership-modal-card [id^="top-bio-"] {
-    min-height: 220px;
+    min-height: 260px;
   }
   .leadership-modal-card [id^="top-bio-"] > div.flex-row {
-    min-height: 220px;
+    min-height: 260px;
   }
   /*
     Normalize CTA buttons on mobile across the entire site.
