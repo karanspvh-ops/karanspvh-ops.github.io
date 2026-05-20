@@ -171,12 +171,12 @@ p, li {
   }
   /* Founder badge - keep proportional like desktop */
   h2.founder-name {
-    font-size: 1.5rem !important;
+    font-size: 1.875rem !important;   /* 30px - matches text-3xl */
     line-height: 1.1 !important;
   }
   p.founder-role {
-    font-size: 0.7rem !important;
-    line-height: 1.2 !important;
+    font-size: 0.875rem !important;   /* 14px - matches text-sm */
+    line-height: 1.3 !important;
   }
   /*
     Normalize CTA buttons on mobile across the entire site.
