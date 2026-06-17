@@ -128,6 +128,12 @@ import { SITE } from '@/config/site';
 
   function setNavState(state) {
     if (!header || !isDesktop()) return;
+    // Skip if already in the requested state — prevents repeated scroll events
+    // from re-running the dynamic width measurement and shrinking the pill.
+    const alreadyCollapsed = header.hasAttribute('data-nav-collapsed');
+    if (state === 'collapsed' && alreadyCollapsed) return;
+    if (state === 'expanded' && !alreadyCollapsed) return;
+
     if (state === 'expanded') {
       header.classList.remove('md:w-[320px]');
       header.classList.add('md:w-[95vw]');
