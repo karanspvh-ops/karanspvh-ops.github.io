@@ -70,11 +70,14 @@ import { SITE } from '@/config/site';
     if (!/Macintosh|MacIntel|MacPPC|Mac68K/.test(navigator.userAgent)) return;
     const badge = document.querySelector('.founder-badge');
     if (!badge) return;
-    badge.style.backgroundColor = 'rgb(255, 255, 255)';
-    badge.style.backdropFilter = 'none';
-    badge.style.webkitBackdropFilter = 'none';
-    badge.style.borderColor = 'rgba(226, 232, 240, 1)';
-    badge.style.boxShadow = '0 20px 40px -10px rgba(0,0,0,0.18)';
+    // Safari renders backdrop-blur-2xl + bg-white/80 more transparently than Chrome.
+    // Compensate with higher opacity (90%) + same 40px blur so it visually matches
+    // how Samsung Chrome renders the original bg-white/80 backdrop-blur-2xl.
+    badge.style.backgroundColor = 'rgba(255, 255, 255, 0.90)';
+    badge.style.backdropFilter = 'blur(40px)';
+    badge.style.webkitBackdropFilter = 'blur(40px)';
+    badge.style.borderColor = 'rgba(255, 255, 255, 0.65)';
+    badge.style.boxShadow = '0 20px 40px -15px rgba(0,0,0,0.15)';
   }
 
   applyMacFounderBadge();
