@@ -152,9 +152,20 @@ import { SITE } from '@/config/site';
       expandBtn.classList.remove('hidden', 'opacity-0', 'w-0');
       expandBtn.classList.add('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
 
-      // Mac logo renders ~240px wide at h-20, needs 420px pill for 48px padding
-      // each side. Samsung logo renders ~150px wide, 320px is exactly right.
-      header.style.width = isMac() ? '420px' : '320px';
+      if (isMac()) {
+        // Mac logo renders ~240px wide — needs fixed 420px pill.
+        header.style.width = '420px';
+      } else {
+        // Dynamically fit the pill to its exact content width + 48px padding each
+        // side. Setting max-content on nav-inner forces a synchronous reflow so
+        // offsetWidth returns the true content width (logo + gap + arrow).
+        // This avoids any fixed-pixel guessing and ends the pill right after the
+        // right padding — no excess stretch regardless of logo render width.
+        innerContainer.style.width = 'max-content';
+        const neededWidth = innerContainer.offsetWidth;
+        innerContainer.style.width = '';
+        header.style.width = neededWidth + 'px';
+      }
     }
   }
 
