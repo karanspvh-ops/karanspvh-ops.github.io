@@ -148,12 +148,13 @@ import { SITE } from '@/config/site';
       expandBtn.classList.remove('hidden', 'opacity-0', 'w-0');
       expandBtn.classList.add('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
 
-      // Mac fix: extend the collapsed pill rightward so the arrow fits with
-      // equal padding on both sides. paddingLeft is untouched (md:px-12 = 48px),
-      // paddingRight is also left to md:px-12 = 48px — both sides identical.
-      // The 380px width gives enough room: 48 + logo + gap + arrow + 48 = ~318px.
+      // Mac fix: widen the collapsed pill so logo + arrow fit inside with the
+      // original md:px-12 (48px) padding visible on both sides.
+      // Logo at h-20 renders ~240px wide; 240+gap+margin+arrow = ~312px of content.
+      // 380px gave 284px content area — content overflowed, eating the right padding.
+      // 420px gives 324px content area — 312px content fits, 48px right pad visible.
       if (isMac()) {
-        header.style.width = '380px';
+        header.style.width = '420px';
       }
     }
   }
