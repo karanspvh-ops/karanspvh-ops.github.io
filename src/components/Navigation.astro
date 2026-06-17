@@ -159,18 +159,19 @@ import { SITE } from '@/config/site';
       expandBtn.classList.add('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
 
       if (isMac()) {
-        // Mac logo renders ~240px wide — needs fixed 420px pill.
+        // Mac: fixed 420px — logo renders ~240px wide, needs this for equal padding.
         header.style.width = '420px';
       } else {
-        // Dynamically fit the pill to its exact content width + 48px padding each
-        // side. Setting max-content on nav-inner forces a synchronous reflow so
-        // offsetWidth returns the true content width (logo + gap + arrow).
-        // This avoids any fixed-pixel guessing and ends the pill right after the
-        // right padding — no excess stretch regardless of logo render width.
-        innerContainer.style.width = 'max-content';
-        const neededWidth = innerContainer.offsetWidth;
-        innerContainer.style.width = '';
-        header.style.width = neededWidth + 'px';
+        // Non-Mac: measure once, cache in sessionStorage so every page navigation
+        // and every collapse uses the exact same width — no per-page variation.
+        let cached = sessionStorage.getItem('navCollapsedWidth');
+        if (!cached) {
+          innerContainer.style.width = 'max-content';
+          cached = String(innerContainer.offsetWidth);
+          innerContainer.style.width = '';
+          sessionStorage.setItem('navCollapsedWidth', cached);
+        }
+        header.style.width = cached + 'px';
       }
     }
   }
