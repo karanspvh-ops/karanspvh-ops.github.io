@@ -117,26 +117,49 @@ import { SITE } from '@/config/site';
   let lastScrollY = window.scrollY;
   let isManuallyExpanded = false;
 
+  // Detect macOS — works in Safari, Chrome, Firefox on any Mac hardware
+  const isMac = () => /Macintosh|MacIntel|MacPPC|Mac68K/.test(navigator.userAgent);
+
   function setNavState(state) {
     if (!header || !isDesktop()) return;
     if (state === 'expanded') {
       header.classList.remove('md:w-[320px]');
       header.classList.add('md:w-[95vw]');
+      header.removeAttribute('data-nav-collapsed');
 
       rightContent.classList.remove('opacity-0', 'invisible', 'translate-x-4', 'absolute');
       rightContent.classList.add('opacity-100', 'translate-x-0');
 
       expandBtn.classList.remove('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
       expandBtn.classList.add('hidden', 'opacity-0', 'w-0');
+
+      // Restore Mac-specific overrides
+      if (isMac()) {
+        innerContainer.style.paddingLeft = '';
+        innerContainer.style.paddingRight = '';
+        logoColor.style.maxWidth = '';
+        logoColor.style.height = '';
+      }
     } else if (state === 'collapsed') {
       header.classList.remove('md:w-[95vw]');
       header.classList.add('md:w-[320px]');
+      header.setAttribute('data-nav-collapsed', 'true');
 
       rightContent.classList.remove('opacity-100', 'translate-x-0');
       rightContent.classList.add('opacity-0', 'invisible', 'translate-x-4', 'absolute');
 
       expandBtn.classList.remove('hidden', 'opacity-0', 'w-0');
       expandBtn.classList.add('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
+
+      // Mac fix: collapse inner padding so logo + arrow both sit inside the 320px capsule.
+      // The full-width logo (h-20, w-auto) can render 300-400px wide; with md:px-12 (48px
+      // each side) only 224px remains — the arrow overflows the rounded pill on Mac.
+      if (isMac()) {
+        innerContainer.style.paddingLeft = '0.75rem';
+        innerContainer.style.paddingRight = '0.75rem';
+        logoColor.style.maxWidth = '150px';
+        logoColor.style.height = '2.25rem';
+      }
     }
   }
 

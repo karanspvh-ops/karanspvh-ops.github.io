@@ -240,3 +240,27 @@ p, li {
   }
 }
 
+/* ============================
+   MacBook Air — Retina (device-pixel-ratio ≥ 2) at 1024–1700 px logical width.
+   Combines DPR with width range to target Retina Macs while leaving
+   standard-DPI Windows laptops at the same logical width unchanged.
+   Collapsed-nav fixes (arrow, padding, logo) are applied via JS isMac() in
+   Navigation.astro — inline styles can't be blocked by !important CSS rules.
+   ============================ */
+@media screen and (min-width: 1024px) and (max-width: 1700px) and (-webkit-min-device-pixel-ratio: 2),
+       screen and (min-width: 1024px) and (max-width: 1700px) and (min-resolution: 192dpi) {
+
+  /* Scale down the full-width logo so it fits Mac's smaller logical viewport.
+     No !important so the JS inline style can override to a smaller value
+     in the collapsed state without needing setProperty('height','…','important'). */
+  #nav-logo-color {
+    height: 3.25rem;
+  }
+
+  /* Shrink pill vertical padding so the header feels proportionate on Mac */
+  #main-header {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+}
+
