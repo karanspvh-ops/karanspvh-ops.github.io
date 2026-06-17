@@ -70,12 +70,11 @@ import { SITE } from '@/config/site';
     if (!/Macintosh|MacIntel|MacPPC|Mac68K/.test(navigator.userAgent)) return;
     const badge = document.querySelector('.founder-badge');
     if (!badge) return;
-    badge.style.backgroundColor = 'rgba(255, 255, 255, 0.97)';
-    badge.style.backdropFilter = 'blur(24px)';
-    badge.style.webkitBackdropFilter = 'blur(24px)';
-    badge.style.borderColor = 'rgba(255, 255, 255, 0.9)';
-    // Combined: original depth shadow + ring for glass-edge definition
-    badge.style.boxShadow = '0 20px 60px -10px rgba(0,0,0,0.22), 0 0 0 1px rgba(255,255,255,0.6)';
+    badge.style.backgroundColor = 'rgb(255, 255, 255)';
+    badge.style.backdropFilter = 'none';
+    badge.style.webkitBackdropFilter = 'none';
+    badge.style.borderColor = 'rgba(226, 232, 240, 1)';
+    badge.style.boxShadow = '0 20px 40px -10px rgba(0,0,0,0.18)';
   }
 
   applyMacFounderBadge();
