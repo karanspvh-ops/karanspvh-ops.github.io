@@ -133,10 +133,8 @@ import { SITE } from '@/config/site';
       expandBtn.classList.remove('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
       expandBtn.classList.add('hidden', 'opacity-0', 'w-0');
 
-      // Clear Mac-specific collapsed overrides
-      if (isMac()) {
-        header.style.width = '';
-      }
+      // Clear collapsed width override for all desktops
+      header.style.width = '';
     } else if (state === 'collapsed') {
       header.classList.remove('md:w-[95vw]');
       header.classList.add('md:w-[320px]');
@@ -148,14 +146,9 @@ import { SITE } from '@/config/site';
       expandBtn.classList.remove('hidden', 'opacity-0', 'w-0');
       expandBtn.classList.add('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
 
-      // Mac fix: widen the collapsed pill so logo + arrow fit inside with the
-      // original md:px-12 (48px) padding visible on both sides.
-      // Logo at h-20 renders ~240px wide; 240+gap+margin+arrow = ~312px of content.
-      // 380px gave 284px content area — content overflowed, eating the right padding.
-      // 420px gives 324px content area — 312px content fits, 48px right pad visible.
-      if (isMac()) {
-        header.style.width = '420px';
-      }
+      // Widen collapsed pill to 420px on all desktops so logo + arrow sit inside
+      // with the original md:px-12 (48px) padding visible on both sides.
+      header.style.width = '420px';
     }
   }
 
