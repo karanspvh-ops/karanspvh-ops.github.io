@@ -133,12 +133,11 @@ import { SITE } from '@/config/site';
       expandBtn.classList.remove('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
       expandBtn.classList.add('hidden', 'opacity-0', 'w-0');
 
-      // Restore Mac-specific overrides
+      // Clear Mac-specific collapsed overrides
       if (isMac()) {
+        header.style.width = '';
         innerContainer.style.paddingLeft = '';
         innerContainer.style.paddingRight = '';
-        logoColor.style.maxWidth = '';
-        logoColor.style.height = '';
       }
     } else if (state === 'collapsed') {
       header.classList.remove('md:w-[95vw]');
@@ -151,14 +150,13 @@ import { SITE } from '@/config/site';
       expandBtn.classList.remove('hidden', 'opacity-0', 'w-0');
       expandBtn.classList.add('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
 
-      // Mac fix: collapse inner padding so logo + arrow both sit inside the 320px capsule.
-      // The full-width logo (h-20, w-auto) can render 300-400px wide; with md:px-12 (48px
-      // each side) only 224px remains — the arrow overflows the rounded pill on Mac.
+      // Mac fix: widen the collapsed pill so the logo (h-20, w-auto) and expand
+      // arrow both sit inside with breathing room. Logo size and nav height are
+      // unchanged. inline width overrides the md:w-[320px] class on Mac only.
       if (isMac()) {
-        innerContainer.style.paddingLeft = '0.75rem';
-        innerContainer.style.paddingRight = '0.75rem';
-        logoColor.style.maxWidth = '150px';
-        logoColor.style.height = '2.25rem';
+        header.style.width = '380px';
+        innerContainer.style.paddingLeft = '1rem';
+        innerContainer.style.paddingRight = '1rem';
       }
     }
   }
