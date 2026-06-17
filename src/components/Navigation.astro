@@ -120,6 +120,12 @@ import { SITE } from '@/config/site';
   // Detect macOS — works in Safari, Chrome, Firefox on any Mac hardware
   const isMac = () => /Macintosh|MacIntel|MacPPC|Mac68K/.test(navigator.userAgent);
 
+  // Safari renders backdrop-blur-2xl + bg-white/70 far more transparently than
+  // Chrome. Raise background opacity on Mac to match Samsung's visual weight.
+  if (isMac() && header) {
+    header.style.backgroundColor = 'rgba(255, 255, 255, 0.88)';
+  }
+
   function setNavState(state) {
     if (!header || !isDesktop()) return;
     if (state === 'expanded') {
