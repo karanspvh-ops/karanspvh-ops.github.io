@@ -121,9 +121,9 @@ import { SITE } from '@/config/site';
   const isMac = () => /Macintosh|MacIntel|MacPPC|Mac68K/.test(navigator.userAgent);
 
   // Safari renders backdrop-blur-2xl + bg-white/70 far more transparently than
-  // Chrome. Raise background opacity on Mac to match Samsung's visual weight.
+  // Chrome. Mac opacity raised to 1.0 (was 0.88 + 20% = 1.08, capped at 1.0).
   if (isMac() && header) {
-    header.style.backgroundColor = 'rgba(255, 255, 255, 0.88)';
+    header.style.backgroundColor = 'rgba(255, 255, 255, 1)';
   }
 
   function setNavState(state) {
