@@ -136,7 +136,6 @@ import { SITE } from '@/config/site';
       // Clear Mac-specific collapsed overrides
       if (isMac()) {
         header.style.width = '';
-        innerContainer.style.paddingRight = '';
       }
     } else if (state === 'collapsed') {
       header.classList.remove('md:w-[95vw]');
@@ -150,11 +149,11 @@ import { SITE } from '@/config/site';
       expandBtn.classList.add('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
 
       // Mac fix: extend the collapsed pill rightward so the arrow fits with
-      // padding. Left padding is NOT touched — logo stays at the exact same
-      // screen X position as in the expanded state. Only the right edge grows.
+      // equal padding on both sides. paddingLeft is untouched (md:px-12 = 48px),
+      // paddingRight is also left to md:px-12 = 48px — both sides identical.
+      // The 380px width gives enough room: 48 + logo + gap + arrow + 48 = ~318px.
       if (isMac()) {
         header.style.width = '380px';
-        innerContainer.style.paddingRight = '1.25rem';
       }
     }
   }
