@@ -62,7 +62,7 @@ html {
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Montserrat', system-ui, sans-serif;
 }
 
 /* Typography plugin - use theme variables */
@@ -219,14 +219,10 @@ p, li {
   */
   a[class~="bg-primary"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
   a[class~="bg-secondary"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
-  a[class~="bg-[#00A896]"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
-  a[class~="bg-[#496bad]"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
   button[class~="bg-primary"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
   button[class~="bg-secondary"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
-  button[class~="bg-[#00A896]"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
-  button[class~="bg-[#496bad]"]:not([class~="w-8"]):not([class~="w-10"]):not([class~="w-12"]),
-  a[class*="border-2 border-[#00A896]"]:not([class~="w-8"]):not([class~="w-10"]),
-  button[class*="border-2 border-[#00A896]"]:not([class~="w-8"]):not([class~="w-10"]),
+  a[class*="border-2 border-secondary"]:not([class~="w-8"]):not([class~="w-10"]),
+  button[class*="border-2 border-secondary"]:not([class~="w-8"]):not([class~="w-10"]),
   a[class*="border border-white"]:not([class*="bg-white/"]):not([class~="w-8"]):not([class~="w-10"]),
   button[class*="border border-white"]:not([class*="bg-white/"]):not([class~="w-8"]):not([class~="w-10"]) {
     font-size: 0.8125rem !important;          /* 13px */
@@ -240,4 +236,27 @@ p, li {
   }
 }
 
+/* Fix 6.2: Active press feedback on CTA buttons */
+a[class~="bg-primary"],
+a[class~="bg-secondary"],
+button[class~="bg-primary"],
+button[class~="bg-secondary"] {
+  transition: transform 0.1s ease;
+}
+a[class~="bg-primary"]:active,
+a[class~="bg-secondary"]:active,
+button[class~="bg-primary"]:active,
+button[class~="bg-secondary"]:active {
+  transform: scale(0.97);
+}
+
+/* Fix 5.3: Custom dropdown arrow for select elements */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
 

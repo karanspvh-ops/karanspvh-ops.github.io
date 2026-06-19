@@ -34,9 +34,10 @@
           <form id="contact-form" class="space-y-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" data-ps="src/components/home/Contact.astro:1ijz2a">
               <div class="space-y-2" data-ps="src/components/home/Contact.astro:1ijz2b">
-                <label class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbh">Name</label>
-                <input 
-                  type="text" 
+                <label for="contact-name" class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbh">Name</label>
+                <input
+                  type="text"
+                  id="contact-name"
                   name="name"
                   required
                   placeholder="John Doe"
@@ -44,9 +45,10 @@
                 />
               </div>
               <div class="space-y-2" data-ps="src/components/home/Contact.astro:1ijz2c">
-                <label class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbi">Email</label>
-                <input 
-                  type="email" 
+                <label for="contact-email" class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbi">Email</label>
+                <input
+                  type="email"
+                  id="contact-email"
                   name="email"
                   required
                   placeholder="john@example.com"
@@ -57,18 +59,20 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" data-ps="src/components/home/Contact.astro:1ijz2a:extended">
               <div class="space-y-2" data-ps="src/components/home/Contact.astro:1ijz2b:company">
-                <label class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbh:company">Company Name</label>
-                <input 
-                  type="text" 
+                <label for="contact-company" class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbh:company">Company Name</label>
+                <input
+                  type="text"
+                  id="contact-company"
                   name="company"
                   placeholder="Company Ltd."
                   class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
               <div class="space-y-2" data-ps="src/components/home/Contact.astro:1ijz2c:website">
-                <label class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbi:website">Website (Optional)</label>
-                <input 
-                  type="text" 
+                <label for="contact-website" class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbi:website">Website (Optional)</label>
+                <input
+                  type="text"
+                  id="contact-website"
                   name="website"
                   placeholder="www.xyz.com"
                   class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
@@ -77,8 +81,9 @@
             </div>
 
             <div class="space-y-2" data-ps="src/components/home/Contact.astro:1ijz2d:vertical">
-              <label class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbj:vertical">Select Vertical</label>
-              <select 
+              <label for="contact-vertical" class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbj:vertical">Select Vertical</label>
+              <select
+                id="contact-vertical"
                 name="vertical"
                 required
                 class="w-full bg-[#222836] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none"
@@ -94,9 +99,10 @@
             </div>
 
             <div class="space-y-2" data-ps="src/components/home/Contact.astro:1ijz2d">
-              <label class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbj">Subject</label>
-              <input 
-                type="text" 
+              <label for="contact-subject" class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbj">Subject</label>
+              <input
+                type="text"
+                id="contact-subject"
                 name="subject"
                 required
                 placeholder="Inquiry about..."
@@ -105,11 +111,12 @@
             </div>
 
             <div class="space-y-2" data-ps="src/components/home/Contact.astro:1ijz2e">
-              <label class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbk">Message</label>
-              <textarea 
+              <label for="contact-message" class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbk">Message</label>
+              <textarea
+                id="contact-message"
                 name="message"
                 required
-                rows="4" 
+                rows="4"
                 placeholder="Your message here..."
                 class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors resize-none"
               ></textarea>

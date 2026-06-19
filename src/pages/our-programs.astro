@@ -15,7 +15,7 @@ const jsonLd = {
   <!-- Program Deck Modal -->
   <div id="deck-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4" data-ps="src/pages/our-programs.astro:x1jwqa">
     <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="modal-backdrop" data-ps="src/pages/our-programs.astro:x1jwqb"></div>
-    <div class="relative w-full max-w-[600px] bg-[#0A1931] border border-white/10 rounded-xl p-10 shadow-2xl z-10" data-ps="src/pages/our-programs.astro:lui32j">
+    <div class="relative w-full max-w-[600px] bg-dark border border-white/10 rounded-xl p-10 shadow-2xl z-10" data-ps="src/pages/our-programs.astro:lui32j">
       <button id="close-modal" class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors" aria-label="Close modal" data-ps="src/pages/our-programs.astro:ig6myt">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
@@ -25,23 +25,23 @@ const jsonLd = {
         <form id="deck-form" class="space-y-6">
           <div class="space-y-1" data-ps="src/pages/our-programs.astro:lui32h">
             <label for="name" class="block text-sm text-[#94A3B8]" data-ps="src/pages/our-programs.astro:etcm7b">Full Name</label>
-            <input type="text" id="name" name="name" required class="w-full bg-transparent border-b border-white/20 py-2 text-white focus:outline-none focus:border-[#00A896] transition-colors" />
+            <input type="text" id="name" name="name" required class="w-full bg-transparent border-b border-white/20 py-2 text-white focus:outline-none focus:border-secondary transition-colors" />
           </div>
           <div class="space-y-1" data-ps="src/pages/our-programs.astro:lui32g">
             <label for="email" class="block text-sm text-[#94A3B8]" data-ps="src/pages/our-programs.astro:etcm7a">Email</label>
-            <input type="email" id="email" name="email" required class="w-full bg-transparent border-b border-white/20 py-2 text-white focus:outline-none focus:border-[#00A896] transition-colors" />
+            <input type="email" id="email" name="email" required class="w-full bg-transparent border-b border-white/20 py-2 text-white focus:outline-none focus:border-secondary transition-colors" />
           </div>
           <div class="space-y-1" data-ps="src/pages/our-programs.astro:lui32f">
             <label for="linkedin" class="block text-sm text-[#94A3B8]" data-ps="src/pages/our-programs.astro:etcm6o">LinkedIn Profile</label>
-            <input type="url" id="linkedin" name="linkedin" required class="w-full bg-transparent border-b border-white/20 py-2 text-white focus:outline-none focus:border-[#00A896] transition-colors" />
+            <input type="url" id="linkedin" name="linkedin" required class="w-full bg-transparent border-b border-white/20 py-2 text-white focus:outline-none focus:border-secondary transition-colors" />
           </div>
           <div class="space-y-1" data-ps="src/pages/our-programs.astro:lui32e">
             <label for="about" class="block text-sm text-[#94A3B8]" data-ps="src/pages/our-programs.astro:etcm6n">Brief about yourself</label>
-            <textarea id="about" name="about" required rows="3" class="w-full bg-transparent border-b border-white/20 py-2 text-white focus:outline-none focus:border-[#00A896] transition-colors resize-none"></textarea>
+            <textarea id="about" name="about" required rows="3" class="w-full bg-transparent border-b border-white/20 py-2 text-white focus:outline-none focus:border-secondary transition-colors resize-none"></textarea>
           </div>
           <div class="space-y-1" data-ps="src/pages/our-programs.astro:lui32d">
             <label for="program" class="block text-sm text-[#94A3B8]" data-ps="src/pages/our-programs.astro:etcm6m">Which program are you interested to explore?</label>
-            <select id="program" name="program" required class="w-full bg-[#0A1931] border-b border-white/20 py-2 text-white focus:outline-none focus:border-[#00A896] transition-colors">
+            <select id="program" name="program" required class="w-full bg-dark border-b border-white/20 py-2 text-white focus:outline-none focus:border-secondary transition-colors">
               <option value="" disabled selected>Select a program</option>
               <option value="Ideapreneur">Ideapreneur</option>
               <option value="Solopreneur">Solopreneur</option>
@@ -52,7 +52,7 @@ const jsonLd = {
           
           <div class="pt-4" data-ps="src/pages/our-programs.astro:lui32c">
             <altcha-widget challenge="/psapi-internal-v1/altcha/challenge" display="invisible" auto="onfocus"></altcha-widget>
-            <button type="submit" class="w-full bg-[#00A896] hover:bg-[#00A896]/90 text-white font-bold py-4 px-8 rounded-lg uppercase tracking-wide transition-all" data-ps="src/pages/our-programs.astro:ig6myu">
+            <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-4 px-8 rounded-lg uppercase tracking-wide transition-all" data-ps="src/pages/our-programs.astro:ig6myu">
               Submit
             </button>
           </div>
@@ -60,7 +60,7 @@ const jsonLd = {
       </div>
 
       <div id="success-container" class="hidden flex-col items-center justify-center py-12 text-center" data-ps="src/pages/our-programs.astro:lui32b">
-        <div class="w-16 h-16 bg-[#00A896] rounded-full flex items-center justify-center mb-6" data-ps="src/pages/our-programs.astro:lui32a">
+        <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mb-6" data-ps="src/pages/our-programs.astro:lui32a">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
         </div>
         <h3 class="text-2xl font-bold text-white" data-ps="src/pages/our-programs.astro:2bawd4">Submitted</h3>
@@ -146,7 +146,7 @@ const jsonLd = {
             Backing the "first-believers" at the pure genesis stage. We provide critical first-cheque capital and operational validation for founders with absolute clarity on the problem and solution.
           </p>
           <div class="pt-2 mt-auto" data-ps="src/pages/our-programs.astro:x1jwq9-idea">
-            <span class="text-[#00A896] font-bold text-sm block" data-ps="src/pages/our-programs.astro:ed2cbu-idea">Investment Stage: First Cheque / Idea Stage
+            <span class="text-secondary font-bold text-sm block" data-ps="src/pages/our-programs.astro:ed2cbu-idea">Investment Stage: First Cheque / Idea Stage
 <br/>Funding: 5-25 Lakhs first cheque</span>
           </div>
         </div>
@@ -158,7 +158,7 @@ const jsonLd = {
             Our nuanced understanding of the solo startup landscape ensures tailored guidance. We extend our hand with strategic investments, acting as a dedicated partner in your journey.
           </p>
           <div class="pt-2 mt-auto" data-ps="src/pages/our-programs.astro:lui32i">
-            <span class="text-[#00A896] font-bold text-sm block" data-ps="src/pages/our-programs.astro:ed2cbw">Investment Stage: First Institutional Cheque
+            <span class="text-secondary font-bold text-sm block" data-ps="src/pages/our-programs.astro:ed2cbw">Investment Stage: First Institutional Cheque
 <br/>Funding: 10-50 Lakhs</span>
           </div>
         </div>
@@ -170,7 +170,7 @@ const jsonLd = {
             Beyond capital infusion, we provide a robust network and valuable resources. Through mentorship and operational support, SPVH becomes a catalyst for sustained growth.
           </p>
           <div class="pt-2 mt-auto" data-ps="src/pages/our-programs.astro:x1jwqb-entrepreneur">
-            <span class="text-[#00A896] font-bold text-sm block" data-ps="src/pages/our-programs.astro:ed2cbv-entrepreneur">Investment Stage: Venture Round
+            <span class="text-secondary font-bold text-sm block" data-ps="src/pages/our-programs.astro:ed2cbv-entrepreneur">Investment Stage: Venture Round
 <br/>Funding: 1 Crore & Above</span>
           </div>
         </div>
@@ -182,7 +182,7 @@ const jsonLd = {
             We understand the unique strengths of family businesses. Our approach preserves your vitality, values, and culture, ensuring your family's history is kept intact.
           </p>
           <div class="pt-2 mt-auto" data-ps="src/pages/our-programs.astro:x1jwq9-family">
-            <span class="text-[#00A896] font-bold text-sm block" data-ps="src/pages/our-programs.astro:ed2cbu-family">Investment Stage: Flexible tailored structures
+            <span class="text-secondary font-bold text-sm block" data-ps="src/pages/our-programs.astro:ed2cbu-family">Investment Stage: Flexible tailored structures
 <br/>Funding: 25 Lakhs & Above</span>
           </div>
         </div>
@@ -190,8 +190,8 @@ const jsonLd = {
 
       <!-- Call to Action Button -->
       <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-4 sm:gap-6 mt-12 max-w-md sm:max-w-none mx-auto" data-ps="src/pages/our-programs.astro:lui32a">
-        <a href="/#contact" class="bg-[#00A896] hover:bg-[#00A896]/90 text-white font-bold py-3 px-6 sm:px-8 rounded-lg uppercase tracking-wide transition-all text-sm sm:text-base text-center whitespace-nowrap" data-ps="src/pages/our-programs.astro:ytxu8t">Apply Now</a>
-        <button id="open-deck-modal" class="bg-transparent border-2 border-[#00A896] hover:bg-[#00A896]/10 text-white font-bold py-3 px-6 sm:px-8 rounded-lg uppercase tracking-wide transition-all cursor-pointer text-sm sm:text-base text-center whitespace-nowrap" data-ps="src/pages/our-programs.astro:download-deck">Access Program Deck</button>
+        <a href="/#contact" class="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 sm:px-8 rounded-lg uppercase tracking-wide transition-all text-sm sm:text-base text-center whitespace-nowrap" data-ps="src/pages/our-programs.astro:ytxu8t">Apply Now</a>
+        <button id="open-deck-modal" class="bg-transparent border-2 border-secondary hover:bg-secondary/10 text-white font-bold py-3 px-6 sm:px-8 rounded-lg uppercase tracking-wide transition-all cursor-pointer text-sm sm:text-base text-center whitespace-nowrap" data-ps="src/pages/our-programs.astro:download-deck">Access Program Deck</button>
       </div>
     </div>
   </section>
@@ -203,7 +203,7 @@ const jsonLd = {
     
     <div class="w-full max-w-[1440px] mx-auto px-4 lg:px-8 relative z-10" data-ps="src/pages/our-programs.astro:x1jwpf">
       <div class="text-center mb-16" data-ps="src/pages/our-programs.astro:x1jwpg">
-        <span class="text-[#00A896] font-bold uppercase tracking-[0.2em] text-sm block mb-4" data-ps="src/pages/our-programs.astro:section-label">BEYOND CAPITAL</span>
+        <span class="text-secondary font-bold uppercase tracking-[0.2em] text-sm block mb-4" data-ps="src/pages/our-programs.astro:section-label">BEYOND CAPITAL</span>
         <h2 class="text-3xl md:text-5xl font-bold text-[#1B202D] tracking-tight mb-6" data-ps="src/pages/our-programs.astro:cd40rv">The SPVH Value Creation Ecosystem</h2>
         <p class="text-lg text-[#475569] mx-auto leading-relaxed" data-ps="src/pages/our-programs.astro:77ib3g">
           We provide the foundation for sustained success through a highly structured ecosystem of operational expertise and strategic leverage.
@@ -216,7 +216,7 @@ const jsonLd = {
           <div class="absolute right-6 top-6 text-7xl font-bold text-[#E2E8F0]/40 select-none z-0" data-ps="src/pages/our-programs.astro:numeral-01">01</div>
           <div class="relative z-10 h-full flex flex-col" data-ps="src/pages/our-programs.astro:lui32d">
             <div class="w-12 h-12 flex items-center justify-center mb-8" data-ps="src/pages/our-programs.astro:icon-01">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00A896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
             </div>
             <div class="min-h-[60px]" data-ps="src/pages/our-programs.astro:h3-container-01">
               <h3 class="text-xl font-bold text-[#1B202D] mb-4 leading-tight" data-ps="src/pages/our-programs.astro:2bawfu-0">Capital & Financial Structuring</h3>
@@ -232,7 +232,7 @@ const jsonLd = {
           <div class="absolute right-6 top-6 text-7xl font-bold text-[#E2E8F0]/40 select-none z-0" data-ps="src/pages/our-programs.astro:numeral-02">02</div>
           <div class="relative z-10 h-full flex flex-col" data-ps="src/pages/our-programs.astro:lui32c">
             <div class="w-12 h-12 flex items-center justify-center mb-8" data-ps="src/pages/our-programs.astro:icon-02">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00A896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-compass"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-compass"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
             </div>
             <div class="min-h-[60px]" data-ps="src/pages/our-programs.astro:h3-container-02">
               <h3 class="text-xl font-bold text-[#1B202D] mb-4 leading-tight" data-ps="src/pages/our-programs.astro:2bawfu-1">Strategic Advisory & Governance</h3>
@@ -248,7 +248,7 @@ const jsonLd = {
           <div class="absolute right-6 top-6 text-7xl font-bold text-[#E2E8F0]/40 select-none z-0" data-ps="src/pages/our-programs.astro:numeral-03">03</div>
           <div class="relative z-10 h-full flex flex-col" data-ps="src/pages/our-programs.astro:lui32b">
             <div class="w-12 h-12 flex items-center justify-center mb-8" data-ps="src/pages/our-programs.astro:icon-03">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00A896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
             </div>
             <div class="min-h-[60px]" data-ps="src/pages/our-programs.astro:h3-container-03">
               <h3 class="text-xl font-bold text-[#1B202D] mb-4 leading-tight" data-ps="src/pages/our-programs.astro:2bawfu-2">Operational Excellence</h3>
@@ -264,7 +264,7 @@ const jsonLd = {
           <div class="absolute right-6 top-6 text-7xl font-bold text-[#E2E8F0]/40 select-none z-0" data-ps="src/pages/our-programs.astro:numeral-04">04</div>
           <div class="relative z-10 h-full flex flex-col" data-ps="src/pages/our-programs.astro:lui32a">
             <div class="w-12 h-12 flex items-center justify-center mb-8" data-ps="src/pages/our-programs.astro:icon-04">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00A896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
             </div>
             <div class="min-h-[60px]" data-ps="src/pages/our-programs.astro:h3-container-04">
               <h3 class="text-xl font-bold text-[#1B202D] mb-4 leading-tight" data-ps="src/pages/our-programs.astro:2bawfu-3">Proprietary Network Access</h3>

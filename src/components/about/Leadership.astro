@@ -312,7 +312,7 @@ const team = [
 
         {member.quote && (
         <div class="mb-2 sm:mb-8 sm:min-h-[4rem] flex flex-col justify-center" data-ps={`src/components/about/Leadership.astro:quote-container-${__psIdx}`}>
-        <p class="leadership-quote text-[10px] sm:text-base text-[#00A896] font-medium italic relative pl-2 sm:pl-6 border-l-2 border-[#00A896]/30" data-ps={`src/components/about/Leadership.astro:quote-text-${__psIdx}`}>
+        <p class="leadership-quote text-[10px] sm:text-base text-secondary font-medium italic relative pl-2 sm:pl-6 border-l-2 border-secondary/30" data-ps={`src/components/about/Leadership.astro:quote-text-${__psIdx}`}>
         "{member.quote}"
         </p>
         </div>
@@ -366,7 +366,7 @@ const team = [
         this.innerText = 'PROFILE BIO';
         }
         `}
-        class="sm:ml-auto px-2.5 sm:px-5 py-1 sm:py-2 rounded-xl sm:rounded-2xl bg-white border border-[#0A1931] text-[#0A1931] text-[9px] sm:text-xs font-bold tracking-wide sm:tracking-widest uppercase hover:bg-[#0A1931] hover:text-white transition-all duration-300 whitespace-nowrap"
+        class="sm:ml-auto px-2.5 sm:px-5 py-1 sm:py-2 rounded-xl sm:rounded-2xl bg-white border border-dark text-dark text-[9px] sm:text-xs font-bold tracking-wide sm:tracking-widest uppercase hover:bg-dark hover:text-white transition-all duration-300 whitespace-nowrap"
         data-ps={`src/components/about/Leadership.astro:13zpv2-${__psIdx}`}>
         PROFILE BIO
         </button>
@@ -383,12 +383,12 @@ const team = [
         class="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-in-out bg-transparent shrink-0"
         data-ps={`src/components/about/Leadership.astro:kcs772-${__psIdx}`}>
         <div class="overflow-hidden flex flex-col bg-white border-x border-b border-white/70 shadow-2xl rounded-b-3xl rounded-t-none border-t border-dotted border-gray-300" data-ps={`src/components/about/Leadership.astro:kcs773-${__psIdx}`}>
-          <div class="overflow-y-auto custom-scrollbar p-8 md:p-10 text-[#0A1931] flex flex-col items-start text-left max-h-[50vh] sm:max-h-[55vh]" data-ps={`src/components/about/Leadership.astro:kcs774-${__psIdx}`}>
+          <div class="overflow-y-auto custom-scrollbar p-8 md:p-10 text-dark flex flex-col items-start text-left max-h-[50vh] sm:max-h-[55vh]" data-ps={`src/components/about/Leadership.astro:kcs774-${__psIdx}`}>
              {member.extendedBio.paragraphs.map(p => (
                <p class="mb-5 leading-[1.6] text-sm md:text-base text-left" data-ps={`src/components/about/Leadership.astro:2cf0q5-${__psIdx}`}>{p}</p>
              ))}
-             <h4 class="text-[#00A896] font-bold text-lg mt-8 mb-3 uppercase tracking-wider text-left" data-ps={`src/components/about/Leadership.astro:ojw00l-${__psIdx}`}>Core Specialties</h4>
-             <p class="text-[#0A1931]/90 leading-[1.6] text-sm md:text-base text-left" data-ps={`src/components/about/Leadership.astro:2cf0q6-${__psIdx}`}>{member.extendedBio.specialties}</p>
+             <h4 class="text-secondary font-bold text-lg mt-8 mb-3 uppercase tracking-wider text-left" data-ps={`src/components/about/Leadership.astro:ojw00l-${__psIdx}`}>Core Specialties</h4>
+             <p class="text-dark/90 leading-[1.6] text-sm md:text-base text-left" data-ps={`src/components/about/Leadership.astro:2cf0q6-${__psIdx}`}>{member.extendedBio.specialties}</p>
           </div>
         </div>
         </div>

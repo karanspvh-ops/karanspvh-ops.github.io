@@ -3,13 +3,13 @@ const slides = [
   {
   headline: 'Where <span class="text-primary">Diversity</span> meets <span class="text-secondary">Business</span>',
   subheadline: "At SPVH, we focus on building a diverse enterprise which has a new age<br />approach & strong business fundamentals.",
-  image: "https://images.unsplash.com/photo-1709136804744-4ae50bf6da58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTQzNzh8MHwxfHNlYXJjaHw2fHxzZWAlMjBsaW5rfGVufDB8fHx8MTc3NjE2NDY3MXww&ixlib=rb-4.1.0&q=80&w=1200&auto=format",
+  image: "/images/pexels-janamparikh-11786734.jpg",
   headlineClass: "font-bold"
   },
   {
   headline: 'Building Enterprise with “<span class="text-primary">Infinite</span> <span class="text-secondary">Legacy</span>”',
   subheadline: "With a fearless & limitless approach SPVH Group is committed to build business that outlast generations.",
-  image: "https://images.pexels.com/photos/13907756/pexels-photo-13907756.jpeg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTQzNzh8MHwxfHNlYXJjaHwyfHxsZWdhY3l8ZW58MHx8fHwxNzc2MTYzNTE1fDA&ixlib=rb-4.1.0&q=80&w=1200&auto=format",
+  image: "/images/pexels-maria-doina-mareggini-898057922-26584506.jpg",
   headlineClass: "font-normal"
   },
   {
@@ -27,7 +27,7 @@ const slides = [
 ];
 ---
 
-<section id="hero" class="relative h-[90vh] min-h-[600px] w-full overflow-hidden" data-ps="src/components/home/Hero.astro:carousel">
+<section id="hero" class="relative h-[90vh] min-h-[600px] w-full overflow-hidden" role="region" aria-roledescription="carousel" aria-label="Hero slideshow" data-ps="src/components/home/Hero.astro:carousel">
   <div id="hero-slider" class="relative h-full w-full" data-ps="src/components/home/Hero.astro:slider-container">
     {slides.map((slide, index) => (
       <div 
@@ -37,7 +37,7 @@ const slides = [
         <div class="absolute inset-0 bg-black/50 z-10" data-ps={`src/components/home/Hero.astro:ecxgfa-${index}`}></div>
         <img 
           src={slide.image} 
-          alt={slide.headline}
+          alt={slide.headline.replace(/<[^>]*>/g, '')}
           class="absolute inset-0 w-full h-full object-cover" data-ps={`src/components/home/Hero.astro:fibi80-${index}`} />
         <div class="relative z-20 h-full flex flex-col items-center justify-center text-center px-6 max-w-5xl mx-auto" data-ps={`src/components/home/Hero.astro:ecxgfb-${index}`}>
           <h1 class={`text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight hero-animate ${slide.headlineClass}`} data-ps={`src/components/home/Hero.astro:p3vdzp-${index}`} set:html={slide.headline} />
@@ -119,6 +119,12 @@ const slides = [
         resetAutoplay();
       });
     });
+
+    slider.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { goToSlide((currentSlide - 1 + slideCount) % slideCount); resetAutoplay(); }
+      if (e.key === 'ArrowRight') { goToSlide((currentSlide + 1) % slideCount); resetAutoplay(); }
+    });
+    slider.setAttribute('tabindex', '0');
 
     startAutoplay();
   }
