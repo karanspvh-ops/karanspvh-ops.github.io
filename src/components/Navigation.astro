@@ -135,7 +135,7 @@ import { SITE } from '@/config/site';
     if (state === 'expanded' && !alreadyCollapsed) return;
 
     if (state === 'expanded') {
-      header.classList.remove('md:w-[320px]');
+      header.classList.remove('overflow-hidden');
       header.classList.add('md:w-[95vw]');
       header.removeAttribute('data-nav-collapsed');
 
@@ -145,11 +145,11 @@ import { SITE } from '@/config/site';
       expandBtn.classList.remove('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
       expandBtn.classList.add('hidden', 'opacity-0', 'w-0');
 
-      // Clear collapsed width override for all desktops
       header.style.width = '';
+      header.style.maxWidth = '';
     } else if (state === 'collapsed') {
       header.classList.remove('md:w-[95vw]');
-      header.classList.add('md:w-[320px]');
+      header.classList.add('overflow-hidden');
       header.setAttribute('data-nav-collapsed', 'true');
 
       rightContent.classList.remove('opacity-100', 'translate-x-0');
@@ -158,12 +158,10 @@ import { SITE } from '@/config/site';
       expandBtn.classList.remove('hidden', 'opacity-0', 'w-0');
       expandBtn.classList.add('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
 
+      let collapsedW;
       if (isMac()) {
-        // Mac: fixed 420px — logo renders ~240px wide, needs this for equal padding.
-        header.style.width = '420px';
+        collapsedW = '420px';
       } else {
-        // Non-Mac: measure once, cache in sessionStorage so every page navigation
-        // and every collapse uses the exact same width — no per-page variation.
         let cached = sessionStorage.getItem('navCollapsedWidth');
         if (!cached) {
           innerContainer.style.width = 'max-content';
@@ -171,8 +169,10 @@ import { SITE } from '@/config/site';
           innerContainer.style.width = '';
           sessionStorage.setItem('navCollapsedWidth', cached);
         }
-        header.style.width = cached + 'px';
+        collapsedW = cached + 'px';
       }
+      header.style.width = collapsedW;
+      header.style.maxWidth = collapsedW;
     }
   }
 
