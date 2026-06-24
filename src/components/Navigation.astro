@@ -144,11 +144,17 @@ import { SITE } from '@/config/site';
       expandBtn.classList.remove('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
       expandBtn.classList.add('hidden', 'opacity-0', 'w-0');
 
-      // Re-enable transition, then fade links in
-      rightContent.style.transition = '';
-      rightContent.style.display = '';
-      rightContent.classList.remove('opacity-0', 'translate-x-4', 'absolute');
-      rightContent.classList.add('opacity-100', 'translate-x-0');
+      // Let the pill widen first, then fade links in
+      setTimeout(() => {
+        rightContent.style.transition = 'none';
+        rightContent.style.display = '';
+        rightContent.classList.remove('translate-x-4', 'absolute');
+        rightContent.classList.add('translate-x-0');
+        rightContent.offsetHeight;
+        rightContent.style.transition = '';
+        rightContent.classList.remove('opacity-0');
+        rightContent.classList.add('opacity-100');
+      }, 300);
     } else if (state === 'collapsed') {
       header.setAttribute('data-nav-collapsed', 'true');
 
