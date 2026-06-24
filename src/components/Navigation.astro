@@ -135,28 +135,30 @@ import { SITE } from '@/config/site';
     if (state === 'expanded' && !alreadyCollapsed) return;
 
     if (state === 'expanded') {
-      header.classList.remove('overflow-hidden');
       header.classList.add('md:w-[95vw]');
       header.removeAttribute('data-nav-collapsed');
 
-      rightContent.classList.remove('opacity-0', 'invisible', 'translate-x-4', 'absolute');
-      rightContent.classList.add('opacity-100', 'translate-x-0');
+      header.style.width = '';
+      header.style.maxWidth = '';
 
       expandBtn.classList.remove('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
       expandBtn.classList.add('hidden', 'opacity-0', 'w-0');
 
-      header.style.width = '';
-      header.style.maxWidth = '';
+      rightContent.classList.remove('opacity-0', 'translate-x-4', 'absolute');
+      rightContent.classList.add('opacity-100', 'translate-x-0');
+      rightContent.style.visibility = '';
     } else if (state === 'collapsed') {
-      header.classList.remove('md:w-[95vw]');
-      header.classList.add('overflow-hidden');
       header.setAttribute('data-nav-collapsed', 'true');
 
+      // Hide links instantly so they don't flash during the width transition
+      rightContent.style.visibility = 'hidden';
       rightContent.classList.remove('opacity-100', 'translate-x-0');
-      rightContent.classList.add('opacity-0', 'invisible', 'translate-x-4', 'absolute');
+      rightContent.classList.add('opacity-0', 'translate-x-4', 'absolute');
 
       expandBtn.classList.remove('hidden', 'opacity-0', 'w-0');
       expandBtn.classList.add('flex', 'opacity-100', 'w-10', 'ml-4', 'md:ml-6');
+
+      header.classList.remove('md:w-[95vw]');
 
       let collapsedW;
       if (isMac()) {
