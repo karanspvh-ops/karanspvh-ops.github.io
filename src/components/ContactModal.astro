@@ -72,36 +72,22 @@ import 'altcha';
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" data-ps="src/components/ContactModal.astro:grid-3">
-            <div class="space-y-2" data-ps="src/components/ContactModal.astro:vertical-field">
-              <label class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/ContactModal.astro:label-vertical">Select Vertical</label>
-              <select
-                name="vertical"
-                id="contact-vertical"
-                required
-                class="w-full bg-[#222836] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none"
-              >
-                <option value="" disabled selected>Select a business vertical</option>
-                <option value="Financial Services">Financial Services</option>
-                <option value="Automotive">Automotive</option>
-                <option value="Hospitality">Hospitality</option>
-                <option value="Real Estate & Interior Design">Real Estate & Interior Design</option>
-                <option value="Technology & Research">Technology & Research</option>
-                <option value="Media & Entertainment">Media & Entertainment</option>
-              </select>
-            </div>
-            <div class="space-y-2" data-ps="src/components/ContactModal.astro:expert-field">
-              <label class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/ContactModal.astro:label-expert">Select Expert</label>
-              <select
-                name="expert"
-                id="contact-expert"
-                required
-                disabled
-                class="w-full bg-[#222836] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none disabled:opacity-40 disabled:cursor-not-allowed"
-              >
-                <option value="" disabled selected>Select a vertical first</option>
-              </select>
-            </div>
+          <div class="space-y-2" data-ps="src/components/ContactModal.astro:vertical-field">
+            <label class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/ContactModal.astro:label-vertical">Select Vertical</label>
+            <select
+              name="vertical"
+              id="contact-vertical"
+              required
+              class="w-full bg-[#222836] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none"
+            >
+              <option value="" disabled selected>Select a business vertical</option>
+              <option value="Financial Services">Financial Services</option>
+              <option value="Automotive">Automotive</option>
+              <option value="Hospitality">Hospitality</option>
+              <option value="Real Estate & Interior Design">Real Estate & Interior Design</option>
+              <option value="Technology & Research">Technology & Research</option>
+              <option value="Media & Entertainment">Media & Entertainment</option>
+            </select>
           </div>
 
           <div class="space-y-2" data-ps="src/components/ContactModal.astro:subject-field">
@@ -151,31 +137,6 @@ import 'altcha';
   const status = document.getElementById('modal-contact-status') as HTMLDivElement;
   const submitBtn = document.getElementById('modal-contact-submit') as HTMLButtonElement;
 
-  const verticalSelect = document.getElementById('contact-vertical') as HTMLSelectElement;
-  const expertSelect = document.getElementById('contact-expert') as HTMLSelectElement;
-
-  const EXPERTS: Record<string, string[]> = {
-    'Financial Services': ['Jimit Majithia', 'Saurav Prakash', 'Karan Nagda'],
-    'Automotive': ['Dharam Vora'],
-    'Hospitality': ['Siddharth Mathur'],
-    'Real Estate & Interior Design': ['Mahesh Jani'],
-    'Technology & Research': ['Vikram Malhotra'],
-    'Media & Entertainment': ['Saviraj Shetty'],
-  };
-  const CEO = 'Sujay Prakash';
-
-  verticalSelect?.addEventListener('change', () => {
-    const vertical = verticalSelect.value;
-    const experts = EXPERTS[vertical] || [];
-    expertSelect.innerHTML = '<option value="" disabled selected>Select an expert</option>';
-    for (const name of experts) {
-      expertSelect.innerHTML += `<option value="${name}">${name}</option>`;
-    }
-    expertSelect.innerHTML += `<option value="${CEO}">${CEO} (CEO)</option>`;
-    expertSelect.disabled = false;
-    expertSelect.value = '';
-  });
-
   const openModal = () => {
     modal?.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
@@ -224,8 +185,6 @@ import 'altcha';
         status.className = 'mb-6 px-4 py-3 rounded-lg bg-secondary/20 border border-secondary text-secondary text-sm';
         status.textContent = 'Thank you! Your message has been sent.';
         form.reset();
-        expertSelect.innerHTML = '<option value="" disabled selected>Select a vertical first</option>';
-        expertSelect.disabled = true;
         
         // Auto close modal after success
         setTimeout(() => {
