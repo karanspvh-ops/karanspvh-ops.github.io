@@ -69,6 +69,334 @@ const jsonLd = {
     </div>
   </div>
 
+  <!-- Application Form Modal -->
+  <div id="apply-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4" data-ps="src/pages/our-programs.astro:apply-modal">
+    <div class="absolute inset-0 bg-dark/60 backdrop-blur-md" id="apply-backdrop" data-ps="src/pages/our-programs.astro:apply-backdrop"></div>
+    <div class="relative w-full max-w-[680px] max-h-[90vh] bg-dark border border-white/10 rounded-xl shadow-2xl z-10 flex flex-col" data-ps="src/pages/our-programs.astro:apply-panel">
+      <button id="close-apply" class="absolute top-5 right-5 z-20 text-white/50 hover:text-white transition-colors duration-150" aria-label="Close application form" data-ps="src/pages/our-programs.astro:apply-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <!-- Progress bar -->
+      <div class="px-8 pt-8 pb-0 flex-shrink-0" data-ps="src/pages/our-programs.astro:apply-progress-wrap">
+        <div class="flex gap-1.5 mb-5" id="apply-progress" data-ps="src/pages/our-programs.astro:apply-progress">
+          <div class="flex-1 h-1 rounded-full bg-secondary transition-colors duration-300" data-seg="0"></div>
+          <div class="flex-1 h-1 rounded-full bg-white/10 transition-colors duration-300" data-seg="1"></div>
+          <div class="flex-1 h-1 rounded-full bg-white/10 transition-colors duration-300" data-seg="2"></div>
+          <div class="flex-1 h-1 rounded-full bg-white/10 transition-colors duration-300" data-seg="3"></div>
+        </div>
+        <div class="flex justify-between text-[11px] uppercase tracking-widest text-white/30 font-medium" id="apply-labels" data-ps="src/pages/our-programs.astro:apply-labels">
+          <span class="text-white/80" data-lb="0">Profile</span>
+          <span data-lb="1">Idea</span>
+          <span data-lb="2">Traction</span>
+          <span data-lb="3">Media</span>
+        </div>
+      </div>
+
+      <!-- Scrollable form body -->
+      <div class="overflow-y-auto flex-1 px-8 pt-6 pb-8" id="apply-scroll" data-ps="src/pages/our-programs.astro:apply-scroll">
+
+        <!-- Step 0: Founder Profile -->
+        <div class="apply-step" data-step="0" data-ps="src/pages/our-programs.astro:apply-s0">
+          <h2 class="text-xl font-bold text-white mb-1" data-ps="src/pages/our-programs.astro:apply-s0-h">Tell us about yourself</h2>
+          <p class="text-sm text-[#94A3B8] mb-6" data-ps="src/pages/our-programs.astro:apply-s0-p">We back founders, not just ideas.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div class="space-y-1.5">
+              <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Full name <span class="text-error">*</span></label>
+              <input type="text" name="a_name" required class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="Rahul Sharma" />
+            </div>
+            <div class="space-y-1.5">
+              <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Email <span class="text-error">*</span></label>
+              <input type="email" name="a_email" required class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="rahul@startup.com" />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div class="space-y-1.5">
+              <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Phone <span class="text-error">*</span></label>
+              <input type="tel" name="a_phone" required class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="+91 98765 43210" />
+            </div>
+            <div class="space-y-1.5">
+              <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">LinkedIn <span class="text-error">*</span></label>
+              <input type="url" name="a_linkedin" required class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="linkedin.com/in/rahulsharma" />
+            </div>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-4">
+            <div class="space-y-1.5">
+              <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">City, country <span class="text-error">*</span></label>
+              <input type="text" name="a_city" required class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="Mumbai, India" />
+            </div>
+            <div class="space-y-1.5">
+              <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Age <span class="text-error">*</span></label>
+              <input type="number" name="a_age" required min="16" max="99" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="28" />
+            </div>
+            <div class="space-y-1.5 col-span-2 sm:col-span-1">
+              <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Education</label>
+              <input type="text" name="a_education" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="MBA, IIM Bangalore" />
+            </div>
+          </div>
+          <div class="space-y-1.5 mb-4">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Working on this full-time? <span class="text-error">*</span></label>
+            <div class="flex flex-wrap gap-2">
+              <label class="flex items-center gap-2 text-sm text-white/80 px-3.5 py-2 border border-white/10 rounded-lg cursor-pointer hover:border-white/20 transition-colors duration-150 has-[input:checked]:border-secondary/60 has-[input:checked]:bg-secondary/10">
+                <input type="radio" name="a_fulltime" value="yes" class="accent-secondary w-3.5 h-3.5" /> Yes, full-time
+              </label>
+              <label class="flex items-center gap-2 text-sm text-white/80 px-3.5 py-2 border border-white/10 rounded-lg cursor-pointer hover:border-white/20 transition-colors duration-150 has-[input:checked]:border-secondary/60 has-[input:checked]:bg-secondary/10">
+                <input type="radio" name="a_fulltime" value="no" class="accent-secondary w-3.5 h-3.5" /> Part-time
+              </label>
+              <label class="flex items-center gap-2 text-sm text-white/80 px-3.5 py-2 border border-white/10 rounded-lg cursor-pointer hover:border-white/20 transition-colors duration-150 has-[input:checked]:border-secondary/60 has-[input:checked]:bg-secondary/10">
+                <input type="radio" name="a_fulltime" value="plan" class="accent-secondary w-3.5 h-3.5" /> Plan to
+              </label>
+            </div>
+          </div>
+          <div class="space-y-1.5">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Program <span class="text-error">*</span></label>
+            <div class="flex flex-wrap gap-2">
+              <label class="text-sm text-white/60 px-4 py-2 border border-white/10 rounded-full cursor-pointer hover:border-white/20 transition-colors duration-150 has-[input:checked]:border-secondary has-[input:checked]:bg-secondary/15 has-[input:checked]:text-white">
+                <input type="radio" name="a_program" value="ideapreneur" class="hidden" /> Ideapreneur
+              </label>
+              <label class="text-sm text-white/60 px-4 py-2 border border-white/10 rounded-full cursor-pointer hover:border-white/20 transition-colors duration-150 has-[input:checked]:border-secondary has-[input:checked]:bg-secondary/15 has-[input:checked]:text-white">
+                <input type="radio" name="a_program" value="solopreneur" class="hidden" /> Solopreneur
+              </label>
+              <label class="text-sm text-white/60 px-4 py-2 border border-white/10 rounded-full cursor-pointer hover:border-white/20 transition-colors duration-150 has-[input:checked]:border-secondary has-[input:checked]:bg-secondary/15 has-[input:checked]:text-white">
+                <input type="radio" name="a_program" value="entrepreneur" class="hidden" /> Entrepreneur
+              </label>
+              <label class="text-sm text-white/60 px-4 py-2 border border-white/10 rounded-full cursor-pointer hover:border-white/20 transition-colors duration-150 has-[input:checked]:border-secondary has-[input:checked]:bg-secondary/15 has-[input:checked]:text-white">
+                <input type="radio" name="a_program" value="familypreneur" class="hidden" /> Familypreneur
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 1: The Idea -->
+        <div class="apply-step hidden" data-step="1" data-ps="src/pages/our-programs.astro:apply-s1">
+          <h2 class="text-xl font-bold text-white mb-1" data-ps="src/pages/our-programs.astro:apply-s1-h">What are you building?</h2>
+          <p class="text-sm text-[#94A3B8] mb-6" data-ps="src/pages/our-programs.astro:apply-s1-p">Clarity beats complexity. Tell us the problem, the solution, and why now.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div class="space-y-1.5">
+              <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Company / project name <span class="text-error">*</span></label>
+              <input type="text" name="a_company" required class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="Acme Technologies" />
+            </div>
+            <div class="space-y-1.5">
+              <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Website</label>
+              <input type="url" name="a_website" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="https://acme.io" />
+            </div>
+          </div>
+          <div class="space-y-1.5 mb-4">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">One-line description <span class="text-error">*</span></label>
+            <input type="text" name="a_oneliner" required maxlength="120" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="We help SMBs automate invoice reconciliation using AI" />
+            <p class="text-[11px] text-white/25 mt-1">120 characters max</p>
+          </div>
+          <div class="space-y-1.5 mb-4">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">What problem are you solving? <span class="text-error">*</span></label>
+            <textarea name="a_problem" required rows="3" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150 resize-none" placeholder="Describe the pain point, who experiences it, and how severe it is..."></textarea>
+          </div>
+          <div class="space-y-1.5 mb-4">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Your solution and why it's better <span class="text-error">*</span></label>
+            <textarea name="a_solution" required rows="3" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150 resize-none" placeholder="Explain your approach and what makes it uniquely better..."></textarea>
+          </div>
+          <div class="space-y-1.5 mb-4">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Competitors and your unfair advantage</label>
+            <textarea name="a_competitors" rows="2" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150 resize-none" placeholder="Name competitors and explain your moat..."></textarea>
+          </div>
+          <div class="space-y-1.5 mb-4">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Business model <span class="text-error">*</span></label>
+            <textarea name="a_model" required rows="2" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150 resize-none" placeholder="How do you make money? Pricing, revenue streams..."></textarea>
+          </div>
+          <div class="space-y-1.5">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Product stage <span class="text-error">*</span></label>
+            <select name="a_stage" required class="w-full bg-dark border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-secondary/60 transition-colors duration-150 appearance-none" style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 12px center;padding-right:36px">
+              <option value="" disabled selected class="text-white/25">Select stage</option>
+              <option value="idea">Just an idea</option>
+              <option value="mvp">Prototype / MVP</option>
+              <option value="early">Live with early users</option>
+              <option value="revenue">Revenue generating</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Step 2: Traction & Team -->
+        <div class="apply-step hidden" data-step="2" data-ps="src/pages/our-programs.astro:apply-s2">
+          <h2 class="text-xl font-bold text-white mb-1" data-ps="src/pages/our-programs.astro:apply-s2-h">Traction & team</h2>
+          <p class="text-sm text-[#94A3B8] mb-6" data-ps="src/pages/our-programs.astro:apply-s2-p">Show us the momentum and the people behind the venture.</p>
+
+          <div class="space-y-1.5 mb-4">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Paying customers or users? <span class="text-error">*</span></label>
+            <div class="flex gap-2">
+              <label class="flex items-center gap-2 text-sm text-white/80 px-3.5 py-2 border border-white/10 rounded-lg cursor-pointer hover:border-white/20 transition-colors duration-150 has-[input:checked]:border-secondary/60 has-[input:checked]:bg-secondary/10">
+                <input type="radio" name="a_customers" value="yes" class="accent-secondary w-3.5 h-3.5" /> Yes
+              </label>
+              <label class="flex items-center gap-2 text-sm text-white/80 px-3.5 py-2 border border-white/10 rounded-lg cursor-pointer hover:border-white/20 transition-colors duration-150 has-[input:checked]:border-secondary/60 has-[input:checked]:bg-secondary/10">
+                <input type="radio" name="a_customers" value="no" class="accent-secondary w-3.5 h-3.5" /> Not yet
+              </label>
+            </div>
+          </div>
+          <div class="space-y-1.5 mb-4">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Key metrics (MRR, users, growth)</label>
+            <textarea name="a_metrics" rows="2" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150 resize-none" placeholder="e.g. 120 paying users, 2.5L MRR, 18% m-o-m growth..."></textarea>
+          </div>
+          <div class="space-y-1.5 mb-4">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Previously raised funding?</label>
+            <div class="flex gap-2">
+              <label class="flex items-center gap-2 text-sm text-white/80 px-3.5 py-2 border border-white/10 rounded-lg cursor-pointer hover:border-white/20 transition-colors duration-150 has-[input:checked]:border-secondary/60 has-[input:checked]:bg-secondary/10">
+                <input type="radio" name="a_raised" value="yes" class="accent-secondary w-3.5 h-3.5" /> Yes
+              </label>
+              <label class="flex items-center gap-2 text-sm text-white/80 px-3.5 py-2 border border-white/10 rounded-lg cursor-pointer hover:border-white/20 transition-colors duration-150 has-[input:checked]:border-secondary/60 has-[input:checked]:bg-secondary/10">
+                <input type="radio" name="a_raised" value="no" class="accent-secondary w-3.5 h-3.5" /> No
+              </label>
+            </div>
+          </div>
+          <div class="space-y-1.5 mb-6">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">If yes, how much and from whom?</label>
+            <input type="text" name="a_raised_detail" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="25L from angel investors (2024)" />
+          </div>
+
+          <div class="border-t border-white/5 pt-5 mb-4">
+            <h3 class="text-sm font-bold text-white mb-4">The team</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div class="space-y-1.5">
+                <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Co-founders <span class="text-error">*</span></label>
+                <input type="number" name="a_cofounders" required min="1" max="10" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="2" />
+              </div>
+              <div class="space-y-1.5">
+                <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Worked together before?</label>
+                <select name="a_together" class="w-full bg-dark border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-secondary/60 transition-colors duration-150 appearance-none" style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 12px center;padding-right:36px">
+                  <option value="" disabled selected>Select</option>
+                  <option value="company">Yes, at a previous company</option>
+                  <option value="project">Yes, on a project</option>
+                  <option value="first">No, first time</option>
+                  <option value="solo">Solo founder</option>
+                </select>
+              </div>
+            </div>
+            <div class="space-y-1.5 mb-4">
+              <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Co-founder details (names, roles, LinkedIn)</label>
+              <textarea name="a_team_detail" rows="2" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150 resize-none" placeholder="1. Priya Mehta, CTO, linkedin.com/in/priyam"></textarea>
+            </div>
+            <div class="space-y-1.5">
+              <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Why is your team the right one? <span class="text-error">*</span></label>
+              <textarea name="a_why_team" required rows="3" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150 resize-none" placeholder="What unique experience or obsession makes you the team to solve this?"></textarea>
+            </div>
+          </div>
+
+          <div class="border-t border-white/5 pt-5">
+            <h3 class="text-sm font-bold text-white mb-4">Funding ask</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div class="space-y-1.5">
+                <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Capital sought <span class="text-error">*</span></label>
+                <input type="text" name="a_capital" required class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="25,00,000" />
+              </div>
+              <div class="space-y-1.5">
+                <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Milestones it unlocks</label>
+                <input type="text" name="a_milestones" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="500 users, product-market fit" />
+              </div>
+            </div>
+            <div class="space-y-1.5">
+              <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Top 3 use-of-funds priorities</label>
+              <textarea name="a_use_of_funds" rows="2" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150 resize-none" placeholder="1. Product development (40%)&#10;2. Hiring (35%)&#10;3. Marketing (25%)"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Media & Submit -->
+        <div class="apply-step hidden" data-step="3" data-ps="src/pages/our-programs.astro:apply-s3">
+          <h2 class="text-xl font-bold text-white mb-1" data-ps="src/pages/our-programs.astro:apply-s3-h">Video introduction & pitch deck</h2>
+          <p class="text-sm text-[#94A3B8] mb-6" data-ps="src/pages/our-programs.astro:apply-s3-p">A short video tells us more than any form ever could.</p>
+
+          <div class="space-y-1.5 mb-4">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">2-minute video intro <span class="text-error">*</span></label>
+            <div class="border-2 border-dashed border-white/15 rounded-xl p-6 text-center cursor-pointer hover:border-secondary/40 transition-colors duration-200" data-ps="src/pages/our-programs.astro:apply-video-drop">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-white/30 mb-2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+              <p class="text-sm font-semibold text-white/70">Upload your video</p>
+              <p class="text-[11px] text-white/25 mt-1">MP4, max 100 MB</p>
+            </div>
+            <div class="flex items-center gap-3 my-3 text-[11px] uppercase tracking-widest text-white/20 font-medium">
+              <span class="flex-1 h-px bg-white/10"></span> or paste a link <span class="flex-1 h-px bg-white/10"></span>
+            </div>
+            <input type="url" name="a_video_url" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="YouTube, Loom, or Google Drive link" />
+            <div class="bg-white/[0.03] rounded-lg p-4 mt-3 text-[13px] text-[#94A3B8] leading-relaxed" data-ps="src/pages/our-programs.astro:apply-video-guide">
+              <p class="font-semibold text-white/70 mb-2">Video guidelines</p>
+              Record a 2-minute video, look into the camera:<br/>
+              1. Who you are and your background (30 sec)<br/>
+              2. What you're building and why it matters (60 sec)<br/>
+              3. Why SPVH, what do you need beyond capital? (30 sec)<br/><br/>
+              No slides, no editing needed. We want to hear you.
+            </div>
+          </div>
+
+          <div class="space-y-1.5 mb-6">
+            <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Pitch deck (recommended)</label>
+            <div class="border-2 border-dashed border-white/15 rounded-xl p-6 text-center cursor-pointer hover:border-secondary/40 transition-colors duration-200" data-ps="src/pages/our-programs.astro:apply-deck-drop">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-white/30 mb-2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              <p class="text-sm font-semibold text-white/70">Upload your deck</p>
+              <p class="text-[11px] text-white/25 mt-1">PDF, max 20 MB</p>
+            </div>
+            <div class="flex items-center gap-3 my-3 text-[11px] uppercase tracking-widest text-white/20 font-medium">
+              <span class="flex-1 h-px bg-white/10"></span> or paste a link <span class="flex-1 h-px bg-white/10"></span>
+            </div>
+            <input type="url" name="a_deck_url" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="Google Slides, Canva, or Notion link" />
+          </div>
+
+          <div class="border-t border-white/5 pt-5">
+            <h3 class="text-sm font-bold text-white mb-4">Final questions</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div class="space-y-1.5">
+                <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">How did you hear about us? <span class="text-error">*</span></label>
+                <select name="a_source" required class="w-full bg-dark border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-secondary/60 transition-colors duration-150 appearance-none" style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 12px center;padding-right:36px">
+                  <option value="" disabled selected>Select</option>
+                  <option value="linkedin">LinkedIn</option>
+                  <option value="referral">Referral</option>
+                  <option value="event">Event / conference</option>
+                  <option value="website">SPVH website</option>
+                  <option value="media">Media / press</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="space-y-1.5">
+                <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">If referred, by whom?</label>
+                <input type="text" name="a_referrer" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="Name of referrer" />
+              </div>
+            </div>
+            <div class="space-y-1.5 mb-4">
+              <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Anything else?</label>
+              <textarea name="a_extra" rows="2" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150 resize-none" placeholder="Optional: share context, links, or anything that strengthens your application..."></textarea>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 mt-4 p-4 bg-white/[0.03] rounded-lg border border-white/5">
+            <input type="checkbox" id="apply-consent" class="mt-0.5 w-4 h-4 flex-shrink-0 accent-primary rounded" />
+            <label for="apply-consent" class="text-[13px] text-[#94A3B8] leading-relaxed cursor-pointer">I confirm all information is accurate. I agree to SPVH Group's terms of service and privacy policy. My application data will be reviewed by the SPVH investment team.</label>
+          </div>
+        </div>
+
+        <!-- Success State -->
+        <div class="apply-step hidden" data-step="4" data-ps="src/pages/our-programs.astro:apply-s4">
+          <div class="text-center py-12">
+            <div class="w-16 h-16 rounded-full bg-secondary/15 flex items-center justify-center mx-auto mb-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-secondary"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Application submitted</h3>
+            <p class="text-sm text-[#94A3B8] leading-relaxed max-w-sm mx-auto">Our investment team will review your application and respond within 5-7 business days. You'll receive a confirmation email shortly.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom nav bar -->
+      <div class="px-8 pb-6 pt-2 flex-shrink-0 border-t border-white/5 flex justify-between items-center" id="apply-nav" data-ps="src/pages/our-programs.astro:apply-nav">
+        <button type="button" id="apply-back" class="hidden text-sm text-white/50 hover:text-white/80 transition-colors duration-150 flex items-center gap-1.5 cursor-pointer py-2 px-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Back
+        </button>
+        <span></span>
+        <button type="button" id="apply-next" class="bg-secondary hover:bg-secondary-hover text-white font-bold text-sm py-2.5 px-6 rounded-lg uppercase tracking-wide transition-colors duration-150 cursor-pointer flex items-center gap-1.5 active:scale-[0.97]" style="transition: background-color 150ms ease-out, transform 100ms ease-out">
+          Continue
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Section 1: Page Hero -->
   <section class="relative min-h-[70vh] flex items-center pt-20 overflow-hidden" data-ps="src/pages/our-programs.astro:koto0m">
     <div class="absolute inset-0 z-0" data-ps="src/pages/our-programs.astro:x1jwoj">
@@ -190,7 +518,7 @@ const jsonLd = {
 
       <!-- Call to Action Button -->
       <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-4 sm:gap-6 mt-12 max-w-md sm:max-w-none mx-auto" data-ps="src/pages/our-programs.astro:lui32a">
-        <a href="/#contact" class="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 sm:px-8 rounded-lg uppercase tracking-wide transition-all text-sm sm:text-base text-center whitespace-nowrap" data-ps="src/pages/our-programs.astro:ytxu8t">Apply Now</a>
+        <button id="open-apply-modal" class="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 sm:px-8 rounded-lg uppercase tracking-wide transition-all cursor-pointer text-sm sm:text-base text-center whitespace-nowrap" data-ps="src/pages/our-programs.astro:ytxu8t">Apply Now</button>
         <button id="open-deck-modal" class="bg-transparent border-2 border-secondary hover:bg-secondary/10 text-white font-bold py-3 px-6 sm:px-8 rounded-lg uppercase tracking-wide transition-all cursor-pointer text-sm sm:text-base text-center whitespace-nowrap" data-ps="src/pages/our-programs.astro:download-deck">Access Program Deck</button>
       </div>
     </div>
@@ -281,6 +609,115 @@ const jsonLd = {
   <script>
     import 'altcha';
 
+    // ── Apply Now Modal ──
+    {
+      const applyModal = document.getElementById('apply-modal');
+      const applyBackdrop = document.getElementById('apply-backdrop');
+      const applyClose = document.getElementById('close-apply');
+      const applyOpen = document.getElementById('open-apply-modal');
+      const applyBack = document.getElementById('apply-back') as HTMLButtonElement;
+      const applyNext = document.getElementById('apply-next') as HTMLButtonElement;
+      const applyScroll = document.getElementById('apply-scroll');
+      const applyNav = document.getElementById('apply-nav');
+      const steps = document.querySelectorAll<HTMLElement>('.apply-step');
+      const segs = document.querySelectorAll<HTMLElement>('#apply-progress [data-seg]');
+      const labels = document.querySelectorAll<HTMLElement>('#apply-labels [data-lb]');
+
+      let currentStep = 0;
+      const totalSteps = 4;
+
+      function showStep(n: number) {
+        steps.forEach((s) => {
+          s.classList.add('hidden');
+          s.style.opacity = '0';
+        });
+        const target = document.querySelector<HTMLElement>(`.apply-step[data-step="${n}"]`);
+        if (!target) return;
+        target.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          target.style.transition = 'opacity 200ms ease-out';
+          target.style.opacity = '1';
+        });
+
+        segs.forEach((seg, i) => {
+          seg.className = 'flex-1 h-1 rounded-full transition-colors duration-300';
+          if (i < n) seg.classList.add('bg-secondary');
+          else if (i === n) seg.classList.add('bg-secondary');
+          else seg.classList.add('bg-white/10');
+        });
+
+        labels.forEach((lb, i) => {
+          lb.className = i <= n ? 'text-white/80' : 'text-white/30';
+          if (i === n) lb.classList.add('text-white');
+        });
+
+        if (n === 0) {
+          applyBack?.classList.add('hidden');
+        } else {
+          applyBack?.classList.remove('hidden');
+        }
+
+        if (n >= totalSteps) {
+          applyNav?.classList.add('hidden');
+        } else {
+          applyNav?.classList.remove('hidden');
+          if (n === totalSteps - 1) {
+            applyNext!.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Submit application`;
+            applyNext!.classList.remove('bg-secondary', 'hover:bg-secondary-hover');
+            applyNext!.classList.add('bg-primary', 'hover:bg-primary-hover');
+          } else {
+            applyNext!.innerHTML = `Continue <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`;
+            applyNext!.classList.remove('bg-primary', 'hover:bg-primary-hover');
+            applyNext!.classList.add('bg-secondary', 'hover:bg-secondary-hover');
+          }
+        }
+
+        applyScroll?.scrollTo({ top: 0, behavior: 'instant' });
+        currentStep = n;
+      }
+
+      function openApply() {
+        currentStep = 0;
+        showStep(0);
+        applyModal?.classList.remove('hidden');
+        applyModal?.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeApply() {
+        applyModal?.classList.add('hidden');
+        applyModal?.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      applyOpen?.addEventListener('click', openApply);
+      applyClose?.addEventListener('click', closeApply);
+      applyBackdrop?.addEventListener('click', closeApply);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && applyModal?.classList.contains('flex')) closeApply();
+      });
+
+      applyBack?.addEventListener('click', () => {
+        if (currentStep > 0) showStep(currentStep - 1);
+      });
+
+      applyNext?.addEventListener('click', () => {
+        if (currentStep < totalSteps - 1) {
+          showStep(currentStep + 1);
+        } else if (currentStep === totalSteps - 1) {
+          const consent = document.getElementById('apply-consent') as HTMLInputElement;
+          if (!consent?.checked) {
+            consent?.focus();
+            consent?.parentElement?.classList.add('ring-1', 'ring-error');
+            setTimeout(() => consent?.parentElement?.classList.remove('ring-1', 'ring-error'), 2000);
+            return;
+          }
+          showStep(4);
+        }
+      });
+    }
+
+    // ── Deck Modal ──
     const modal = document.getElementById('deck-modal');
     const openBtn = document.getElementById('open-deck-modal');
     const closeBtn = document.getElementById('close-modal');
