@@ -726,7 +726,58 @@ const jsonLd = {
     const formContainer = document.getElementById('form-container');
     const successContainer = document.getElementById('success-container');
 
-    const DECK_URL = '/files/Curriculum-Securities-or-financial-assets-wef-01072022.pdf';
+    const DECK_URL = '/files/SPVH-Our-Programs.pdf';
+    const DECK_FILENAME = 'SPVH — Our Programs.pdf';
+
+    const DISPOSABLE_DOMAINS = new Set([
+      'mailinator.com','guerrillamail.com','tempmail.com','throwaway.email',
+      'yopmail.com','sharklasers.com','guerrillamailblock.com','grr.la',
+      'dispostable.com','trashmail.com','fakeinbox.com','mailnesia.com',
+      'maildrop.cc','discard.email','mailsac.com','10minutemail.com',
+      'temp-mail.org','getnada.com','mohmal.com','burnermail.io',
+      'tempail.com','harakirimail.com','33mail.com','mailfence.com',
+      'inboxbear.com','spamgourmet.com','mytemp.email','emailondeck.com',
+      'crazymailing.com','armyspy.com','dayrep.com','einrot.com',
+      'fleckens.hu','gustr.com','jourrapide.com','rhyta.com',
+      'superrito.com','teleworm.us','tmpmail.net','tmpmail.org',
+      'tempr.email','disbox.net','disbox.org','dropmail.me',
+    ]);
+
+    function isEmailValid(email: string): { valid: boolean; reason: string } {
+      const trimmed = email.trim().toLowerCase();
+      const emailRegex = /^[a-z0-9](?:[a-z0-9._%+\-]*[a-z0-9])?@[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?(?:\.[a-z]{2,})+$/;
+      if (!emailRegex.test(trimmed)) return { valid: false, reason: 'Please enter a valid email address.' };
+
+      const domain = trimmed.split('@')[1];
+      if (DISPOSABLE_DOMAINS.has(domain)) return { valid: false, reason: 'Please use a professional or personal email, not a disposable one.' };
+
+      const localPart = trimmed.split('@')[0];
+      const spamPatterns = /^(test|asdf|qwerty|aaa|bbb|xxx|zzz|noreply|no-reply|abuse|spam|fake)\d*$/;
+      if (spamPatterns.test(localPart)) return { valid: false, reason: 'This email doesn\'t look right. Please use your real email address.' };
+
+      if (/^(.)\1{4,}/.test(localPart) || /^[a-z]{1,2}\d{6,}$/.test(localPart))
+        return { valid: false, reason: 'Please use a valid email address.' };
+
+      return { valid: true, reason: '' };
+    }
+
+    const emailInput = document.getElementById('email') as HTMLInputElement;
+    const emailError = document.createElement('p');
+    emailError.className = 'text-red-400 text-xs mt-1 hidden';
+    emailInput?.parentElement?.appendChild(emailError);
+
+    emailInput?.addEventListener('blur', () => {
+      if (!emailInput.value) return;
+      const check = isEmailValid(emailInput.value);
+      if (!check.valid) {
+        emailError.textContent = check.reason;
+        emailError.classList.remove('hidden');
+        emailInput.classList.add('!border-red-400');
+      } else {
+        emailError.classList.add('hidden');
+        emailInput.classList.remove('!border-red-400');
+      }
+    });
 
     function openModal() {
       modal?.classList.remove('hidden');
@@ -738,12 +789,13 @@ const jsonLd = {
       modal?.classList.add('hidden');
       modal?.classList.remove('flex');
       document.body.style.overflow = '';
-      // Reset state if needed after closing
       if (successContainer?.classList.contains('flex')) {
          setTimeout(() => {
            formContainer?.classList.remove('hidden');
            successContainer?.classList.add('hidden');
            successContainer?.classList.remove('flex');
+           emailError.classList.add('hidden');
+           emailInput?.classList.remove('!border-red-400');
            form.reset();
          }, 300);
       }
@@ -755,6 +807,16 @@ const jsonLd = {
 
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      const check = isEmailValid(emailInput?.value || '');
+      if (!check.valid) {
+        emailError.textContent = check.reason;
+        emailError.classList.remove('hidden');
+        emailInput?.classList.add('!border-red-400');
+        emailInput?.focus();
+        return;
+      }
+
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
 
@@ -770,16 +832,13 @@ const jsonLd = {
         });
 
         if (response.ok) {
-          // Success State
           formContainer?.classList.add('hidden');
           successContainer?.classList.remove('hidden');
           successContainer?.classList.add('flex');
 
-          // Trigger Download
           const link = document.createElement('a');
           link.href = DECK_URL;
-          link.setAttribute('download', 'Curriculum-Securities-or-financial-assets-wef-01072022.pdf');
-          link.setAttribute('target', '_blank'); // Ensures reliable behavior for external CDN links
+          link.setAttribute('download', DECK_FILENAME);
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
