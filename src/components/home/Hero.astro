@@ -22,7 +22,8 @@ const slides = [
   headline: '<span class="text-primary">Innovation</span> is the <span class="text-secondary">Core</span>',
   subheadline: "Being ahead of the curve is a basic check at SPVH Group",
   image: "/images/econote desk FINAL.jpg",
-  imagePosition: "center 30%",
+  imagePosition: "center 25%",
+  overlay: "bg-black/30",
   headlineClass: "font-normal"
   }
 ];
@@ -35,7 +36,7 @@ const slides = [
         class={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
         data-slide={index}
        data-ps={`src/components/home/Hero.astro:ecxgf9-${index}`}>
-        <div class="absolute inset-0 bg-black/50 z-10" data-ps={`src/components/home/Hero.astro:ecxgfa-${index}`}></div>
+        <div class={`absolute inset-0 ${slide.overlay || 'bg-black/50'} z-10`} data-ps={`src/components/home/Hero.astro:ecxgfa-${index}`}></div>
         <img
           src={slide.image}
           alt={slide.headline.replace(/<[^>]*>/g, '')}
