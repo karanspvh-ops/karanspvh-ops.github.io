@@ -116,6 +116,7 @@ import { SITE } from '@/config/site';
 
   let lastScrollY = window.scrollY;
   let isManuallyExpanded = false;
+  let expandTimer: ReturnType<typeof setTimeout> | null = null;
 
   // Detect macOS — works in Safari, Chrome, Firefox on any Mac hardware
   const isMac = () => /Macintosh|MacIntel|MacPPC|Mac68K/.test(navigator.userAgent);
@@ -145,7 +146,8 @@ import { SITE } from '@/config/site';
       expandBtn.classList.add('hidden', 'opacity-0', 'w-0');
 
       // Let the pill widen first, then fade links in
-      setTimeout(() => {
+      expandTimer = setTimeout(() => {
+        expandTimer = null;
         rightContent.style.transition = 'none';
         rightContent.style.display = '';
         rightContent.classList.remove('translate-x-4', 'absolute');
@@ -156,6 +158,7 @@ import { SITE } from '@/config/site';
         rightContent.classList.add('opacity-100');
       }, 300);
     } else if (state === 'collapsed') {
+      if (expandTimer) { clearTimeout(expandTimer); expandTimer = null; }
       header.setAttribute('data-nav-collapsed', 'true');
 
       // Kill transition so links vanish instantly — no flash
@@ -204,19 +207,25 @@ import { SITE } from '@/config/site';
   initNav();
   document.addEventListener('astro:page-load', initNav);
 
-  // Scroll behavior (desktop only)
+  // Scroll behavior (desktop only) — debounced to prevent rapid direction-change glitches
+  let scrollTick = false;
   window.addEventListener('scroll', () => {
-    if (!isDesktop()) return;
-    const currentScrollY = window.scrollY;
+    if (!isDesktop() || scrollTick) return;
+    scrollTick = true;
+    requestAnimationFrame(() => {
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY;
 
-    if (currentScrollY > lastScrollY && currentScrollY > 20) {
-      setNavState('collapsed');
-      isManuallyExpanded = false;
-    } else if (currentScrollY < lastScrollY) {
-      setNavState('expanded');
-    }
+      if (delta > 2 && currentScrollY > 20) {
+        setNavState('collapsed');
+        isManuallyExpanded = false;
+      } else if (delta < -2) {
+        setNavState('expanded');
+      }
 
-    lastScrollY = currentScrollY;
+      lastScrollY = currentScrollY;
+      scrollTick = false;
+    });
   }, { passive: true });
 
   // Manual override click (desktop)
