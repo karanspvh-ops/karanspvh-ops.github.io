@@ -821,7 +821,7 @@ const jsonLd = {
       const data = Object.fromEntries(formData);
 
       try {
-        const response = await fetch('/psapi-internal-v1/forms/submit', {
+        await fetch('/psapi-internal-v1/forms/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -830,23 +830,18 @@ const jsonLd = {
             altcha: formData.get('altcha')
           })
         });
+      } catch (_) {}
 
-        if (response.ok) {
-          formContainer?.classList.add('hidden');
-          successContainer?.classList.remove('hidden');
-          successContainer?.classList.add('flex');
+      formContainer?.classList.add('hidden');
+      successContainer?.classList.remove('hidden');
+      successContainer?.classList.add('flex');
 
-          const link = document.createElement('a');
-          link.href = DECK_URL;
-          link.setAttribute('download', DECK_FILENAME);
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        }
-      } catch (err) {
-        console.error('Submission error:', err);
-        alert('There was an error submitting the form. Please try again.');
-      }
+      const link = document.createElement('a');
+      link.href = DECK_URL;
+      link.setAttribute('download', DECK_FILENAME);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     });
   </script>
 
