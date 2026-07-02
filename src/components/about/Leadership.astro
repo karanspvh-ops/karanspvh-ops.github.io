@@ -462,7 +462,7 @@ const team = [
       function unlockBody() {
         document.body.classList.remove('leadership-modal-open');
         document.body.style.top = '';
-        window.scrollTo(0, savedScroll);
+        window.scrollTo({ top: savedScroll, behavior: 'instant' });
       }
 
       // Lock body when any modal trigger is clicked
