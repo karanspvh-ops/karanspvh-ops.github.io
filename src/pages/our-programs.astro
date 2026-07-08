@@ -78,26 +78,83 @@ const jsonLd = {
       </button>
 
       <!-- Progress bar -->
-      <div class="px-8 pt-8 pb-0 flex-shrink-0" data-ps="src/pages/our-programs.astro:apply-progress-wrap">
+      <div class="px-8 pt-8 pb-0 flex-shrink-0" id="apply-progress-wrap" data-ps="src/pages/our-programs.astro:apply-progress-wrap">
         <div class="flex gap-1.5 mb-5" id="apply-progress" data-ps="src/pages/our-programs.astro:apply-progress">
           <div class="flex-1 h-1 rounded-full bg-secondary transition-colors duration-300" data-seg="0"></div>
           <div class="flex-1 h-1 rounded-full bg-white/10 transition-colors duration-300" data-seg="1"></div>
           <div class="flex-1 h-1 rounded-full bg-white/10 transition-colors duration-300" data-seg="2"></div>
           <div class="flex-1 h-1 rounded-full bg-white/10 transition-colors duration-300" data-seg="3"></div>
+          <div class="flex-1 h-1 rounded-full bg-white/10 transition-colors duration-300" data-seg="4"></div>
         </div>
         <div class="flex justify-between text-[11px] uppercase tracking-widest text-white/30 font-medium" id="apply-labels" data-ps="src/pages/our-programs.astro:apply-labels">
-          <span class="text-white/80" data-lb="0">Profile</span>
-          <span data-lb="1">Idea</span>
-          <span data-lb="2">Traction</span>
-          <span data-lb="3">Media</span>
+          <span class="text-white/80" data-lb="0">Instructions</span>
+          <span data-lb="1">Profile</span>
+          <span data-lb="2">Idea</span>
+          <span data-lb="3">Traction</span>
+          <span data-lb="4">Media</span>
         </div>
       </div>
 
       <!-- Scrollable form body -->
       <div class="overflow-y-auto flex-1 px-8 pt-6 pb-8" id="apply-scroll" data-ps="src/pages/our-programs.astro:apply-scroll">
 
-        <!-- Step 0: Founder Profile -->
-        <div class="apply-step" data-step="0" data-ps="src/pages/our-programs.astro:apply-s0">
+        <!-- Step 0: Instructions -->
+        <div class="apply-step" data-step="0" data-ps="src/pages/our-programs.astro:apply-instructions">
+          <h2 class="text-xl font-bold text-white mb-1">Before you begin</h2>
+          <p class="text-sm text-[#94A3B8] mb-6">Please read the following instructions carefully before filling out the application.</p>
+
+          <div class="space-y-4 mb-6">
+            <div class="flex gap-3 items-start">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-secondary/20 text-secondary text-xs font-bold flex items-center justify-center mt-0.5">1</span>
+              <div>
+                <p class="text-sm text-white font-medium">Complete all sections</p>
+                <p class="text-xs text-[#94A3B8] mt-0.5">The application has 4 sections: Profile, Idea, Traction & Team, and Media. All sections must be completed for your application to be reviewed.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 items-start">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-secondary/20 text-secondary text-xs font-bold flex items-center justify-center mt-0.5">2</span>
+              <div>
+                <p class="text-sm text-white font-medium">Fields marked with <span class="text-error">*</span> are mandatory</p>
+                <p class="text-xs text-[#94A3B8] mt-0.5">You will not be able to proceed to the next section until all mandatory fields are filled in correctly.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 items-start">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-secondary/20 text-secondary text-xs font-bold flex items-center justify-center mt-0.5">3</span>
+              <div>
+                <p class="text-sm text-white font-medium">Keep your pitch deck and media links ready</p>
+                <p class="text-xs text-[#94A3B8] mt-0.5">In the final section, you'll be asked to share your pitch deck (Google Drive, Dropbox, etc.) and any demo or video links.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 items-start">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-secondary/20 text-secondary text-xs font-bold flex items-center justify-center mt-0.5">4</span>
+              <div>
+                <p class="text-sm text-white font-medium">Use a valid professional email</p>
+                <p class="text-xs text-[#94A3B8] mt-0.5">We use your email to communicate decisions. Disposable or temporary email addresses will not be accepted.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 items-start">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-secondary/20 text-secondary text-xs font-bold flex items-center justify-center mt-0.5">5</span>
+              <div>
+                <p class="text-sm text-white font-medium">Be concise and specific</p>
+                <p class="text-xs text-[#94A3B8] mt-0.5">Quality over quantity. Clear, specific answers help our team evaluate your application faster. Avoid generic descriptions.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 items-start">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-secondary/20 text-secondary text-xs font-bold flex items-center justify-center mt-0.5">6</span>
+              <div>
+                <p class="text-sm text-white font-medium">Review before submitting</p>
+                <p class="text-xs text-[#94A3B8] mt-0.5">Once submitted, you cannot edit your application. Make sure all information is accurate and complete.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 border border-white/10 rounded-lg p-4">
+            <p class="text-xs text-[#94A3B8]"><span class="text-secondary font-semibold">Estimated time:</span> 10-15 minutes. Your progress is not saved — please complete the form in one sitting.</p>
+          </div>
+        </div>
+
+        <!-- Step 1: Founder Profile -->
+        <div class="apply-step hidden" data-step="1" data-ps="src/pages/our-programs.astro:apply-s0">
           <h2 class="text-xl font-bold text-white mb-1" data-ps="src/pages/our-programs.astro:apply-s0-h">Tell us about yourself</h2>
           <p class="text-sm text-[#94A3B8] mb-6" data-ps="src/pages/our-programs.astro:apply-s0-p">We back founders, not just ideas.</p>
 
@@ -168,8 +225,8 @@ const jsonLd = {
           </div>
         </div>
 
-        <!-- Step 1: The Idea -->
-        <div class="apply-step hidden" data-step="1" data-ps="src/pages/our-programs.astro:apply-s1">
+        <!-- Step 2: The Idea -->
+        <div class="apply-step hidden" data-step="2" data-ps="src/pages/our-programs.astro:apply-s1">
           <h2 class="text-xl font-bold text-white mb-1" data-ps="src/pages/our-programs.astro:apply-s1-h">What are you building?</h2>
           <p class="text-sm text-[#94A3B8] mb-6" data-ps="src/pages/our-programs.astro:apply-s1-p">Clarity beats complexity. Tell us the problem, the solution, and why now.</p>
 
@@ -216,8 +273,8 @@ const jsonLd = {
           </div>
         </div>
 
-        <!-- Step 2: Traction & Team -->
-        <div class="apply-step hidden" data-step="2" data-ps="src/pages/our-programs.astro:apply-s2">
+        <!-- Step 3: Traction & Team -->
+        <div class="apply-step hidden" data-step="3" data-ps="src/pages/our-programs.astro:apply-s2">
           <h2 class="text-xl font-bold text-white mb-1" data-ps="src/pages/our-programs.astro:apply-s2-h">Traction & team</h2>
           <p class="text-sm text-[#94A3B8] mb-6" data-ps="src/pages/our-programs.astro:apply-s2-p">Show us the momentum and the people behind the venture.</p>
 
@@ -299,8 +356,8 @@ const jsonLd = {
           </div>
         </div>
 
-        <!-- Step 3: Media & Submit -->
-        <div class="apply-step hidden" data-step="3" data-ps="src/pages/our-programs.astro:apply-s3">
+        <!-- Step 4: Media & Submit -->
+        <div class="apply-step hidden" data-step="4" data-ps="src/pages/our-programs.astro:apply-s3">
           <h2 class="text-xl font-bold text-white mb-1" data-ps="src/pages/our-programs.astro:apply-s3-h">Video introduction & pitch deck</h2>
           <p class="text-sm text-[#94A3B8] mb-6" data-ps="src/pages/our-programs.astro:apply-s3-p">A short video tells us more than any form ever could.</p>
 
@@ -629,7 +686,7 @@ const jsonLd = {
       const labels = document.querySelectorAll<HTMLElement>('#apply-labels [data-lb]');
 
       let currentStep = 0;
-      const totalSteps = 4;
+      const totalSteps = 5;
 
       function showStep(n: number) {
         steps.forEach((s) => {
@@ -656,7 +713,7 @@ const jsonLd = {
           if (i === n) lb.classList.add('text-white');
         });
 
-        if (n === 0) {
+        if (n <= 0) {
           applyBack?.classList.add('hidden');
         } else {
           applyBack?.classList.remove('hidden');
@@ -670,6 +727,10 @@ const jsonLd = {
             applyNext!.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Submit application`;
             applyNext!.classList.remove('bg-secondary', 'hover:bg-secondary-hover');
             applyNext!.classList.add('bg-primary', 'hover:bg-primary-hover');
+          } else if (n === 0) {
+            applyNext!.innerHTML = `Begin Application <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`;
+            applyNext!.classList.remove('bg-primary', 'hover:bg-primary-hover');
+            applyNext!.classList.add('bg-secondary', 'hover:bg-secondary-hover');
           } else {
             applyNext!.innerHTML = `Continue <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`;
             applyNext!.classList.remove('bg-primary', 'hover:bg-primary-hover');
@@ -677,8 +738,61 @@ const jsonLd = {
           }
         }
 
+        const progressWrap = document.getElementById('apply-progress-wrap');
+        if (n === 0) {
+          progressWrap?.classList.add('hidden');
+        } else {
+          progressWrap?.classList.remove('hidden');
+        }
+
         applyScroll?.scrollTo({ top: 0, behavior: 'instant' });
         currentStep = n;
+      }
+
+      function validateCurrentStep(): boolean {
+        const stepEl = document.querySelector<HTMLElement>(`.apply-step[data-step="${currentStep}"]`);
+        if (!stepEl) return true;
+
+        // Step 0 is instructions — no validation needed
+        if (currentStep === 0) return true;
+
+        const requiredInputs = stepEl.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>('input[required], textarea[required], select[required]');
+        let firstInvalid: HTMLElement | null = null;
+
+        requiredInputs.forEach((input) => {
+          if (!input.value.trim()) {
+            input.classList.add('border-error/60');
+            if (!firstInvalid) firstInvalid = input;
+          } else {
+            input.classList.remove('border-error/60');
+          }
+        });
+
+        // Check required radio groups
+        const radioGroups = new Set<string>();
+        stepEl.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((r) => {
+          const label = r.closest('.space-y-1\\.5, .mb-4');
+          if (label?.querySelector('.text-error')) radioGroups.add(r.name);
+        });
+
+        radioGroups.forEach((name) => {
+          const checked = stepEl.querySelector<HTMLInputElement>(`input[name="${name}"]:checked`);
+          if (!checked) {
+            const container = stepEl.querySelector(`input[name="${name}"]`)?.closest('.flex.flex-wrap, .flex.gap-2') as HTMLElement;
+            if (container) {
+              container.classList.add('ring-1', 'ring-error/60', 'rounded-lg');
+              setTimeout(() => container.classList.remove('ring-1', 'ring-error/60', 'rounded-lg'), 3000);
+              if (!firstInvalid) firstInvalid = container;
+            }
+          }
+        });
+
+        if (firstInvalid) {
+          firstInvalid.focus();
+          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return false;
+        }
+        return true;
       }
 
       function openApply() {
@@ -695,6 +809,11 @@ const jsonLd = {
         document.body.style.overflow = '';
       }
 
+      // Clear validation errors on input
+      document.querySelectorAll<HTMLElement>('.apply-step input, .apply-step textarea, .apply-step select').forEach((el) => {
+        el.addEventListener('input', () => el.classList.remove('border-error/60'));
+      });
+
       applyOpen?.addEventListener('click', openApply);
       applyClose?.addEventListener('click', closeApply);
       applyBackdrop?.addEventListener('click', closeApply);
@@ -708,8 +827,10 @@ const jsonLd = {
 
       applyNext?.addEventListener('click', () => {
         if (currentStep < totalSteps - 1) {
+          if (!validateCurrentStep()) return;
           showStep(currentStep + 1);
         } else if (currentStep === totalSteps - 1) {
+          if (!validateCurrentStep()) return;
           const consent = document.getElementById('apply-consent') as HTMLInputElement;
           if (!consent?.checked) {
             consent?.focus();
