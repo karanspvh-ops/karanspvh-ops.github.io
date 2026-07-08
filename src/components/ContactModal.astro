@@ -1,5 +1,4 @@
 ---
-import 'altcha';
 ---
 
 <div id="contact-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" data-ps="src/components/ContactModal.astro:modal-root">
@@ -112,9 +111,7 @@ import 'altcha';
             ></textarea>
           </div>
 
-          <div class="flex justify-center" data-ps="src/components/ContactModal.astro:altcha-container">
-            <altcha-widget challenge="/psapi-internal-v1/altcha/challenge" display="invisible" auto="onfocus"></altcha-widget>
-          </div>
+          <input type="text" name="_hp_website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;overflow:hidden" />
 
           <button 
             type="submit"
@@ -166,7 +163,16 @@ import 'altcha';
     submitBtn.textContent = 'SENDING...';
 
     const formData = new FormData(form);
+    if (formData.get('_hp_website')) {
+      status.className = 'mb-6 px-4 py-3 rounded-lg bg-secondary/20 border border-secondary text-secondary text-sm';
+      status.textContent = 'Thank you! Your message has been sent.';
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'SEND MESSAGE';
+      return;
+    }
     const data: Record<string, any> = Object.fromEntries(formData);
+    delete data._hp_website;
     data._formType = 'contact';
 
     try {

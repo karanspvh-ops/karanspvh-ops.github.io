@@ -50,8 +50,8 @@ const jsonLd = {
             </select>
           </div>
           
+          <input type="text" name="_hp_website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;overflow:hidden" />
           <div class="pt-4" data-ps="src/pages/our-programs.astro:lui32c">
-            <altcha-widget challenge="/psapi-internal-v1/altcha/challenge" display="invisible" auto="onfocus"></altcha-widget>
             <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-4 px-8 rounded-lg uppercase tracking-wide transition-all" data-ps="src/pages/our-programs.astro:ig6myu">
               Submit
             </button>
@@ -653,8 +653,6 @@ const jsonLd = {
   </section>
 
   <script>
-    import 'altcha';
-
     // ── Apply Now Modal ──
     {
       const applyModal = document.getElementById('apply-modal');
@@ -974,7 +972,14 @@ const jsonLd = {
       }
 
       const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
+      if (formData.get('_hp_website')) {
+        formContainer?.classList.add('hidden');
+        successContainer?.classList.remove('hidden');
+        successContainer?.classList.add('flex');
+        return;
+      }
+      const data: Record<string, any> = Object.fromEntries(formData);
+      delete data._hp_website;
 
       try {
         await fetch('https://script.google.com/macros/s/AKfycbx3Zm67d3faiGLVl7eMxk9dv9mU2FQyMg9JusKHzpv9oCN_C2E111XJ5IQUmKwYzCMXkg/exec', {
