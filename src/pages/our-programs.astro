@@ -915,16 +915,26 @@ const jsonLd = {
       }
     });
 
+    let deckSavedScroll = 0;
+
     function openModal() {
       modal?.classList.remove('hidden');
       modal?.classList.add('flex');
+      deckSavedScroll = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${deckSavedScroll}px`;
+      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
       modal?.classList.add('hidden');
       modal?.classList.remove('flex');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
       document.body.style.overflow = '';
+      window.scrollTo({ top: deckSavedScroll, behavior: 'instant' });
       if (successContainer?.classList.contains('flex')) {
          setTimeout(() => {
            formContainer?.classList.remove('hidden');
