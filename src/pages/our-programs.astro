@@ -412,7 +412,7 @@ const jsonLd = {
         </div>
 
         <!-- Success State -->
-        <div class="apply-step hidden" data-step="4" data-ps="src/pages/our-programs.astro:apply-s4">
+        <div class="apply-step hidden" data-step="5" data-ps="src/pages/our-programs.astro:apply-s4">
           <div class="text-center py-12">
             <div class="w-16 h-16 rounded-full bg-secondary/15 flex items-center justify-center mx-auto mb-5">
               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-secondary"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -819,7 +819,7 @@ const jsonLd = {
         if (currentStep > 0) showStep(currentStep - 1);
       });
 
-      applyNext?.addEventListener('click', () => {
+      applyNext?.addEventListener('click', async () => {
         if (currentStep < totalSteps - 1) {
           if (!validateCurrentStep()) return;
           showStep(currentStep + 1);
@@ -832,7 +832,33 @@ const jsonLd = {
             setTimeout(() => consent?.parentElement?.classList.remove('ring-1', 'ring-error'), 2000);
             return;
           }
-          showStep(4);
+
+          applyNext!.disabled = true;
+          applyNext!.innerHTML = `Submitting...`;
+
+          const allInputs = document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>('.apply-step input, .apply-step textarea, .apply-step select');
+          const payload: Record<string, any> = { _formType: 'application' };
+          allInputs.forEach((el) => {
+            if (!el.name) return;
+            if (el instanceof HTMLInputElement && el.type === 'radio') {
+              if (el.checked) payload[el.name] = el.value;
+            } else if (el instanceof HTMLInputElement && el.type === 'checkbox') {
+              payload[el.name] = el.checked;
+            } else {
+              payload[el.name] = el.value;
+            }
+          });
+          payload.a_consent = consent.checked;
+
+          try {
+            await fetch('https://script.google.com/macros/s/AKfycbx3Zm67d3faiGLVl7eMxk9dv9mU2FQyMg9JusKHzpv9oCN_C2E111XJ5IQUmKwYzCMXkg/exec', {
+              method: 'POST',
+              mode: 'no-cors',
+              body: JSON.stringify(payload),
+            });
+          } catch (_) {}
+
+          showStep(5);
         }
       });
     }
@@ -951,13 +977,12 @@ const jsonLd = {
       const data = Object.fromEntries(formData);
 
       try {
-        await fetch('/psapi-internal-v1/forms/submit', {
+        await fetch('https://script.google.com/macros/s/AKfycbx3Zm67d3faiGLVl7eMxk9dv9mU2FQyMg9JusKHzpv9oCN_C2E111XJ5IQUmKwYzCMXkg/exec', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          mode: 'no-cors',
           body: JSON.stringify({
             ...data,
-            subject: 'New Program Deck Request',
-            altcha: formData.get('altcha')
+            _formType: 'deck',
           })
         });
       } catch (_) {}

@@ -151,31 +151,22 @@
     submitBtn.textContent = 'SENDING...';
 
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
-    
-    // Add auto-acknowledgment fields
-    data._confirmationSubject = "We received your inquiry - SPVH Group";
-    data._confirmationBody = "Thank you for reaching out to SPVH Group. We have received your message and our team will get back to you shortly.\n\nBest regards,\nSPVH Group Team";
+    const data: Record<string, any> = Object.fromEntries(formData);
+    data._formType = 'contact';
 
     try {
-      const response = await fetch('/psapi-internal-v1/forms/submit', {
+      await fetch('https://script.google.com/macros/s/AKfycbx3Zm67d3faiGLVl7eMxk9dv9mU2FQyMg9JusKHzpv9oCN_C2E111XJ5IQUmKwYzCMXkg/exec', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
-
-      if (result.success) {
-        status.className = 'mb-6 px-4 py-3 rounded-lg bg-secondary/20 border border-secondary text-secondary text-sm';
-        status.textContent = 'Thank you! Your message has been sent.';
-        form.reset();
-      } else {
-        throw new Error(result.error || 'Failed to send');
-      }
+      status.className = 'mb-6 px-4 py-3 rounded-lg bg-secondary/20 border border-secondary text-secondary text-sm';
+      status.textContent = 'Thank you! Your message has been sent.';
+      form.reset();
     } catch (err) {
       status.className = 'mb-6 px-4 py-3 rounded-lg bg-red-500/20 border border-red-500 text-red-500 text-sm';
-      status.textContent = err instanceof Error ? err.message : 'Failed to send. Please try again.';
+      status.textContent = 'Failed to send. Please try again.';
     } finally {
       status.classList.remove('hidden');
       submitBtn.disabled = false;
