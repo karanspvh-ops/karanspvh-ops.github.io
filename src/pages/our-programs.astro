@@ -795,18 +795,28 @@ const jsonLd = {
         return true;
       }
 
+      let savedScrollY = 0;
+
       function openApply() {
         currentStep = 0;
         showStep(0);
         applyModal?.classList.remove('hidden');
         applyModal?.classList.add('flex');
+        savedScrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${savedScrollY}px`;
+        document.body.style.width = '100%';
         document.body.style.overflow = 'hidden';
       }
 
       function closeApply() {
         applyModal?.classList.add('hidden');
         applyModal?.classList.remove('flex');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
         document.body.style.overflow = '';
+        window.scrollTo({ top: savedScrollY, behavior: 'instant' });
       }
 
       // Clear validation errors on input
