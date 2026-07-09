@@ -1,6 +1,7 @@
 ﻿---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { SITE } from '@/config/site';
+import { FORMS } from '@/config/forms';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -652,7 +653,7 @@ const jsonLd = {
     </div>
   </section>
 
-  <script>
+  <script define:vars={{ FORMS_ENDPOINT: FORMS.endpoint }}>
     // ── Apply Now Modal ──
     {
       const applyModal = document.getElementById('apply-modal');
@@ -849,7 +850,7 @@ const jsonLd = {
           payload.a_consent = consent.checked;
 
           try {
-            await fetch('https://script.google.com/macros/s/AKfycbx3Zm67d3faiGLVl7eMxk9dv9mU2FQyMg9JusKHzpv9oCN_C2E111XJ5IQUmKwYzCMXkg/exec', {
+            await fetch(FORMS_ENDPOINT, {
               method: 'POST',
               mode: 'no-cors',
               body: JSON.stringify(payload),
@@ -982,7 +983,7 @@ const jsonLd = {
       delete data._hp_website;
 
       try {
-        await fetch('https://script.google.com/macros/s/AKfycbx3Zm67d3faiGLVl7eMxk9dv9mU2FQyMg9JusKHzpv9oCN_C2E111XJ5IQUmKwYzCMXkg/exec', {
+        await fetch(FORMS_ENDPOINT, {
           method: 'POST',
           mode: 'no-cors',
           body: JSON.stringify({

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { SITE } from '@/config/site';
+import { FORMS } from '@/config/forms';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -254,7 +255,7 @@ const jsonLd = {
     </div>
   </section>
 
-  <script is:inline>
+  <script is:inline define:vars={{ FORMS_ENDPOINT: FORMS.endpoint }}>
     document.addEventListener("DOMContentLoaded", function() {
       var proposalForm = document.getElementById("proposal-form");
       var proposalStatus = document.getElementById("proposal-status");
@@ -327,7 +328,7 @@ const jsonLd = {
         }
 
         try {
-          await fetch("https://script.google.com/macros/s/AKfycbx3Zm67d3faiGLVl7eMxk9dv9mU2FQyMg9JusKHzpv9oCN_C2E111XJ5IQUmKwYzCMXkg/exec", {
+          await fetch(FORMS_ENDPOINT, {
             method: "POST",
             mode: "no-cors",
             body: JSON.stringify(payload),
