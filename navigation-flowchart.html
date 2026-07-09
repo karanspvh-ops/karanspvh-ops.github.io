@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPVH Group — Navigation Flowchart</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      padding: 40px 24px 80px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #8b949e;
+      font-size: 13px;
+      margin-bottom: 48px;
+      letter-spacing: 1px;
+    }
+
+    /* Legend */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #8b949e;
+    }
+    .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Section */
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #8b949e;
+      margin-bottom: 16px;
+      padding-left: 4px;
+      border-left: 3px solid #30363d;
+      padding-left: 10px;
+    }
+
+    /* Page Card */
+    .page-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 16px;
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+    .page-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      background: #1c2128;
+      border-bottom: 1px solid #30363d;
+    }
+    .page-url {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: #79c0ff;
+      font-weight: 700;
+    }
+    .page-name {
+      font-size: 13px;
+      color: #8b949e;
+    }
+    .page-badge {
+      margin-left: auto;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+    .badge-global { background: #1f4068; color: #79c0ff; }
+    .badge-page   { background: #1a2d1a; color: #56d364; }
+
+    .page-card-body { padding: 20px; }
+
+    /* Link rows */
+    .link-group-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #6e7681;
+      margin: 16px 0 8px;
+    }
+    .link-group-title:first-child { margin-top: 0; }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 8px;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #30363d;
+      background: #0d1117;
+      transition: border-color 0.2s;
+    }
+    .link-item:hover { border-color: #58a6ff; }
+
+    .link-type-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .link-content { flex: 1; min-width: 0; }
+    .link-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e6edf3;
+      margin-bottom: 2px;
+    }
+    .link-dest {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: #8b949e;
+      word-break: break-all;
+    }
+    .link-kind {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin-top: 2px;
+    }
+
+    /* Color palette */
+    .type-internal   { background: #1f6feb22; color: #58a6ff; border: 1px solid #1f6feb55; }
+    .type-scroll     { background: #3fb95022; color: #56d364; border: 1px solid #3fb95055; }
+    .type-external   { background: #d2992222; color: #d29922; border: 1px solid #d2992255; }
+    .type-email      { background: #bc4c0022; color: #f78166; border: 1px solid #bc4c0055; }
+    .type-api        { background: #8957e522; color: #bc8cff; border: 1px solid #8957e555; }
+    .type-pdf        { background: #da3633;   color: #fff;     border: 1px solid #da3633; font-size: 9px; }
+    .type-control    { background: #21262d;   color: #8b949e; border: 1px solid #30363d; }
+
+    .dot-internal { background: #58a6ff; }
+    .dot-scroll   { background: #56d364; }
+    .dot-external { background: #d29922; }
+    .dot-email    { background: #f78166; }
+    .dot-api      { background: #bc8cff; }
+    .dot-pdf      { background: #da3633; }
+    .dot-control  { background: #6e7681; }
+
+    /* Grid layout for pages */
+    .pages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(640px, 1fr));
+      gap: 24px;
+    }
+    @media (max-width: 700px) {
+      .pages-grid { grid-template-columns: 1fr; }
+      .links-grid { grid-template-columns: 1fr; }
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid #30363d;
+      margin: 40px 0;
+    }
+
+    .global-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>SPVH Group — Navigation Flowchart</h1>
+  <p class="subtitle">Every link, button, and redirect across all pages · Generated May 2026</p>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-item"><span class="dot dot-internal"></span> Internal page</div>
+    <div class="legend-item"><span class="dot dot-scroll"></span> Scroll to section</div>
+    <div class="legend-item"><span class="dot dot-external"></span> External website</div>
+    <div class="legend-item"><span class="dot dot-email"></span> Email link</div>
+    <div class="legend-item"><span class="dot dot-api"></span> API / Form submit</div>
+    <div class="legend-item"><span class="dot dot-pdf"></span> PDF download</div>
+    <div class="legend-item"><span class="dot dot-control"></span> UI control (no redirect)</div>
+  </div>
+
+  <!-- ═══════════════════ GLOBAL COMPONENTS ═══════════════════ -->
+  <div class="section-title">Global Components — Present on Every Page</div>
+  <div class="global-grid">
+
+    <!-- Header Nav -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div>
+          <div class="page-url">Navigation Bar</div>
+          <div class="page-name">Fixed header — visible on all 14 pages</div>
+        </div>
+        <span class="page-badge badge-global">Global</span>
+      </div>
+      <div class="page-card-body">
+        <div class="link-group-title">Logo & Primary Links</div>
+        <div class="links-grid">
+          <div class="link-item">
+            <span class="link-type-dot dot-internal"></span>
+            <div class="link-content"><div class="link-label">SPVH Logo</div><div class="link-dest">/</div></div>
+            <span class="link-kind type-internal">Internal</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-internal"></span>
+            <div class="link-content"><div class="link-label">About</div><div class="link-dest">/about</div></div>
+            <span class="link-kind type-internal">Internal</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-internal"></span>
+            <div class="link-content"><div class="link-label">Our Programs</div><div class="link-dest">/our-programs</div></div>
+            <span class="link-kind type-internal">Internal</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-scroll"></span>
+            <div class="link-content"><div class="link-label">Contact Button</div><div class="link-dest">/#contact</div></div>
+            <span class="link-kind type-scroll">Scroll</span>
+          </div>
+        </div>
+
+        <div class="link-group-title">Business Verticals Dropdown</div>
+        <div class="links-grid">
+          <div class="link-item">
+            <span class="link-type-dot dot-internal"></span>
+            <div class="link-content"><div class="link-label">Financial Services</div><div class="link-dest">/financial-services</div></div>
+            <span class="link-kind type-internal">Internal</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-internal"></span>
+            <div class="link-content"><div class="link-label">Media & Entertainment</div><div class="link-dest">/media-entertainment</div></div>
+            <span class="link-kind type-internal">Internal</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-internal"></span>
+            <div class="link-content"><div class="link-label">Hospitality</div><div class="link-dest">/hospitality</div></div>
+            <span class="link-kind type-internal">Internal</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-internal"></span>
+            <div class="link-content"><div class="link-label">Automotive</div><div class="link-dest">/verticals/automotive</div></div>
+            <span class="link-kind type-internal">Internal</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-internal"></span>
+            <div class="link-content"><div class="link-label">Technology & Research</div><div class="link-dest">/verticals/technology-research</div></div>
+            <span class="link-kind type-internal">Internal</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-internal"></span>
+            <div class="link-content"><div class="link-label">Real Estate & Interior Design</div><div class="link-dest">/verticals/real-estate-interior-design</div></div>
+            <span class="link-kind type-internal">Internal</span>
+          </div>
+        </div>
+
+        <div class="link-group-title">Mobile Menu Controls</div>
+        <div class="links-grid">
+          <div class="link-item">
+            <span class="link-type-dot dot-control"></span>
+            <div class="link-content"><div class="link-label">☰ Hamburger Toggle</div><div class="link-dest">Opens / closes mobile menu</div></div>
+            <span class="link-kind type-control">UI Control</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-control"></span>
+            <div class="link-content"><div class="link-label">✕ Close Menu</div><div class="link-dest">Closes mobile overlay</div></div>
+            <span class="link-kind type-control">UI Control</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-control"></span>
+            <div class="link-content"><div class="link-label">Business Verticals Accordion</div><div class="link-dest">Expands sub-links on mobile</div></div>
+            <span class="link-kind type-control">UI Control</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-control"></span>
+            <div class="link-content"><div class="link-label">Collapse Nav Arrow</div><div class="link-dest">Collapses nav on scroll</div></div>
+            <span class="link-kind type-control">UI Control</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div>
+          <div class="page-url">Footer</div>
+          <div class="page-name">Bottom section — visible on all 14 pages</div>
+        </div>
+        <span class="page-badge badge-global">Global</span>
+      </div>
+      <div class="page-card-body">
+        <div class="link-group-title">Brand</div>
+        <div class="links-grid">
+          <div class="link-item">
+            <span class="link-type-dot dot-internal"></span>
+            <div class="link-content"><div class="link-label">SPVH Logo</div><div class="link-dest">/</div></div>
+            <span class="link-kind type-internal">Internal</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-email"></span>
+            <div class="link-content"><div class="link-label">info@spvhgroup.com</div><div class="link-dest">mailto:info@spvhgroup.com</div></div>
+            <span class="link-kind type-email">Email</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-external"></span>
+            <div class="link-content"><div class="link-label">LinkedIn</div><div class="link-dest">linkedin.com/company/spvhgroup</div></div>
+            <span class="link-kind type-external">External</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-external"></span>
+            <div class="link-content"><div class="link-label">Twitter / X</div><div class="link-dest">twitter.com/spvhgroup</div></div>
+            <span class="link-kind type-external">External</span>
+          </div>
+          <div class="link-item">
+            <span class="link-type-dot dot-external"></span>
+            <div class="link-content"><div class="link-label">Instagram</div><div class="link-dest">instagram.com/spvhgroup</div></div>
+            <span class="link-kind type-external">External</span>
+          </div>
+        </div>
+
+        <div class="link-group-title">Platform Column</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Home</div><div class="link-dest">/</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">About Us</div><div class="link-dest">/about</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Our Programs</div><div class="link-dest">/our-programs</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">CSR & Philanthropy</div><div class="link-dest">/csr-philanthropy</div></div><span class="link-kind type-internal">Internal</span></div>
+        </div>
+
+        <div class="link-group-title">Our Businesses Column</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Financial Services</div><div class="link-dest">/financial-services</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Media & Entertainment</div><div class="link-dest">/media-entertainment</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Hospitality</div><div class="link-dest">/hospitality</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Automotive</div><div class="link-dest">/verticals/automotive</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Technology & Research</div><div class="link-dest">/verticals/technology-research</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Real Estate & Interior Design</div><div class="link-dest">/verticals/real-estate-interior-design</div></div><span class="link-kind type-internal">Internal</span></div>
+        </div>
+
+        <div class="link-group-title">Compliance Column</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Privacy Policy</div><div class="link-dest">/privacy-policy</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Terms of Service</div><div class="link-dest">/terms-of-service</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Regulatory Disclosures</div><div class="link-dest">/regulatory-disclosures</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-control"></span><div class="link-content"><div class="link-label">↑ Back to Top</div><div class="link-dest">Scrolls to page top</div></div><span class="link-kind type-control">UI Control</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /global-grid -->
+
+  <!-- Vertical Nav -->
+  <div class="page-card" style="margin-bottom:40px;">
+    <div class="page-card-header">
+      <div>
+        <div class="page-url">Vertical Navigation Bar</div>
+        <div class="page-name">Sub-nav shown on all 6 business vertical pages</div>
+      </div>
+      <span class="page-badge badge-global">Global (Verticals)</span>
+    </div>
+    <div class="page-card-body">
+      <div class="links-grid">
+        <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Financial Services</div><div class="link-dest">/financial-services</div></div><span class="link-kind type-internal">Internal</span></div>
+        <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Media & Entertainment</div><div class="link-dest">/media-entertainment</div></div><span class="link-kind type-internal">Internal</span></div>
+        <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Hospitality</div><div class="link-dest">/hospitality</div></div><span class="link-kind type-internal">Internal</span></div>
+        <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Automotive</div><div class="link-dest">/verticals/automotive</div></div><span class="link-kind type-internal">Internal</span></div>
+        <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Technology & Research</div><div class="link-dest">/verticals/technology-research</div></div><span class="link-kind type-internal">Internal</span></div>
+        <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Real Estate & Interior Design</div><div class="link-dest">/verticals/real-estate-interior-design</div></div><span class="link-kind type-internal">Internal</span></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══════════════════ INDIVIDUAL PAGES ═══════════════════ -->
+  <div class="section-title">Individual Pages — Page-specific links & buttons only</div>
+  <div class="pages-grid">
+
+    <!-- HOME -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/</div><div class="page-name">Home</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div class="link-group-title">Hero Section</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-scroll"></span><div class="link-content"><div class="link-label">Explore Our Verticals (CTA)</div><div class="link-dest">#businesses</div></div><span class="link-kind type-scroll">Scroll</span></div>
+          <div class="link-item"><span class="link-type-dot dot-control"></span><div class="link-content"><div class="link-label">Slide Indicators (×4)</div><div class="link-dest">Carousel navigation — no redirect</div></div><span class="link-kind type-control">UI Control</span></div>
+        </div>
+        <div class="link-group-title">About Section</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">KNOW MORE</div><div class="link-dest">/about</div></div><span class="link-kind type-internal">Internal</span></div>
+        </div>
+        <div class="link-group-title">Business Verticals Section</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Financial Services card</div><div class="link-dest">/financial-services</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Media & Entertainment card</div><div class="link-dest">/media-entertainment</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Hospitality card</div><div class="link-dest">/hospitality</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Automotive card</div><div class="link-dest">/verticals/automotive</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Technology & Research card</div><div class="link-dest">/verticals/technology-research</div></div><span class="link-kind type-internal">Internal</span></div>
+          <div class="link-item"><span class="link-type-dot dot-internal"></span><div class="link-content"><div class="link-label">Real Estate & Interior Design card</div><div class="link-dest">/verticals/real-estate-interior-design</div></div><span class="link-kind type-internal">Internal</span></div>
+        </div>
+        <div class="link-group-title">News & PR Section</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-external"></span><div class="link-content"><div class="link-label">Article 1 — VCCircle</div><div class="link-dest">vccircle.com/weavecapital…</div></div><span class="link-kind type-external">External</span></div>
+          <div class="link-item"><span class="link-type-dot dot-control"></span><div class="link-content"><div class="link-label">Articles 2, 3, 4</div><div class="link-dest">Links not yet assigned (#)</div></div><span class="link-kind type-control">Placeholder</span></div>
+          <div class="link-item"><span class="link-type-dot dot-control"></span><div class="link-content"><div class="link-label">← → Carousel Arrows</div><div class="link-dest">Scrolls article carousel</div></div><span class="link-kind type-control">UI Control</span></div>
+        </div>
+        <div class="link-group-title">Contact Section</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-email"></span><div class="link-content"><div class="link-label">info@spvhgroup.com</div><div class="link-dest">mailto:info@spvhgroup.com</div></div><span class="link-kind type-email">Email</span></div>
+          <div class="link-item"><span class="link-type-dot dot-api"></span><div class="link-content"><div class="link-label">SEND MESSAGE (form submit)</div><div class="link-dest">POST /psapi-internal-v1/forms/submit</div></div><span class="link-kind type-api">API Call</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/about</div><div class="page-name">About SPVH Group</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div class="link-group-title">Founder Section</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-control"></span><div class="link-content"><div class="link-label">Founder photo (hover effect)</div><div class="link-dest">Scale animation — no redirect</div></div><span class="link-kind type-control">UI Only</span></div>
+        </div>
+        <div class="link-group-title">Leadership & Advisory</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-control"></span><div class="link-content"><div class="link-label">Team member cards</div><div class="link-dest">Display only — no redirect</div></div><span class="link-kind type-control">UI Only</span></div>
+        </div>
+        <div style="margin-top:12px; padding:10px 12px; border-radius:8px; background:#161b22; border:1px dashed #30363d; font-size:12px; color:#6e7681;">
+          ℹ️ No outbound page links on this page beyond the global Nav &amp; Footer.
+        </div>
+      </div>
+    </div>
+
+    <!-- FINANCIAL SERVICES -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/financial-services</div><div class="page-name">Financial Services</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div class="link-group-title">Hero</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-scroll"></span><div class="link-content"><div class="link-label">"Business Vertical" badge</div><div class="link-dest">/#businesses</div></div><span class="link-kind type-scroll">Scroll</span></div>
+        </div>
+        <div class="link-group-title">Offerings / Service Cards</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-external"></span><div class="link-content"><div class="link-label">AIF — Learn More</div><div class="link-dest">spvhamc.com</div></div><span class="link-kind type-external">External</span></div>
+          <div class="link-item"><span class="link-type-dot dot-external"></span><div class="link-content"><div class="link-label">PMS — Learn More</div><div class="link-dest">spvhamc.com</div></div><span class="link-kind type-external">External</span></div>
+          <div class="link-item"><span class="link-type-dot dot-external"></span><div class="link-content"><div class="link-label">Wealth Management — Learn More</div><div class="link-dest">bpaconsulting.in</div></div><span class="link-kind type-external">External</span></div>
+          <div class="link-item"><span class="link-type-dot dot-external"></span><div class="link-content"><div class="link-label">Advisory — Learn More</div><div class="link-dest">bpaconsulting.in</div></div><span class="link-kind type-external">External</span></div>
+        </div>
+        <div class="link-group-title">CTA Section</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-external"></span><div class="link-content"><div class="link-label">WhatsApp Us (CTA Button)</div><div class="link-dest">wa.me/your-number</div></div><span class="link-kind type-external">External</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEDIA & ENTERTAINMENT -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/media-entertainment</div><div class="page-name">Media & Entertainment</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div class="link-group-title">Hero</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-scroll"></span><div class="link-content"><div class="link-label">"Business Vertical" badge</div><div class="link-dest">/#businesses</div></div><span class="link-kind type-scroll">Scroll</span></div>
+        </div>
+        <div style="margin-top:12px; padding:10px 12px; border-radius:8px; background:#161b22; border:1px dashed #30363d; font-size:12px; color:#6e7681;">
+          ℹ️ No additional outbound links beyond global Nav, Footer &amp; VerticalNav.
+        </div>
+      </div>
+    </div>
+
+    <!-- HOSPITALITY -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/hospitality</div><div class="page-name">Hospitality</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div class="link-group-title">Hero</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-scroll"></span><div class="link-content"><div class="link-label">"Business Vertical" badge</div><div class="link-dest">/#businesses</div></div><span class="link-kind type-scroll">Scroll</span></div>
+        </div>
+        <div class="link-group-title">CTA Section</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-scroll"></span><div class="link-content"><div class="link-label">DISCUSS EXPANSION</div><div class="link-dest">/#contact</div></div><span class="link-kind type-scroll">Scroll</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUR PROGRAMS -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/our-programs</div><div class="page-name">Our Programs</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div class="link-group-title">Program Cards</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-scroll"></span><div class="link-content"><div class="link-label">Apply Now! (CTA)</div><div class="link-dest">/#contact</div></div><span class="link-kind type-scroll">Scroll</span></div>
+          <div class="link-item"><span class="link-type-dot dot-pdf"></span><div class="link-content"><div class="link-label">Download Curriculum PDF</div><div class="link-dest">/files/Curriculum-Securities…pdf</div></div><span class="link-kind type-pdf">PDF</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CSR -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/csr-philanthropy</div><div class="page-name">CSR & Philanthropy</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div class="link-group-title">CTA Section</div>
+        <div class="links-grid">
+          <div class="link-item"><span class="link-type-dot dot-scroll"></span><div class="link-content"><div class="link-label">Partner With Us (CTA)</div><div class="link-dest">/#contact</div></div><span class="link-kind type-scroll">Scroll</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUTOMOTIVE -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/verticals/automotive</div><div class="page-name">Automotive</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div style="padding:10px 12px; border-radius:8px; background:#161b22; border:1px dashed #30363d; font-size:12px; color:#6e7681;">
+          ℹ️ User-uploaded content — links depend on page content. Check after upload.
+        </div>
+      </div>
+    </div>
+
+    <!-- TECHNOLOGY & RESEARCH -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/verticals/technology-research</div><div class="page-name">Technology & Research</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div style="padding:10px 12px; border-radius:8px; background:#161b22; border:1px dashed #30363d; font-size:12px; color:#6e7681;">
+          ℹ️ User-uploaded content — links depend on page content. Check after upload.
+        </div>
+      </div>
+    </div>
+
+    <!-- REAL ESTATE -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/verticals/real-estate-interior-design</div><div class="page-name">Real Estate & Interior Design</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div style="padding:10px 12px; border-radius:8px; background:#161b22; border:1px dashed #30363d; font-size:12px; color:#6e7681;">
+          ℹ️ User-uploaded content — links depend on page content. Check after upload.
+        </div>
+      </div>
+    </div>
+
+    <!-- PRIVACY POLICY -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/privacy-policy</div><div class="page-name">Privacy Policy</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div style="padding:10px 12px; border-radius:8px; background:#161b22; border:1px dashed #30363d; font-size:12px; color:#6e7681;">
+          ℹ️ Text-only compliance page — no outbound links beyond global Nav &amp; Footer.
+        </div>
+      </div>
+    </div>
+
+    <!-- TERMS OF SERVICE -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/terms-of-service</div><div class="page-name">Terms of Service</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div style="padding:10px 12px; border-radius:8px; background:#161b22; border:1px dashed #30363d; font-size:12px; color:#6e7681;">
+          ℹ️ Text-only compliance page — no outbound links beyond global Nav &amp; Footer.
+        </div>
+      </div>
+    </div>
+
+    <!-- REGULATORY DISCLOSURES -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/regulatory-disclosures</div><div class="page-name">Regulatory Disclosures</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div style="padding:10px 12px; border-radius:8px; background:#161b22; border:1px dashed #30363d; font-size:12px; color:#6e7681;">
+          ℹ️ Text-only compliance page — no outbound links beyond global Nav &amp; Footer.
+        </div>
+      </div>
+    </div>
+
+    <!-- 404 -->
+    <div class="page-card">
+      <div class="page-card-header">
+        <div><div class="page-url">/404</div><div class="page-name">Page Not Found</div></div>
+        <span class="page-badge badge-page">Page</span>
+      </div>
+      <div class="page-card-body">
+        <div style="padding:10px 12px; border-radius:8px; background:#161b22; border:1px dashed #30363d; font-size:12px; color:#6e7681;">
+          ℹ️ Error page — likely links back to / via Nav &amp; Footer only.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /pages-grid -->
+
+  <hr class="divider" />
+  <p style="text-align:center;color:#6e7681;font-size:11px;letter-spacing:1px;">
+    SPVH Group · Navigation Flowchart · Generated May 2026
+  </p>
+
+</body>
+</html>

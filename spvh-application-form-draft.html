@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPVH Program Application: Draft</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', system-ui, sans-serif; background: #f4f6f9; color: #1b202d; min-height: 100vh; }
+
+    .page-header { background: #1b202d; padding: 2.5rem 1rem 2rem; text-align: center; }
+    .page-header img { height: 48px; margin-bottom: 1rem; }
+    .page-header h1 { color: #fff; font-size: 22px; font-weight: 600; margin-bottom: 0.25rem; }
+    .page-header p { color: #96a3b6; font-size: 14px; }
+
+    .form-wrap { max-width: 720px; margin: -2rem auto 3rem; background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); padding: 2.5rem 2rem; position: relative; }
+
+    .step { display: none; }
+    .step.active { display: block; }
+
+    .progress-bar { display: flex; gap: 4px; margin-bottom: 1.75rem; }
+    .progress-bar .seg { flex: 1; height: 4px; border-radius: 2px; background: #e2e8f0; transition: background 0.3s; }
+    .progress-bar .seg.done { background: #47a995; }
+    .progress-bar .seg.current { background: #486aad; }
+
+    .step-labels { display: flex; justify-content: space-between; margin-bottom: 2rem; font-size: 12px; color: #96a3b6; font-weight: 500; }
+    .step-labels span.active-label { color: #1b202d; font-weight: 600; }
+
+    .section-title { font-size: 20px; font-weight: 600; margin: 0 0 0.25rem; color: #1b202d; }
+    .section-sub { font-size: 14px; color: #65758b; margin: 0 0 1.75rem; line-height: 1.6; }
+
+    .field { margin-bottom: 1.25rem; }
+    .field label { display: block; font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.02em; }
+    .field label .req { color: #ef4444; }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 10px 14px; border: 1px solid #e2e8f0; border-radius: 8px;
+      font-size: 14px; font-family: inherit; color: #1b202d; background: #fff;
+      transition: border-color 0.2s;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none; border-color: #486aad; box-shadow: 0 0 0 3px rgba(72,106,173,0.1);
+    }
+    .field textarea { min-height: 90px; resize: vertical; }
+    .field .hint { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+    .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 36px; }
+
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    @media (max-width: 600px) {
+      .row2, .row3 { grid-template-columns: 1fr; }
+      .form-wrap { margin: -2rem 0.75rem 2rem; padding: 1.5rem 1.25rem; }
+    }
+
+    .btn-row { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #f1f5f9; }
+    .btn-next {
+      background: #47a995; color: #fff; border: none; padding: 12px 32px; border-radius: 8px;
+      font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit;
+      transition: background 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .btn-next:hover { background: #388576; }
+    .btn-back {
+      background: none; border: 1px solid #e2e8f0; padding: 12px 24px; border-radius: 8px;
+      font-size: 14px; cursor: pointer; color: #65758b; font-family: inherit;
+      transition: all 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .btn-back:hover { background: #f8fafc; border-color: #cbd5e1; }
+
+    .upload-zone {
+      border: 2px dashed #cbd5e1; border-radius: 12px; padding: 2rem; text-align: center;
+      cursor: pointer; transition: border-color 0.2s, background 0.2s;
+    }
+    .upload-zone:hover { border-color: #486aad; background: #f8fafc; }
+    .upload-zone i { font-size: 32px; color: #94a3b8; display: block; margin-bottom: 8px; }
+    .upload-zone .uz-title { font-size: 14px; font-weight: 600; color: #1b202d; }
+    .upload-zone .uz-sub { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+
+    .or-divider { display: flex; align-items: center; gap: 12px; margin: 14px 0; font-size: 12px; color: #94a3b8; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+    .or-divider::before, .or-divider::after { content: ''; flex: 1; height: 1px; background: #e2e8f0; }
+
+    .video-guide { background: #f8fafc; border-radius: 8px; padding: 1rem 1.25rem; margin-top: 0.75rem; font-size: 13px; line-height: 1.7; color: #65758b; }
+    .video-guide strong { font-weight: 600; color: #1b202d; display: block; margin-bottom: 4px; }
+
+    .radio-group { display: flex; flex-wrap: wrap; gap: 8px; }
+    .radio-group label {
+      display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500;
+      color: #1b202d; padding: 8px 16px; border: 1px solid #e2e8f0; border-radius: 8px;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .radio-group label:hover { border-color: #cbd5e1; background: #f8fafc; }
+    .radio-group input[type="radio"] { width: 16px; height: 16px; margin: 0; accent-color: #486aad; }
+
+    .chip-select { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip-select label {
+      font-size: 13px; font-weight: 500; padding: 10px 18px;
+      border: 1px solid #e2e8f0; border-radius: 24px; cursor: pointer;
+      color: #65758b; transition: all 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .chip-select label:hover { border-color: #cbd5e1; }
+    .chip-select input { display: none; }
+    .chip-select label:has(input:checked) { background: #e6f5f1; color: #085041; border-color: #47a995; font-weight: 600; }
+
+    .sub-section { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #f1f5f9; margin-bottom: 1.25rem; }
+    .sub-title { font-size: 16px; font-weight: 600; color: #1b202d; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+    .sub-title i { color: #486aad; font-size: 18px; }
+
+    .consent-row {
+      display: flex; align-items: flex-start; gap: 12px; margin-top: 1.5rem; padding: 1.25rem;
+      background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;
+    }
+    .consent-row input { margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; accent-color: #486aad; }
+    .consent-row span { font-size: 13px; color: #65758b; line-height: 1.6; }
+
+    .success-state { text-align: center; padding: 4rem 1rem; }
+    .success-icon { width: 72px; height: 72px; border-radius: 50%; background: #e6f5f1; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+    .success-icon i { font-size: 36px; color: #47a995; }
+    .success-state h3 { font-size: 22px; font-weight: 600; margin-bottom: 0.75rem; }
+    .success-state p { font-size: 14px; color: #65758b; line-height: 1.7; max-width: 400px; margin: 0 auto; }
+    .success-state .btn-reset {
+      margin-top: 1.5rem; padding: 10px 24px; border-radius: 8px;
+      border: 1px solid #e2e8f0; background: none; cursor: pointer;
+      font-size: 14px; color: #65758b; font-family: inherit; transition: all 0.2s;
+    }
+    .success-state .btn-reset:hover { background: #f8fafc; }
+
+    .btn-submit {
+      background: #486aad; color: #fff; border: none; padding: 12px 32px; border-radius: 8px;
+      font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit;
+      transition: background 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .btn-submit:hover { background: #395489; }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <h1>SPVH Program Application</h1>
+    <p>Nurturing startups, fueling success</p>
+  </div>
+
+  <div class="form-wrap">
+    <div class="progress-bar">
+      <div class="seg current" id="seg0"></div>
+      <div class="seg" id="seg1"></div>
+      <div class="seg" id="seg2"></div>
+      <div class="seg" id="seg3"></div>
+    </div>
+    <div class="step-labels">
+      <span class="active-label" id="lb0">Founder profile</span>
+      <span id="lb1">The idea</span>
+      <span id="lb2">Traction & team</span>
+      <span id="lb3">Media & submit</span>
+    </div>
+
+    <!-- Step 0: Founder Profile -->
+    <div class="step active" id="step0">
+      <p class="section-title">Tell us about yourself</p>
+      <p class="section-sub">We back founders, not just ideas. Help us understand who you are.</p>
+
+      <div class="row2">
+        <div class="field">
+          <label>Full name <span class="req">*</span></label>
+          <input type="text" placeholder="Rahul Sharma" />
+        </div>
+        <div class="field">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" placeholder="rahul@startup.com" />
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Phone (with country code) <span class="req">*</span></label>
+          <input type="tel" placeholder="+91 98765 43210" />
+        </div>
+        <div class="field">
+          <label>LinkedIn profile <span class="req">*</span></label>
+          <input type="url" placeholder="linkedin.com/in/rahulsharma" />
+        </div>
+      </div>
+      <div class="row3">
+        <div class="field">
+          <label>City, country <span class="req">*</span></label>
+          <input type="text" placeholder="Mumbai, India" />
+        </div>
+        <div class="field">
+          <label>Age <span class="req">*</span></label>
+          <input type="number" placeholder="28" min="16" max="99" />
+        </div>
+        <div class="field">
+          <label>Education & institution</label>
+          <input type="text" placeholder="MBA, IIM Bangalore" />
+        </div>
+      </div>
+      <div class="field">
+        <label>Are you working on this full-time? <span class="req">*</span></label>
+        <div class="radio-group">
+          <label><input type="radio" name="fulltime" value="yes" /> Yes, full-time</label>
+          <label><input type="radio" name="fulltime" value="no" /> No, part-time</label>
+          <label><input type="radio" name="fulltime" value="plan" /> Plan to go full-time</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Which program are you applying for? <span class="req">*</span></label>
+        <div class="chip-select">
+          <label><input type="radio" name="program" value="idea" /><span>Ideapreneur (5-25L)</span></label>
+          <label><input type="radio" name="program" value="solo" /><span>Solopreneur (10-50L)</span></label>
+          <label><input type="radio" name="program" value="entre" /><span>Entrepreneur (1Cr+)</span></label>
+          <label><input type="radio" name="program" value="family" /><span>Familypreneur (25L+)</span></label>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <span></span>
+        <button class="btn-next" onclick="goStep(1)">Continue <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
+
+    <!-- Step 1: The Idea -->
+    <div class="step" id="step1">
+      <p class="section-title">What are you building?</p>
+      <p class="section-sub">Clarity beats complexity. Tell us the problem, the solution, and why now.</p>
+
+      <div class="row2">
+        <div class="field">
+          <label>Company / project name <span class="req">*</span></label>
+          <input type="text" placeholder="Acme Technologies" />
+        </div>
+        <div class="field">
+          <label>Website (if any)</label>
+          <input type="url" placeholder="https://acme.io" />
+        </div>
+      </div>
+      <div class="field">
+        <label>One-line description <span class="req">*</span></label>
+        <input type="text" placeholder="We help SMBs automate invoice reconciliation using AI" maxlength="120" />
+        <div class="hint">120 characters max (forces clarity)</div>
+      </div>
+      <div class="field">
+        <label>What problem are you solving and for whom? <span class="req">*</span></label>
+        <textarea placeholder="Describe the pain point, who experiences it, and how severe it is..."></textarea>
+        <div class="hint">300 words max</div>
+      </div>
+      <div class="field">
+        <label>What is your solution and why is it better than alternatives? <span class="req">*</span></label>
+        <textarea placeholder="Explain your approach and what makes it uniquely better..."></textarea>
+        <div class="hint">300 words max</div>
+      </div>
+      <div class="field">
+        <label>Who are your competitors and what is your unfair advantage?</label>
+        <textarea placeholder="Name competitors and explain your moat..." style="min-height:70px"></textarea>
+      </div>
+      <div class="field">
+        <label>What is your business model? <span class="req">*</span></label>
+        <textarea placeholder="How do you make money? Pricing, revenue streams..." style="min-height:70px"></textarea>
+      </div>
+      <div class="field">
+        <label>What stage is the product in? <span class="req">*</span></label>
+        <select>
+          <option value="" disabled selected>Select stage</option>
+          <option>Just an idea</option>
+          <option>Prototype / MVP</option>
+          <option>Live with early users</option>
+          <option>Revenue generating</option>
+        </select>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goStep(0)"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
+        <button class="btn-next" onclick="goStep(2)">Continue <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
+
+    <!-- Step 2: Traction & Team -->
+    <div class="step" id="step2">
+      <p class="section-title">Traction & team</p>
+      <p class="section-sub">Show us the momentum and the people behind the venture.</p>
+
+      <div class="field">
+        <label>Do you have paying customers or users? <span class="req">*</span></label>
+        <div class="radio-group">
+          <label><input type="radio" name="customers" value="yes" /> Yes</label>
+          <label><input type="radio" name="customers" value="no" /> Not yet</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Key metrics (MRR, users, growth rate)</label>
+        <textarea placeholder="e.g. 120 paying users, &#8377;2.5L MRR, 18% month-over-month growth..." style="min-height:70px"></textarea>
+      </div>
+      <div class="field">
+        <label>Total addressable market (TAM)</label>
+        <textarea placeholder="Your estimate with reasoning: size, source, growth..." style="min-height:70px"></textarea>
+      </div>
+      <div class="field">
+        <label>Have you previously raised funding?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="raised" value="yes" /> Yes</label>
+          <label><input type="radio" name="raised" value="no" /> No</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>If yes, how much and from whom?</label>
+        <input type="text" placeholder="&#8377;25L from angel investors (2024)" />
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><i class="ti ti-users" aria-hidden="true"></i> The team</div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>Number of co-founders <span class="req">*</span></label>
+          <input type="number" placeholder="2" min="1" max="10" />
+        </div>
+        <div class="field">
+          <label>Have founders worked together before?</label>
+          <select>
+            <option value="" disabled selected>Select</option>
+            <option>Yes, at a previous company</option>
+            <option>Yes, on a project</option>
+            <option>No, this is our first time</option>
+            <option>Solo founder</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Co-founder names, roles & LinkedIn profiles</label>
+        <textarea placeholder="1. Priya Mehta — CTO — linkedin.com/in/priyam&#10;2. Arjun Patel — COO — linkedin.com/in/arjunp" style="min-height:70px"></textarea>
+      </div>
+      <div class="field">
+        <label>Why is your team the right one to build this? <span class="req">*</span></label>
+        <textarea placeholder="What unique experience, insight, or obsession makes you the team to solve this problem?"></textarea>
+        <div class="hint">200 words max. This is the conviction question.</div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><i class="ti ti-currency-rupee" aria-hidden="true"></i> Funding ask</div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label>How much capital are you seeking? <span class="req">*</span></label>
+          <input type="text" placeholder="&#8377;25,00,000" />
+        </div>
+        <div class="field">
+          <label>Milestones this capital will unlock</label>
+          <input type="text" placeholder="e.g. 500 users, product-market fit" />
+        </div>
+      </div>
+      <div class="field">
+        <label>Top 3 use-of-funds priorities</label>
+        <textarea placeholder="1. Product development (40%)&#10;2. Hiring (35%)&#10;3. Marketing (25%)" style="min-height:70px"></textarea>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goStep(1)"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
+        <button class="btn-next" onclick="goStep(3)">Continue <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
+
+    <!-- Step 3: Media & Submit -->
+    <div class="step" id="step3">
+      <p class="section-title">Video introduction & pitch deck</p>
+      <p class="section-sub">We want to see the founder behind the application. A short video tells us more than any form ever could.</p>
+
+      <div class="field">
+        <label>2-minute video introduction <span class="req">*</span></label>
+        <div class="upload-zone">
+          <i class="ti ti-video" aria-hidden="true"></i>
+          <div class="uz-title">Click to upload your video</div>
+          <div class="uz-sub">MP4, max 100 MB</div>
+        </div>
+        <div class="or-divider">or paste a link</div>
+        <input type="url" placeholder="YouTube, Loom, or Google Drive link" />
+        <div class="video-guide">
+          <strong>Video guidelines</strong>
+          Record a 2-minute video, look into the camera:<br/>
+          1. Who you are and your background (30 sec)<br/>
+          2. What you're building and why it matters (60 sec)<br/>
+          3. Why SPVH — what do you need beyond capital? (30 sec)<br/><br/>
+          No slides, no editing needed. We want to hear you.
+        </div>
+      </div>
+
+      <div class="field" style="margin-top:2rem">
+        <label>Pitch deck (recommended)</label>
+        <div class="upload-zone">
+          <i class="ti ti-file-description" aria-hidden="true"></i>
+          <div class="uz-title">Click to upload your deck</div>
+          <div class="uz-sub">PDF, max 20 MB</div>
+        </div>
+        <div class="or-divider">or paste a link</div>
+        <input type="url" placeholder="Google Slides, Canva, or Notion link" />
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><i class="ti ti-message-circle" aria-hidden="true"></i> Final questions</div>
+      </div>
+      <div class="field">
+        <label>How did you hear about SPVH programs? <span class="req">*</span></label>
+        <select>
+          <option value="" disabled selected>Select</option>
+          <option>LinkedIn</option>
+          <option>Referral</option>
+          <option>Event / conference</option>
+          <option>SPVH website</option>
+          <option>Media / press</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>If referred, who referred you?</label>
+        <input type="text" placeholder="Name of referrer" />
+      </div>
+      <div class="field">
+        <label>Anything else you'd like us to know?</label>
+        <textarea placeholder="Optional: share context, links, or anything that strengthens your application..." style="min-height:70px"></textarea>
+      </div>
+
+      <div class="consent-row">
+        <input type="checkbox" id="consent" />
+        <span>I confirm that all information provided is accurate and complete. I agree to SPVH Group's terms of service and privacy policy. I understand my application data will be reviewed by the SPVH investment team.</span>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-back" onclick="goStep(2)"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
+        <button class="btn-submit" onclick="submitForm()"><i class="ti ti-send" aria-hidden="true"></i> Submit application</button>
+      </div>
+    </div>
+
+    <!-- Success State -->
+    <div class="step" id="step4">
+      <div class="success-state">
+        <div class="success-icon"><i class="ti ti-circle-check" aria-hidden="true"></i></div>
+        <h3>Application submitted</h3>
+        <p>Thank you for applying to SPVH Programs. Our investment team will review your application and respond within 5-7 business days. You'll receive a confirmation email shortly.</p>
+        <button class="btn-reset" onclick="goStep(0)">Submit another application</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let current = 0;
+    function goStep(n) {
+      document.getElementById('step' + current).classList.remove('active');
+      document.getElementById('step' + n).classList.add('active');
+      current = n;
+      for (let i = 0; i < 4; i++) {
+        const seg = document.getElementById('seg' + i);
+        const lb = document.getElementById('lb' + i);
+        seg.className = 'seg';
+        if (lb) lb.className = '';
+        if (i < n) seg.classList.add('done');
+        else if (i === n) { seg.classList.add('current'); if (lb) lb.classList.add('active-label'); }
+      }
+      const pb = document.querySelector('.progress-bar');
+      const sl = document.querySelector('.step-labels');
+      if (n === 4) { pb.style.display = 'none'; sl.style.display = 'none'; }
+      else { pb.style.display = 'flex'; sl.style.display = 'flex'; }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function submitForm() { goStep(4); }
+  </script>
+</body>
+</html>

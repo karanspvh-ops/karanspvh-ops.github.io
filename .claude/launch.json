@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "spvh-group-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 4321,
+      "cwd": "C:\\Users\\karan\\OneDrive\\Desktop\\Project\\Website Design\\SPVH Group"
+    }
+  ]
+}
