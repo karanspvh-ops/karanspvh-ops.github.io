@@ -12,163 +12,244 @@ const jsonLd = {
 ---
 
 <BaseLayout title="CSR & Philanthropy | SPVH Group" description="Our corporate social responsibility initiatives are dedicated to fostering positive change through sustainable projects and meaningful partnerships." jsonLd={jsonLd}>
-  <!-- Section 1: Hero Header -->
-  <section class="relative min-h-[60vh] flex items-center pt-20 overflow-hidden" data-ps="src/pages/csr-philanthropy.astro:srk0b5">
-    <div class="absolute inset-0 z-0" data-ps="src/pages/csr-philanthropy.astro:exvgno">
-      <img 
-        src="https://images.pexels.com/photos/6837810/pexels-photo-6837810.png?auto=compress&cs=tinysrgb&w=1200"
-        srcset="https://images.pexels.com/photos/6837810/pexels-photo-6837810.png?auto=compress&cs=tinysrgb&w=320 320w, https://images.pexels.com/photos/6837810/pexels-photo-6837810.png?auto=compress&cs=tinysrgb&w=480 480w, https://images.pexels.com/photos/6837810/pexels-photo-6837810.png?auto=compress&cs=tinysrgb&w=640 640w, https://images.pexels.com/photos/6837810/pexels-photo-6837810.png?auto=compress&cs=tinysrgb&w=768 768w, https://images.pexels.com/photos/6837810/pexels-photo-6837810.png?auto=compress&cs=tinysrgb&w=1024 1024w, https://images.pexels.com/photos/6837810/pexels-photo-6837810.png?auto=compress&cs=tinysrgb&w=1280 1280w, https://images.pexels.com/photos/6837810/pexels-photo-6837810.png?auto=compress&cs=tinysrgb&w=1920 1920w"
+
+  <!-- Hero: Full-bleed image, left-aligned content, strong presence -->
+  <section class="relative min-h-[85vh] flex items-end pb-20 pt-32 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        srcset="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=640 640w, https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1024 1024w, https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1920 1920w"
         sizes="100vw"
-        alt="Sustainable Landscape" 
+        alt="Community volunteers working together on a sustainability project"
         class="w-full h-full object-cover"
         fetchpriority="high"
-        loading="eager" data-ps="src/pages/csr-philanthropy.astro:hg4kz8" />
-      <div class="absolute inset-0 bg-dark/80" data-ps="src/pages/csr-philanthropy.astro:exvgnn"></div>
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/70 to-dark/30"></div>
     </div>
-    
-    <div class="container mx-auto px-4 relative z-10" data-ps="src/pages/csr-philanthropy.astro:exvgnm">
-      <div class="max-w-4xl hero-animate" data-ps="src/pages/csr-philanthropy.astro:exvgnl">
-        <h1 class="text-4xl md:text-7xl font-bold text-white mb-6 tracking-tight" data-ps="src/pages/csr-philanthropy.astro:wsxg0x">
-          CSR & Philanthropy: <span class="text-secondary" data-ps="src/pages/csr-philanthropy.astro:ptnds">Beyond Capital</span>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl hero-animate">
+        <p class="text-secondary font-semibold text-sm tracking-widest uppercase mb-4">CSR &amp; Philanthropy</p>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-tight leading-[1.05]">
+          Capital with<br/>Conscience
         </h1>
-        <p class="text-xl md:text-2xl text-white/90 font-medium leading-relaxed max-w-3xl" data-ps="src/pages/csr-philanthropy.astro:qafpqf">
-          Our corporate social responsibility initiatives are dedicated to fostering positive change through sustainable projects and meaningful partnerships. We believe in philanthropy that makes a lasting, tangible impact, enriching communities and supporting causes that align with our core institutional values.
+        <p class="text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl">
+          We believe in philanthropy that creates lasting, measurable impact. Our initiatives channel resources into education, sustainability, and community health to strengthen the foundations that markets alone cannot build.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Section 2: Core Impact Pillars -->
-  <section class="py-24 bg-dark relative overflow-hidden" data-ps="src/pages/csr-philanthropy.astro:srk0b6">
-    <div class="container mx-auto px-4 relative z-10" data-ps="src/pages/csr-philanthropy.astro:exvgnk">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" data-ps="src/pages/csr-philanthropy.astro:u9os2w">
-        <!-- Card 1: Empowering Education -->
-        <div class="group bg-white/[0.04] hover:bg-white/[0.07] border border-white/10 p-10 rounded-2xl flex flex-col h-full transition-all duration-300 hover:-translate-y-1" data-ps="src/pages/csr-philanthropy.astro:u9os2v">
-          <div class="w-16 h-16 bg-secondary/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-secondary/30 transition-colors duration-300" data-ps="src/pages/csr-philanthropy.astro:u9os2u">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+  <!-- Impact statement: a single bold line to bridge hero and pillars -->
+  <section class="py-16 md:py-20 bg-dark border-b border-white/5">
+    <div class="container mx-auto px-4">
+      <p class="text-2xl md:text-3xl lg:text-4xl text-white/90 font-medium leading-snug max-w-5xl tracking-tight" style="text-wrap: balance;">
+        Sustainable change requires patient capital, strategic intent, and deep community trust. We invest in all three.
+      </p>
+    </div>
+  </section>
+
+  <!-- Impact Pillars: asymmetric layout, not identical cards -->
+  <section class="py-24 md:py-32 bg-dark relative overflow-hidden">
+    <div class="container mx-auto px-4">
+      <!-- Pillar 1: Education — full-width featured -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 mb-2 rounded-2xl overflow-hidden border border-white/10">
+        <div class="relative min-h-[320px] lg:min-h-[420px]">
+          <img
+            src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Students learning together in a classroom workshop"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div class="p-10 lg:p-14 flex flex-col justify-center bg-white/[0.03]">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <span class="text-secondary font-semibold text-sm tracking-wide uppercase">Education</span>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-4" data-ps="src/pages/csr-philanthropy.astro:8vcrie">Empowering Education</h3>
-          <p class="text-white/60 leading-relaxed flex-grow" data-ps="src/pages/csr-philanthropy.astro:qafpqg">
-            Nurturing future leaders through targeted skill-building programs and accessibility initiatives. We invest in educational frameworks that bridge the opportunity gap and equip the next generation with modern, market-relevant competencies.
+          <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight leading-tight">Empowering the Next Generation</h3>
+          <p class="text-white/60 leading-relaxed text-lg mb-8">
+            We fund targeted skill-building programmes and accessibility initiatives that bridge the opportunity gap. Our educational frameworks equip learners with modern, market-relevant competencies, from financial literacy workshops to STEM scholarships in underserved regions.
           </p>
+          <div class="flex gap-8">
+            <div>
+              <p class="text-3xl font-bold text-white">500+</p>
+              <p class="text-white/40 text-sm mt-1">Students Supported</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-white">12</p>
+              <p class="text-white/40 text-sm mt-1">Active Programmes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillars 2 & 3: side by side, text-driven -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <!-- Sustainability -->
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
+          <div class="relative h-56">
+            <img
+              src="https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Solar panels across a green field under clear sky"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/90 to-transparent"></div>
+            <div class="absolute bottom-4 left-6 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-emerald-500/20 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8h-5a7 7 0 0 0-7 7l-2 3Z"/><path d="M11 20v-3"/><path d="m9 20-1-2"/></svg>
+              </div>
+              <span class="text-emerald-400 font-semibold text-sm tracking-wide uppercase">Sustainability</span>
+            </div>
+          </div>
+          <div class="p-8 lg:p-10">
+            <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Environmental Stewardship</h3>
+            <p class="text-white/60 leading-relaxed">
+              Backing renewable energy, circular economy frameworks, and advanced recycling infrastructure. We focus on waste-to-value initiatives that systematically reduce environmental footprints while creating local economic opportunity.
+            </p>
+          </div>
         </div>
 
-        <!-- Card 2: Environmental Sustainability -->
-        <div class="group bg-white/[0.04] hover:bg-white/[0.07] border border-white/10 p-10 rounded-2xl flex flex-col h-full transition-all duration-300 hover:-translate-y-1" data-ps="src/pages/csr-philanthropy.astro:u9os2t">
-          <div class="w-16 h-16 bg-emerald-500/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-emerald-500/30 transition-colors duration-300" data-ps="src/pages/csr-philanthropy.astro:u9os2s">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8h-5a7 7 0 0 0-7 7l-2 3Z"/><path d="M9.17 14.85a1 1 0 1 1-1.42-1.42 1 1 0 0 1 1.42 1.42ZM11 20v-3"/><path d="m9 20-1-2"/></svg>
+        <!-- Community Health -->
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
+          <div class="relative h-56">
+            <img
+              src="https://images.pexels.com/photos/6646967/pexels-photo-6646967.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Healthcare worker providing care in a community setting"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/90 to-transparent"></div>
+            <div class="absolute bottom-4 left-6 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-rose-500/20 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fb7185" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              </div>
+              <span class="text-rose-400 font-semibold text-sm tracking-wide uppercase">Community Health</span>
+            </div>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-4" data-ps="src/pages/csr-philanthropy.astro:8vcrif">Environmental Sustainability</h3>
-          <p class="text-white/60 leading-relaxed flex-grow" data-ps="src/pages/csr-philanthropy.astro:qafpqh">
-            Backing green initiatives and renewable energy projects for a cleaner future. We actively support circular economy frameworks, focusing on advanced recycling infrastructure and waste-to-value initiatives to systematically minimize environmental footprints.
-          </p>
-        </div>
-
-        <!-- Card 3: Community Health -->
-        <div class="group bg-white/[0.04] hover:bg-white/[0.07] border border-white/10 p-10 rounded-2xl flex flex-col h-full transition-all duration-300 hover:-translate-y-1" data-ps="src/pages/csr-philanthropy.astro:u9os2r">
-          <div class="w-16 h-16 bg-rose-500/20 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-rose-500/30 transition-colors duration-300" data-ps="src/pages/csr-philanthropy.astro:u9os2q">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fb7185" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          <div class="p-8 lg:p-10">
+            <h3 class="text-2xl font-bold text-white mb-4 tracking-tight">Strengthening Community Well-Being</h3>
+            <p class="text-white/60 leading-relaxed">
+              Investing in healthcare accessibility, crisis-response infrastructure, and preventive care initiatives. We fund essential services that build resilient communities capable of sustaining long-term health outcomes.
+            </p>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-4" data-ps="src/pages/csr-philanthropy.astro:8vcrig">Community Health</h3>
-          <p class="text-white/60 leading-relaxed flex-grow" data-ps="src/pages/csr-philanthropy.astro:qafpqi">
-            Investing in healthcare accessibility and supporting resilient local communities. Our health initiatives are designed to strengthen community well-being by funding essential services and crisis-response infrastructure.
-          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 3: Submit a Proposal -->
-  <section class="py-24 bg-surface relative overflow-hidden" data-ps="src/pages/csr-philanthropy.astro:srk0b7">
-    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(var(--color-secondary) 1px, transparent 1px); background-size: 40px 40px;"></div>
-
+  <!-- Submit a Proposal -->
+  <section class="py-24 md:py-32 bg-surface relative overflow-hidden">
     <div class="container mx-auto px-4 relative z-10">
-      <div class="max-w-2xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-5xl font-bold text-dark mb-6 tracking-tight">Partner For Impact</h2>
-          <p class="text-xl text-muted-foreground leading-relaxed">
-            Are you an NGO, community leader, or sustainability operator aligning with our mission? Submit your proposal and let us explore how SPVH capital and strategic guidance can scale your impact.
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-start">
+        <!-- Left: messaging -->
+        <div class="lg:sticky lg:top-32">
+          <p class="text-secondary font-semibold text-sm tracking-widest uppercase mb-4">Collaborate With Us</p>
+          <h2 class="text-3xl md:text-5xl font-bold text-dark mb-6 tracking-tight leading-tight">Partner For Impact</h2>
+          <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+            Are you an NGO, community leader, or sustainability operator aligned with our mission? Submit your proposal and let us explore how SPVH capital and strategic guidance can amplify your impact.
           </p>
+          <div class="space-y-4 text-muted-foreground">
+            <div class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Proposals reviewed within 10 business days</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Funding for education, sustainability, and health initiatives</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Strategic guidance beyond capital</span>
+            </div>
+          </div>
         </div>
 
-        <div id="proposal-status" class="hidden mb-6 px-4 py-3 rounded-lg text-sm"></div>
+        <!-- Right: form -->
+        <div>
+          <div id="proposal-status" class="hidden mb-6 px-4 py-3 rounded-lg text-sm"></div>
 
-        <form id="proposal-form" class="space-y-6 bg-dark p-8 lg:p-12 rounded-2xl border border-white/10 shadow-2xl">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div class="space-y-2">
-              <label class="text-[12px] font-bold text-dark-muted uppercase">Organisation Name *</label>
-              <input
-                type="text" name="org_name" required placeholder="NGO / Organisation"
-                class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-              />
+          <form id="proposal-form" class="space-y-5 bg-dark p-8 lg:p-10 rounded-2xl border border-white/10 shadow-2xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div class="space-y-2">
+                <label class="text-[11px] font-bold text-dark-muted uppercase tracking-wider">Organisation *</label>
+                <input
+                  type="text" name="org_name" required placeholder="NGO / Organisation"
+                  class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-secondary transition-colors"
+                />
+              </div>
+              <div class="space-y-2">
+                <label class="text-[11px] font-bold text-dark-muted uppercase tracking-wider">Contact Person *</label>
+                <input
+                  type="text" name="contact_person" required placeholder="Full Name"
+                  class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-secondary transition-colors"
+                />
+              </div>
             </div>
-            <div class="space-y-2">
-              <label class="text-[12px] font-bold text-dark-muted uppercase">Contact Person *</label>
-              <input
-                type="text" name="contact_person" required placeholder="Full Name"
-                class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-              />
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div class="space-y-2">
+                <label class="text-[11px] font-bold text-dark-muted uppercase tracking-wider">Email *</label>
+                <input
+                  type="email" name="email" required placeholder="you@organisation.org"
+                  class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-secondary transition-colors"
+                />
+              </div>
+              <div class="space-y-2">
+                <label class="text-[11px] font-bold text-dark-muted uppercase tracking-wider">Phone</label>
+                <input
+                  type="tel" name="phone" placeholder="+91 98765 43210"
+                  class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-secondary transition-colors"
+                />
+              </div>
             </div>
-          </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div class="space-y-2">
-              <label class="text-[12px] font-bold text-dark-muted uppercase">Email *</label>
-              <input
-                type="email" name="email" required placeholder="you@organisation.org"
-                class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-              />
+              <label class="text-[11px] font-bold text-dark-muted uppercase tracking-wider">Focus Area *</label>
+              <select
+                name="focus_area" required
+                class="w-full bg-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-secondary transition-colors appearance-none"
+              >
+                <option value="" disabled selected>Select a focus area</option>
+                <option value="Education">Education</option>
+                <option value="Environmental Sustainability">Environmental Sustainability</option>
+                <option value="Community Health">Community Health</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
+
             <div class="space-y-2">
-              <label class="text-[12px] font-bold text-dark-muted uppercase">Phone (Optional)</label>
-              <input
-                type="tel" name="phone" placeholder="+91 98765 43210"
-                class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-              />
+              <label class="text-[11px] font-bold text-dark-muted uppercase tracking-wider">Proposal Summary *</label>
+              <textarea
+                name="summary" required rows="4" placeholder="Describe your proposal, its objectives, and the impact you envision..."
+                class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-secondary transition-colors resize-none"
+              ></textarea>
             </div>
-          </div>
 
-          <div class="space-y-2">
-            <label class="text-[12px] font-bold text-dark-muted uppercase">Focus Area *</label>
-            <select
-              name="focus_area" required
-              class="w-full bg-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors appearance-none"
-            >
-              <option value="" disabled selected>Select a focus area</option>
-              <option value="Education">Education</option>
-              <option value="Environmental Sustainability">Environmental Sustainability</option>
-              <option value="Community Health">Community Health</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
+            <div class="space-y-2">
+              <label class="text-[11px] font-bold text-dark-muted uppercase tracking-wider">Attach Proposal (PDF, max 5 MB)</label>
+              <label id="proposal-file-label" class="flex items-center gap-3 w-full border border-dashed border-white/15 rounded-lg px-4 py-4 cursor-pointer hover:border-secondary/40 transition-colors group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-dark-muted group-hover:text-secondary transition-colors shrink-0"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.49"/></svg>
+                <span id="proposal-file-name" class="text-dark-muted text-sm group-hover:text-white transition-colors">Click to select a PDF file</span>
+                <input
+                  type="file" name="proposal_file" accept=".pdf" class="hidden" id="proposal-file-input"
+                />
+              </label>
+            </div>
 
-          <div class="space-y-2">
-            <label class="text-[12px] font-bold text-dark-muted uppercase">Proposal Summary *</label>
-            <textarea
-              name="summary" required rows="4" placeholder="Briefly describe your proposal, its objectives, and the impact you envision..."
-              class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors resize-none"
-            ></textarea>
-          </div>
+            <input type="text" name="_hp_website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;overflow:hidden" />
 
-          <div class="space-y-2">
-            <label class="text-[12px] font-bold text-dark-muted uppercase">Attach Proposal (PDF, max 5 MB)</label>
-            <label id="proposal-file-label" class="flex items-center gap-3 w-full border border-dashed border-white/20 rounded-lg px-4 py-4 cursor-pointer hover:border-secondary/50 transition-colors group">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-dark-muted group-hover:text-secondary transition-colors shrink-0"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.49"/></svg>
-              <span id="proposal-file-name" class="text-dark-muted text-sm group-hover:text-white transition-colors">Click to select a PDF file</span>
-              <input
-                type="file" name="proposal_file" accept=".pdf" class="hidden" id="proposal-file-input"
-              />
-            </label>
-          </div>
-
-          <input type="text" name="_hp_website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;overflow:hidden" />
-
-          <button
-            type="submit" id="proposal-submit"
-            class="w-full bg-secondary text-white font-bold uppercase tracking-wider py-4 rounded-xl hover:bg-secondary-hover transition-colors shadow-lg">
-            SUBMIT PROPOSAL
-          </button>
-        </form>
+            <button
+              type="submit" id="proposal-submit"
+              class="w-full bg-secondary text-white font-bold uppercase tracking-wider py-4 rounded-xl hover:bg-secondary-hover active:scale-[0.98] transition-all shadow-lg">
+              Submit Proposal
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -214,7 +295,7 @@ const jsonLd = {
           proposalForm.reset();
           proposalFileName.textContent = "Click to select a PDF file";
           proposalSubmit.disabled = false;
-          proposalSubmit.textContent = "SUBMIT PROPOSAL";
+          proposalSubmit.textContent = "Submit Proposal";
           return;
         }
 
@@ -263,7 +344,7 @@ const jsonLd = {
           proposalStatus.classList.remove("hidden");
         } finally {
           proposalSubmit.disabled = false;
-          proposalSubmit.textContent = "SUBMIT PROPOSAL";
+          proposalSubmit.textContent = "Submit Proposal";
         }
       });
     });
