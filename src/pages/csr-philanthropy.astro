@@ -328,11 +328,13 @@ const jsonLd = {
         }
 
         try {
-          await fetch(FORMS_ENDPOINT, {
+          var r = await fetch(FORMS_ENDPOINT, {
             method: "POST",
-            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
             body: JSON.stringify(payload),
           });
+          var json = await r.json().catch(function() { return { ok: false, error: "Network error" }; });
+          if (!r.ok || !json.ok) throw new Error(json.error || ("Status " + r.status));
 
           proposalStatus.className = "mb-6 px-4 py-3 rounded-lg bg-secondary/20 border border-secondary text-secondary text-sm";
           proposalStatus.textContent = "Thank you! Your proposal has been submitted successfully. We will review it and get back to you.";
@@ -341,7 +343,7 @@ const jsonLd = {
           proposalFileName.textContent = "Click to select a PDF file";
         } catch (err) {
           proposalStatus.className = "mb-6 px-4 py-3 rounded-lg bg-red-500/20 border border-red-500 text-red-500 text-sm";
-          proposalStatus.textContent = "Failed to submit. Please try again or email us directly at info@spvhgroup.com.";
+          proposalStatus.textContent = "Failed to submit: " + err.message + ". Please try again or email us directly at info@spvhgroup.com.";
           proposalStatus.classList.remove("hidden");
         } finally {
           proposalSubmit.disabled = false;

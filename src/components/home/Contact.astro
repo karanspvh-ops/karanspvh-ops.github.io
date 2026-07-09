@@ -164,18 +164,20 @@ import { FORMS } from '@/config/forms';
     data._formType = 'contact';
 
     try {
-      await fetch(FORMS_ENDPOINT, {
+      const r = await fetch(FORMS_ENDPOINT, {
         method: 'POST',
-        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(data),
       });
+      const json = await r.json().catch(() => ({ ok: false, error: 'Network error' }));
+      if (!r.ok || !json.ok) throw new Error(json.error || `Status ${r.status}`);
 
       status.className = 'mb-6 px-4 py-3 rounded-lg bg-secondary/20 border border-secondary text-secondary text-sm';
       status.textContent = 'Thank you! Your message has been sent.';
       form.reset();
-    } catch (err) {
+    } catch (err: any) {
       status.className = 'mb-6 px-4 py-3 rounded-lg bg-red-500/20 border border-red-500 text-red-500 text-sm';
-      status.textContent = 'Failed to send. Please try again.';
+      status.textContent = `Failed to send: ${err.message}. Please try again or email info@spvhgroup.com.`;
     } finally {
       status.classList.remove('hidden');
       submitBtn.disabled = false;

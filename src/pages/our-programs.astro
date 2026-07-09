@@ -850,14 +850,19 @@ const jsonLd = {
           payload.a_consent = consent.checked;
 
           try {
-            await fetch(FORMS_ENDPOINT, {
+            const r = await fetch(FORMS_ENDPOINT, {
               method: 'POST',
-              mode: 'no-cors',
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
               body: JSON.stringify(payload),
             });
-          } catch (_) {}
-
-          showStep(5);
+            const json = await r.json().catch(() => ({ ok: false, error: 'Network error' }));
+            if (!r.ok || !json.ok) throw new Error(json.error || `Status ${r.status}`);
+            showStep(5);
+          } catch (err: any) {
+            applyNext!.disabled = false;
+            applyNext!.innerHTML = 'Submit Application →';
+            alert(`Submission failed: ${err.message}. Please try again or email info@spvhgroup.com.`);
+          }
         }
       });
     }
@@ -982,17 +987,33 @@ const jsonLd = {
       const data: Record<string, any> = Object.fromEntries(formData);
       delete data._hp_website;
 
+      let submissionOk = false;
+      let submissionErr = '';
       try {
-        await fetch(FORMS_ENDPOINT, {
+        const r = await fetch(FORMS_ENDPOINT, {
           method: 'POST',
-          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({
             ...data,
             _formType: 'deck',
           })
         });
-      } catch (_) {}
+        const json = await r.json().catch(() => ({ ok: false, error: 'Network error' }));
+        if (r.ok && json.ok) {
+          submissionOk = true;
+        } else {
+          submissionErr = json.error || `Status ${r.status}`;
+        }
+      } catch (err: any) {
+        submissionErr = err.message || 'Network error';
+      }
 
+      if (!submissionOk) {
+        emailError.textContent = `We could not record your details (${submissionErr}). Please email info@spvhgroup.com so we know you received the deck.`;
+        emailError.classList.remove('hidden');
+      }
+
+      // Deliver the deck regardless — the user completed the form.
       formContainer?.classList.add('hidden');
       successContainer?.classList.remove('hidden');
       successContainer?.classList.add('flex');

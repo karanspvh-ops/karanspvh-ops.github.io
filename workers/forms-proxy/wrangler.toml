@@ -1,0 +1,12 @@
+name = "spvh-forms-proxy"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+# The public URL will be:
+#   https://spvh-forms-proxy.<your-account>.workers.dev
+# Or bind a route like https://forms.spvhgroup.com/* via the Cloudflare dashboard.
+
+# Uncomment to enable rate limiting via KV:
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT"
+# id = "REPLACE_WITH_KV_NAMESPACE_ID"
