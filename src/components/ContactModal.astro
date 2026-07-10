@@ -131,34 +131,32 @@ import { FORMS } from '@/config/forms';
   const modal = document.getElementById('contact-modal');
   const backdrop = document.getElementById('contact-modal-backdrop');
   const closeBtn = document.getElementById('contact-modal-close');
-  const form = document.getElementById('modal-contact-form') as HTMLFormElement;
-  const status = document.getElementById('modal-contact-status') as HTMLDivElement;
-  const submitBtn = document.getElementById('modal-contact-submit') as HTMLButtonElement;
+  const form = document.getElementById('modal-contact-form');
+  const status = document.getElementById('modal-contact-status');
+  const submitBtn = document.getElementById('modal-contact-submit');
 
   const openModal = () => {
-    modal?.classList.remove('hidden');
+    modal && modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
-    modal?.classList.add('hidden');
+    modal && modal.classList.add('hidden');
     document.body.style.overflow = '';
   };
 
-  closeBtn?.addEventListener('click', closeModal);
-  backdrop?.addEventListener('click', closeModal);
+  closeBtn && closeBtn.addEventListener('click', closeModal);
+  backdrop && backdrop.addEventListener('click', closeModal);
 
-  // Global trigger
   document.addEventListener('click', (e) => {
-    const target = e.target as HTMLElement;
-    const trigger = target.closest('[data-modal-trigger="contact"]');
+    const trigger = e.target && e.target.closest('[data-modal-trigger="contact"]');
     if (trigger) {
       e.preventDefault();
       openModal();
     }
   });
 
-  form?.addEventListener('submit', async (e) => {
+  form && form.addEventListener('submit', async (e) => {
     e.preventDefault();
     submitBtn.disabled = true;
     submitBtn.textContent = 'SENDING...';
@@ -172,7 +170,7 @@ import { FORMS } from '@/config/forms';
       submitBtn.textContent = 'SEND MESSAGE';
       return;
     }
-    const data: Record<string, any> = Object.fromEntries(formData);
+    const data = Object.fromEntries(formData);
     delete data._hp_website;
     data._formType = 'contact';
 
@@ -194,7 +192,7 @@ import { FORMS } from '@/config/forms';
         closeModal();
         status.classList.add('hidden');
       }, 3000);
-    } catch (err: any) {
+    } catch (err) {
       status.className = 'mb-6 px-4 py-3 rounded-lg bg-red-500/20 border border-red-500 text-red-500 text-sm';
       status.textContent = `Failed to send: ${err.message}. Please try again or email info@spvhgroup.com.`;
       status.classList.remove('hidden');
