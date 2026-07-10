@@ -144,17 +144,18 @@ const jsonLd = {
   </section>
 
   <!-- Submit a Proposal -->
-  <section class="py-24 md:py-32 bg-surface relative overflow-hidden">
+  <section class="py-24 md:py-32 bg-dark relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(72,106,173,0.12),transparent_60%)] pointer-events-none"></div>
     <div class="container mx-auto px-4 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-start">
         <!-- Left: messaging -->
         <div class="lg:sticky lg:top-32">
           <p class="text-secondary font-semibold text-sm tracking-widest uppercase mb-4">Collaborate With Us</p>
-          <h2 class="text-3xl md:text-5xl font-bold text-dark mb-6 tracking-tight leading-tight">Partner For Impact</h2>
-          <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+          <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">Partner For Impact</h2>
+          <p class="text-lg text-white/60 leading-relaxed mb-8">
             Are you an NGO, community leader, or sustainability operator aligned with our mission? Submit your proposal and let us explore how SPVH capital and strategic guidance can amplify your impact.
           </p>
-          <div class="space-y-4 text-muted-foreground">
+          <div class="space-y-4 text-white/70">
             <div class="flex items-start gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
               <span>Proposals reviewed within 10 business days</span>
@@ -174,7 +175,7 @@ const jsonLd = {
         <div>
           <div id="proposal-status" class="hidden mb-6 px-4 py-3 rounded-lg text-sm"></div>
 
-          <form id="proposal-form" class="space-y-5 bg-dark p-8 lg:p-10 rounded-2xl border border-white/10 shadow-2xl">
+          <form id="proposal-form" class="space-y-5 bg-white/[0.03] p-8 lg:p-10 rounded-2xl border border-white/10 shadow-2xl">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div class="space-y-2">
                 <label class="text-[11px] font-bold text-dark-muted uppercase tracking-wider">Organisation *</label>
