@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 import { fileURLToPath } from 'url';
 import path from 'path';
 
@@ -25,7 +26,14 @@ const stripDataPs = {
 export default defineConfig({
   site: 'https://spvhgroup.com',
   output: 'static',
-  integrations: [stripDataPs],
+  integrations: [
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.8,
+      lastmod: new Date(),
+    }),
+    stripDataPs,
+  ],
   vite: {
     plugins: [tailwindcss()],
     resolve: {
