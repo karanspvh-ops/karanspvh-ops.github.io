@@ -79,21 +79,22 @@ const articles = [
               </div>
             </a>
           ) : (
-            <div class="block" data-ps={`src/components/home/Strategic.astro:sv57oa-${__psIdx}`}>
+            <div class="block no-underline cursor-pointer" data-ps={`src/components/home/Strategic.astro:sv57oa-${__psIdx}`}>
               <div class="relative aspect-[16/10] rounded-3xl overflow-hidden mb-6" data-ps="src/components/home/Strategic.astro:article-img-wrap">
                 <img
                   src={article.image}
                   alt={article.title}
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   data-ps="src/components/home/Strategic.astro:article-img"
                 />
+                <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" data-ps="src/components/home/Strategic.astro:article-overlay"></div>
               </div>
               <div class="space-y-3" data-ps="src/components/home/Strategic.astro:article-content">
                 <div class="flex items-center gap-4" data-ps="src/components/home/Strategic.astro:article-meta">
                   <span class="text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full" data-ps="src/components/home/Strategic.astro:article-cat">{article.category}</span>
                   <span class="text-xs font-medium text-muted-foreground" data-ps="src/components/home/Strategic.astro:article-date">{article.date}</span>
                 </div>
-                <h3 class="text-xl font-bold text-dark line-clamp-2" data-ps="src/components/home/Strategic.astro:article-headline">{article.title}</h3>
+                <h3 class="text-xl font-bold text-dark group-hover:text-primary transition-colors line-clamp-2" data-ps="src/components/home/Strategic.astro:article-headline">{article.title}</h3>
               </div>
             </div>
           )}
