@@ -3,9 +3,7 @@ export const SITE = {
   title: 'SPVH Group | Diversified Business & Financial Services Company',
   description:
     'SPVH Group is a diversified business and financial services company with focused verticals in wealth management, alternative investments, real estate, hospitality, automotive, media, and technology.',
-  url:
-    (typeof process !== 'undefined' && process.env.SITE_URL) ||
-    'https://spvhgroup.com/',
+  url: 'https://spvhgroup.com/',
   twitterHandle: '@spvhgroup',
   socials: {
     twitter: 'https://twitter.com/spvhgroup',
