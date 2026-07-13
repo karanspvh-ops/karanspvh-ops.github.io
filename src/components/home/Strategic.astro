@@ -59,25 +59,44 @@ const articles = [
     >
       {articles.map((article, __psIdx) => (
         <article class="min-w-[85%] md:min-w-[calc(50%-16px)] lg:min-w-[calc(33.333%-22px)] snap-start group" data-ps="src/components/home/Strategic.astro:article-card">
-          <a href={article.link} class="block no-underline" target="_blank" rel="noopener noreferrer" data-ps={`src/components/home/Strategic.astro:sv57oa-${__psIdx}`}>
-            <div class="relative aspect-[16/10] rounded-3xl overflow-hidden mb-6" data-ps="src/components/home/Strategic.astro:article-img-wrap">
-              <img 
-                src={article.image} 
-                alt={article.title} 
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                data-ps="src/components/home/Strategic.astro:article-img"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" data-ps="src/components/home/Strategic.astro:article-overlay"></div>
-            </div>
-            
-            <div class="space-y-3" data-ps="src/components/home/Strategic.astro:article-content">
-              <div class="flex items-center gap-4" data-ps="src/components/home/Strategic.astro:article-meta">
-                <span class="text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full" data-ps="src/components/home/Strategic.astro:article-cat">{article.category}</span>
-                <span class="text-xs font-medium text-muted-foreground" data-ps="src/components/home/Strategic.astro:article-date">{article.date}</span>
+          {article.link && article.link !== '#' ? (
+            <a href={article.link} class="block no-underline" target="_blank" rel="noopener noreferrer" data-ps={`src/components/home/Strategic.astro:sv57oa-${__psIdx}`}>
+              <div class="relative aspect-[16/10] rounded-3xl overflow-hidden mb-6" data-ps="src/components/home/Strategic.astro:article-img-wrap">
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  data-ps="src/components/home/Strategic.astro:article-img"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" data-ps="src/components/home/Strategic.astro:article-overlay"></div>
               </div>
-              <h3 class="text-xl font-bold text-dark group-hover:text-primary transition-colors line-clamp-2" data-ps="src/components/home/Strategic.astro:article-headline">{article.title}</h3>
+              <div class="space-y-3" data-ps="src/components/home/Strategic.astro:article-content">
+                <div class="flex items-center gap-4" data-ps="src/components/home/Strategic.astro:article-meta">
+                  <span class="text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full" data-ps="src/components/home/Strategic.astro:article-cat">{article.category}</span>
+                  <span class="text-xs font-medium text-muted-foreground" data-ps="src/components/home/Strategic.astro:article-date">{article.date}</span>
+                </div>
+                <h3 class="text-xl font-bold text-dark group-hover:text-primary transition-colors line-clamp-2" data-ps="src/components/home/Strategic.astro:article-headline">{article.title}</h3>
+              </div>
+            </a>
+          ) : (
+            <div class="block" data-ps={`src/components/home/Strategic.astro:sv57oa-${__psIdx}`}>
+              <div class="relative aspect-[16/10] rounded-3xl overflow-hidden mb-6" data-ps="src/components/home/Strategic.astro:article-img-wrap">
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  class="w-full h-full object-cover"
+                  data-ps="src/components/home/Strategic.astro:article-img"
+                />
+              </div>
+              <div class="space-y-3" data-ps="src/components/home/Strategic.astro:article-content">
+                <div class="flex items-center gap-4" data-ps="src/components/home/Strategic.astro:article-meta">
+                  <span class="text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full" data-ps="src/components/home/Strategic.astro:article-cat">{article.category}</span>
+                  <span class="text-xs font-medium text-muted-foreground" data-ps="src/components/home/Strategic.astro:article-date">{article.date}</span>
+                </div>
+                <h3 class="text-xl font-bold text-dark line-clamp-2" data-ps="src/components/home/Strategic.astro:article-headline">{article.title}</h3>
+              </div>
             </div>
-          </a>
+          )}
         </article>
       ))}
     </div>
