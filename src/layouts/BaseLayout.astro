@@ -143,6 +143,27 @@ const { title, description, image, type, jsonLd } = Astro.props;
         }
       </style>
 
+      <!-- Image Protection -->
+      <style is:inline>
+        img {
+          -webkit-user-drag: none;
+          user-select: none;
+          -webkit-user-select: none;
+        }
+        /* Transparent overlay on every image container to intercept right-click */
+        .img-protect {
+          position: relative;
+          display: inline-block;
+        }
+        .img-protect::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          cursor: default;
+        }
+      </style>
+
       <!-- Scroll Reveal Script -->
       <script is:inline>
         const revealObserver = new IntersectionObserver(
@@ -177,6 +198,14 @@ const { title, description, image, type, jsonLd } = Astro.props;
 
         scrollTopBtn.addEventListener('click', () => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Image protection: block right-click save and drag-to-desktop
+        document.addEventListener('contextmenu', (e) => {
+          if (e.target.tagName === 'IMG') e.preventDefault();
+        });
+        document.addEventListener('dragstart', (e) => {
+          if (e.target.tagName === 'IMG') e.preventDefault();
         });
       </script>
     </body>
