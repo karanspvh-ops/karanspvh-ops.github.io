@@ -140,6 +140,72 @@ function buildDeckEmail(d) {
   };
 }
 
+function buildApplicationEmail(d) {
+  const attachments = (d._files || [])
+    .filter(f => f && f.data && f.name)
+    .map(f => ({ filename: f.name, content: f.data }));
+
+  function section(title, rows) {
+    const content = rows.filter(Boolean).join('');
+    if (!content) return '';
+    return `<tr><td colspan="2" style="padding:16px 12px 4px;font-weight:700;font-size:13px;color:#1a2340;text-transform:uppercase;letter-spacing:.05em;border-top:2px solid #e5e7eb">${title}</td></tr>${content}`;
+  }
+
+  return {
+    subject: `[Application] ${d.a_name || 'Unknown'} — ${d.a_company || 'No Company'} (${d.a_program || 'Unknown Program'})`,
+    replyTo: d.a_email,
+    attachments,
+    html: emailShell('New Apply Now Application',
+      section('Applicant', [
+        row('Name',         d.a_name),
+        row('Email',        d.a_email),
+        row('Phone',        d.a_phone),
+        row('LinkedIn',     d.a_linkedin),
+        row('City',         d.a_city),
+        row('Age',          d.a_age),
+        row('Education',    d.a_education),
+        row('Full-time?',   d.a_fulltime),
+      ]) +
+      section('Program', [
+        row('Program',      d.a_program),
+        row('Company',      d.a_company),
+        row('Website',      d.a_website),
+        row('One-liner',    d.a_oneliner),
+      ]) +
+      section('The Problem & Solution', [
+        row('Problem',      d.a_problem),
+        row('Solution',     d.a_solution),
+        row('Competitors',  d.a_competitors),
+        row('Model',        d.a_model),
+        row('Stage',        d.a_stage),
+        row('Customers?',   d.a_customers),
+        row('Key Metrics',  d.a_metrics),
+      ]) +
+      section('Funding', [
+        row('Raised?',      d.a_raised),
+        row('Details',      d.a_raised_detail),
+      ]) +
+      section('Team', [
+        row('Co-founders',  d.a_cofounders),
+        row('Worked Together?', d.a_together),
+        row('Team Details', d.a_team_detail),
+        row('Why this team?', d.a_why_team),
+      ]) +
+      section('Media', [
+        row('Video Link',   d.a_video_url),
+        row('Deck Link',    d.a_deck_url),
+        row('Pitch Deck PDF', attachments.length > 0 ? `${attachments.length} file(s) attached` : ''),
+      ]) +
+      section('Discovery', [
+        row('How heard?',   d.a_source),
+        row('Referral',     d.a_referral),
+        row('Anything else?', d.a_anything),
+        row('Consent',      d.a_consent ? 'Yes' : 'No'),
+      ])
+    ),
+  };
+}
+
 function buildProposalEmail(d) {
   const attachments = (d._files || [])
     .filter(f => f && f.data && f.name)
@@ -225,28 +291,16 @@ export default {
 
     const formType = data._formType || 'contact';
 
-    // Application → Apps Script (needs Drive uploads + Sheet logging)
-    if (formType === 'application') {
-      if (!env.APPS_SCRIPT_URL) {
-        return json({ ok: false, error: 'Server misconfigured' }, 500, origin);
-      }
-      try {
-        await forwardToAppsScript(env.APPS_SCRIPT_URL, rawBody);
-        return json({ ok: true }, 200, origin);
-      } catch (e) {
-        return json({ ok: false, error: e.message }, 502, origin);
-      }
-    }
-
-    // contact / deck / proposal → Resend direct email
+    // All forms → Resend direct email
     if (!env.RESEND_API_KEY) {
       return json({ ok: false, error: 'Server misconfigured' }, 500, origin);
     }
 
     let emailPayload;
-    if (formType === 'contact')       emailPayload = buildContactEmail(data);
-    else if (formType === 'deck')     emailPayload = buildDeckEmail(data);
-    else if (formType === 'proposal') emailPayload = buildProposalEmail(data);
+    if (formType === 'contact')           emailPayload = buildContactEmail(data);
+    else if (formType === 'deck')         emailPayload = buildDeckEmail(data);
+    else if (formType === 'proposal')     emailPayload = buildProposalEmail(data);
+    else if (formType === 'application')  emailPayload = buildApplicationEmail(data);
     else return json({ ok: false, error: 'Unknown form type' }, 400, origin);
 
     try {

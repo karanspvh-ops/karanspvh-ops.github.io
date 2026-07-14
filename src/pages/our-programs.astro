@@ -365,6 +365,10 @@ const jsonLd = {
           <div class="space-y-1.5 mb-4">
             <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">2-minute video intro <span class="text-error">*</span></label>
             <input type="url" name="a_video_url" required class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="YouTube, Loom, or Google Drive link" />
+            <div class="flex items-start gap-2.5 bg-amber-500/10 border border-amber-500/25 rounded-lg px-3.5 py-3 mt-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-400 shrink-0 mt-0.5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <p class="text-[12px] text-amber-400/90 leading-relaxed">Before submitting, please set your video's sharing access to <strong class="text-amber-300">"Anyone with the link"</strong> — otherwise we won't be able to view it.</p>
+            </div>
             <div class="bg-white/[0.03] rounded-lg p-4 mt-3 text-[13px] text-[#94A3B8] leading-relaxed" data-ps="src/pages/our-programs.astro:apply-video-guide">
               <p class="font-semibold text-white/70 mb-2">Video guidelines</p>
               Record a 2-minute video, upload it to YouTube, Loom, or Google Drive, and paste the link above.<br/><br/>
@@ -378,6 +382,12 @@ const jsonLd = {
           <div class="space-y-1.5 mb-6">
             <label class="block text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">Pitch deck (recommended)</label>
             <input type="url" name="a_deck_url" class="w-full bg-white/5 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-white/25 focus:outline-none focus:border-secondary/60 transition-colors duration-150" placeholder="Google Slides, Canva, or Notion link" />
+            <p class="text-[11px] text-white/25 text-center mt-2">— or attach a PDF —</p>
+            <label id="deck-file-label" class="flex items-center gap-3 w-full border border-dashed border-white/15 rounded-lg px-4 py-3 cursor-pointer hover:border-secondary/40 transition-colors group mt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/30 group-hover:text-secondary/70 transition-colors shrink-0"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.49"/></svg>
+              <span id="deck-file-name" class="text-white/30 text-sm group-hover:text-white/60 transition-colors">Click to attach PDF (max 10 MB)</span>
+              <input type="file" id="deck-file-input" accept=".pdf" class="hidden" />
+            </label>
           </div>
 
           <div class="border-t border-white/5 pt-5">
@@ -805,6 +815,21 @@ const jsonLd = {
         el.addEventListener('input', () => el.classList.remove('border-error/60'));
       });
 
+      const deckFileInput = document.getElementById('deck-file-input');
+      const deckFileName = document.getElementById('deck-file-name');
+      deckFileInput && deckFileInput.addEventListener('change', () => {
+        const file = deckFileInput.files && deckFileInput.files[0];
+        if (file && deckFileName) {
+          deckFileName.textContent = file.name;
+          deckFileName.classList.add('text-white/70');
+          deckFileName.classList.remove('text-white/30');
+        } else if (deckFileName) {
+          deckFileName.textContent = 'Click to attach PDF (max 10 MB)';
+          deckFileName.classList.remove('text-white/70');
+          deckFileName.classList.add('text-white/30');
+        }
+      });
+
       applyOpen && applyOpen.addEventListener('click', openApply);
       applyClose && applyClose.addEventListener('click', closeApply);
       applyBackdrop && applyBackdrop.addEventListener('click', closeApply);
@@ -839,15 +864,33 @@ const jsonLd = {
           const payload = { _formType: 'application' };
           allInputs.forEach((el) => {
             if (!el.name) return;
-            if (el instanceof HTMLInputElement && el.type === 'radio') {
+            if (el.type === 'file') return;
+            if (el.type === 'radio') {
               if (el.checked) payload[el.name] = el.value;
-            } else if (el instanceof HTMLInputElement && el.type === 'checkbox') {
+            } else if (el.type === 'checkbox') {
               payload[el.name] = el.checked;
             } else {
               payload[el.name] = el.value;
             }
           });
           payload.a_consent = consent.checked;
+
+          // Read pitch deck PDF if attached
+          const deckFileInput = document.getElementById('deck-file-input');
+          const deckFile = deckFileInput && deckFileInput.files && deckFileInput.files[0];
+          if (deckFile) {
+            if (deckFile.size > 10 * 1024 * 1024) {
+              applyNext.disabled = false;
+              applyNext.innerHTML = 'Submit Application →';
+              alert('The pitch deck PDF is too large. Please upload a file under 10 MB.');
+              return;
+            }
+            const arrayBuffer = await deckFile.arrayBuffer();
+            const bytes = new Uint8Array(arrayBuffer);
+            let binary = '';
+            for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+            payload._files = [{ name: deckFile.name, type: deckFile.type, data: btoa(binary) }];
+          }
 
           try {
             const r = await fetch(FORMS_ENDPOINT, {
