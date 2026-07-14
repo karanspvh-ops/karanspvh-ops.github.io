@@ -50,20 +50,27 @@ async function checkRateLimit(env, ip) {
 
 // ── Resend email sender ──────────────────────────────────────────────────────
 
-async function sendEmail(apiKey, { subject, html, replyTo }) {
+async function sendEmail(apiKey, { subject, html, replyTo, attachments }) {
+  const payload = {
+    from:     `SPVH Group Forms <${FROM_EMAIL}>`,
+    to:       [TO_EMAIL],
+    reply_to: replyTo || undefined,
+    subject,
+    html,
+  };
+
+  // attachments: [{ filename, content (base64) }]
+  if (attachments && attachments.length > 0) {
+    payload.attachments = attachments;
+  }
+
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${apiKey}`,
       'Content-Type':  'application/json',
     },
-    body: JSON.stringify({
-      from:     `SPVH Group Forms <${FROM_EMAIL}>`,
-      to:       [TO_EMAIL],
-      reply_to: replyTo || undefined,
-      subject,
-      html,
-    }),
+    body: JSON.stringify(payload),
   });
 
   const data = await res.json().catch(() => ({}));
@@ -134,9 +141,14 @@ function buildDeckEmail(d) {
 }
 
 function buildProposalEmail(d) {
+  const attachments = (d._files || [])
+    .filter(f => f && f.data && f.name)
+    .map(f => ({ filename: f.name, content: f.data }));
+
   return {
     subject: `[CSR Proposal] ${d.org_name || 'Unknown Organisation'}`,
     replyTo: d.email,
+    attachments,
     html: emailShell('CSR & Philanthropy Proposal',
       row('Organisation',   d.org_name)       +
       row('Contact Person', d.contact_person) +
@@ -213,8 +225,8 @@ export default {
 
     const formType = data._formType || 'contact';
 
-    // Application + Proposal → Apps Script (need file uploads to Drive + Sheet logging)
-    if (formType === 'application' || formType === 'proposal') {
+    // Application → Apps Script (needs Drive uploads + Sheet logging)
+    if (formType === 'application') {
       if (!env.APPS_SCRIPT_URL) {
         return json({ ok: false, error: 'Server misconfigured' }, 500, origin);
       }
