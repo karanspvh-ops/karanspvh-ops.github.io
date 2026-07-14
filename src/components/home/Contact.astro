@@ -69,13 +69,13 @@ import { FORMS } from '@/config/forms';
                   class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
-              <div class="space-y-2" data-ps="src/components/home/Contact.astro:1ijz2c:website">
-                <label for="contact-website" class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/home/Contact.astro:tikbbi:website">Website (Optional)</label>
+              <div class="space-y-2" data-ps="src/components/home/Contact.astro:1ijz2c:phone">
+                <label for="contact-phone" class="text-[12px] font-bold text-dark-muted uppercase">Mobile Number</label>
                 <input
-                  type="text"
-                  id="contact-website"
-                  name="website"
-                  placeholder="www.xyz.com"
+                  type="tel"
+                  id="contact-phone"
+                  name="phone"
+                  placeholder="+91 98765 43210"
                   class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
@@ -140,11 +140,11 @@ import { FORMS } from '@/config/forms';
 </section>
 
 <script define:vars={{ FORMS_ENDPOINT: FORMS.endpoint }}>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const status = document.getElementById('contact-status') as HTMLDivElement;
-  const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement;
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('contact-status');
+  const submitBtn = document.getElementById('contact-submit');
 
-  form?.addEventListener('submit', async (e) => {
+  form && form.addEventListener('submit', async (e) => {
     e.preventDefault();
     submitBtn.disabled = true;
     submitBtn.textContent = 'SENDING...';
@@ -159,7 +159,7 @@ import { FORMS } from '@/config/forms';
       submitBtn.textContent = 'SEND MESSAGE';
       return;
     }
-    const data: Record<string, any> = Object.fromEntries(formData);
+    const data = Object.fromEntries(formData);
     delete data._hp_website;
     data._formType = 'contact';
 
@@ -174,12 +174,13 @@ import { FORMS } from '@/config/forms';
 
       status.className = 'mb-6 px-4 py-3 rounded-lg bg-secondary/20 border border-secondary text-secondary text-sm';
       status.textContent = 'Thank you! Your message has been sent.';
+      status.classList.remove('hidden');
       form.reset();
-    } catch (err: any) {
+    } catch (err) {
       status.className = 'mb-6 px-4 py-3 rounded-lg bg-red-500/20 border border-red-500 text-red-500 text-sm';
       status.textContent = `Failed to send: ${err.message}. Please try again or email info@spvhgroup.com.`;
-    } finally {
       status.classList.remove('hidden');
+    } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'SEND MESSAGE';
     }

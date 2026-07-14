@@ -109,13 +109,13 @@ function buildContactEmail(d) {
     subject: `[Contact] ${d.subject || 'New enquiry'} — ${d.name || 'Unknown'}`,
     replyTo: d.email,
     html: emailShell('New Contact Enquiry',
-      row('Name',     d.name)     +
-      row('Email',    d.email)    +
-      row('Company',  d.company)  +
-      row('Website',  d.website)  +
-      row('Vertical', d.vertical) +
-      row('Subject',  d.subject)  +
-      row('Message',  d.message)
+      row('Name',    d.name)     +
+      row('Email',   d.email)    +
+      row('Mobile',  d.phone)    +
+      row('Company', d.company)  +
+      row('Vertical',d.vertical) +
+      row('Subject', d.subject)  +
+      row('Message', d.message)
     ),
   };
 }

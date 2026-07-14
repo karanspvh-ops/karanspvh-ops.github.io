@@ -54,19 +54,19 @@ import { FORMS } from '@/config/forms';
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" data-ps="src/components/ContactModal.astro:grid-2">
             <div class="space-y-2" data-ps="src/components/ContactModal.astro:company-field">
               <label class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/ContactModal.astro:label-company">Company Name</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 name="company"
                 placeholder="Company Ltd."
                 class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
               />
             </div>
-            <div class="space-y-2" data-ps="src/components/ContactModal.astro:website-field">
-              <label class="text-[12px] font-bold text-dark-muted uppercase" data-ps="src/components/ContactModal.astro:label-website">Website (Optional)</label>
-              <input 
-                type="text" 
-                name="website"
-                placeholder="www.xyz.com"
+            <div class="space-y-2" data-ps="src/components/ContactModal.astro:phone-field">
+              <label class="text-[12px] font-bold text-dark-muted uppercase">Mobile Number</label>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="+91 98765 43210"
                 class="w-full bg-transparent border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
               />
             </div>
