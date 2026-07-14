@@ -213,8 +213,8 @@ export default {
 
     const formType = data._formType || 'contact';
 
-    // Application → Apps Script (needs file uploads to Drive + Sheet logging)
-    if (formType === 'application') {
+    // Application + Proposal → Apps Script (need file uploads to Drive + Sheet logging)
+    if (formType === 'application' || formType === 'proposal') {
       if (!env.APPS_SCRIPT_URL) {
         return json({ ok: false, error: 'Server misconfigured' }, 500, origin);
       }
